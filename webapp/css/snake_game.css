@@ -1,0 +1,102 @@
+/**
+ *	Speed Snake Beta - 27 05 2015
+ *
+ *	File: snake_game.css
+ *	Author: Victor Hugo Batista
+ *	Description: Estilo dos elementos do jogo Snake
+ */
+
+#area{/*área de jogo*/
+	position: relative;
+	
+	margin-left: 31%;
+	margin-top: 20px;
+	
+	border-width: 3px;
+	border-style: solid;
+	-webkit-border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	border-radius: 7px 7px 7px 7px;
+	
+	width: 420px;
+	height: 420px;
+	float: left;
+	
+	-moz-box-shadow: inset 1px 1px 16px #000;
+	-webkit-box-shadow: inset 1px 1px 16px #000;
+	box-shadow: inset 1px 1px 16px #000;
+}
+.part{/*módulo genérico snake/food */
+	position: absolute;
+	
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+#food{/*módulo da comida da snake*/
+	border-radius: 8px 8px 8px 8px;
+}
+
+/*mensagens do jogo*/
+.txtCentralizado{
+	width: 260px;
+	
+	margin: 0 auto;
+	
+	text-align: center;
+}
+#txtInicial{
+	margin-top: 70px;
+	
+	font-size: 20pt;
+	font-weight: bold;
+}
+#txtInicial img{
+	width: 140px;
+}
+#txtResultado{
+	margin-top: 100px;
+	
+	font-size: 15pt;
+}
+#txtResultado p{
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+/*nível e pontuação do jogo*/
+#leftContainer{
+	margin-top: 32px;
+	margin-left: 15px;
+	
+	float: left;
+}
+#scoreContainer{
+	border-width: 2px;
+	border-style: solid;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	
+	padding: 10px;
+	
+	width: 130px;
+	
+	font-size: 15pt;
+	
+	-moz-box-shadow: inset 1px 1px 13px #000;
+	-webkit-box-shadow: inset 1px 1px 13px #000;
+	box-shadow: inset 1px 1px 13px #000;
+}
+.score{
+	float: right;
+}
+
+#postTexts{
+	margin-top: 10px;
+	
+	width: 150px;
+	
+	font-weight: bold;
+	text-align: center;
+}

@@ -1,0 +1,219 @@
+/**
+ *	Speed Snake Beta - 09 04 2015
+ *
+ *	File: snake_game_themes.css
+ *	Author: Victor Hugo Batista
+ *	Description: Esquemas de cores do jogo
+ */
+
+/*--------Esquema de cores azuis--------*/
+.screen_1{/*tela de jogo/pontuação*/
+	border-color: #527ACC;
+	background-color: #85ADFF;
+}
+.entity_1{/*snake e food*/
+	background-color: #3058AA;
+}
+
+/*--------Esquema de cores verdes--------*/
+.screen_2{
+	border-color: #699688;
+	background-color: #7CB9BB;
+}
+.entity_2{
+	background-color: #277466;
+}
+
+/*--------Esquema de cores amarelas--------*/
+.screen_3{
+	border-color: #888855;
+	background-color: #BBBB88;
+}
+.entity_3{
+	background-color: #666633;
+}
+
+/*--------Esquema de cores vermelhas--------*/
+.screen_4{
+	border-color: #CC6A52;
+	background-color: #FF9D85;
+}
+.entity_4{
+	background-color: #AA4830;
+}
+
+/*--------Esquema de cores preto/branco--------*/
+.screen_5{
+	border-color: #404040;
+	background-color: #CFCFCF;
+}
+.entity_5{
+	background-color: #202020;
+}
+
+/*--------Esquema de cores dinâmico--------*/
+@-webkit-keyframes areas{
+	0%{
+		background-color: #85ADFF;
+	}
+	25%{
+		background-color: #7CB9BB;
+	}
+	50%{
+		background-color: #BBBB88;
+	}
+	75%{
+		background-color: #FF9D85;
+	}
+	100%{
+		background-color: #85ADFF;
+	}
+}
+@-moz-keyframes areas{
+	0%{
+		background-color: #85ADFF;
+	}
+	25%{
+		background-color: #7CB9BB;
+	}
+	50%{
+		background-color: #BBBB88;
+	}
+	75%{
+		background-color: #FF9D85;
+	}
+	100%{
+		background-color: #85ADFF;
+	}
+}
+@-o-keyframes areas{
+	0%{
+		background-color: #85ADFF;
+	}
+	25%{
+		background-color: #7CB9BB;
+	}
+	50%{
+		background-color: #BBBB88;
+	}
+	75%{
+		background-color: #FF9D85;
+	}
+	100%{
+		background-color: #85ADFF;
+	}
+}
+@keyframes areas{
+	0%{
+		background-color: #85ADFF;
+	}
+	25%{
+		background-color: #7CB9BB;
+	}
+	50%{
+		background-color: #BBBB88;
+	}
+	75%{
+		background-color: #FF9D85;
+	}
+	100%{
+		background-color: #85ADFF;
+	}
+}
+
+ 
+@-webkit-keyframes parts{
+	0%{
+		background-color: #202020;
+	}
+	20%{
+		background-color: #3058AA;
+	}
+	40%{
+		background-color: #3830AA;
+	}
+	60%{
+		background-color: #666633;
+	}
+	80%{
+		background-color: #AA4830;
+	}
+	100%{
+		background-color: #202020;
+	}
+}
+@-moz-keyframes parts{
+	0%{
+		background-color: #202020;
+	}
+	20%{
+		background-color: #3058AA;
+	}
+	40%{
+		background-color: #3830AA;
+	}
+	60%{
+		background-color: #666633;
+	}
+	80%{
+		background-color: #AA4830;
+	}
+	100%{
+		background-color: #202020;
+	}
+}
+@-o-keyframes parts{
+	0%{
+		background-color: #202020;
+	}
+	20%{
+		background-color: #3058AA;
+	}
+	40%{
+		background-color: #3830AA;
+	}
+	60%{
+		background-color: #666633;
+	}
+	80%{
+		background-color: #AA4830;
+	}
+	100%{
+		background-color: #202020;
+	}
+}
+@keyframes parts{
+	0%{
+		background-color: #202020;
+	}
+	20%{
+		background-color: #3058AA;
+	}
+	40%{
+		background-color: #3830AA;
+	}
+	60%{
+		background-color: #666633;
+	}
+	80%{
+		background-color: #AA4830;
+	}
+	100%{
+		background-color: #202020;
+	}
+}
+ 
+.screen_6{
+	border-color: #404040;
+
+	-webkit-animation: areas 1.2s linear 0s infinite;
+	-moz-animation: areas 1.2s linear 0s infinite;
+	-o-animation: areas 1.2s linear 0s infinite;
+	animation: areas 1.2s linear 0s infinite;
+}
+.entity_6{
+	-webkit-animation: parts 0.0099s linear 0s infinite;
+	-moz-animation: parts 0.0099s linear 0s infinite;
+	-o-animation: parts 0.0099s linear 0s infinite;
+	animation: parts 0.0099s linear 0s infinite;
+}
