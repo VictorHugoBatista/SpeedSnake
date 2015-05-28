@@ -18,14 +18,15 @@ import org.victorhbatista.speedsnake.model.RankingItem;
  */
 public class Connection_DAO {
 	private static Connection con;//conexão com o SGBD
-	private static final String TABLE = "speedsnake",
+	private static final String HOST = "localhost",//host do mysql
+								TABLE = "speedsnake",//nome da tabela da base de dados
 								USER = "root",//usuário do SGBD
 								PASSWORD = "root";//senha do SGBD
 	
 	public Connection_DAO() throws ClassNotFoundException, SQLException{
 		//System.out.println("Conectando...");
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost/"+TABLE, USER, PASSWORD);
+		con = DriverManager.getConnection("jdbc:mysql://"+HOST+"/"+TABLE, USER, PASSWORD);
 		//System.out.println("Conectado!");
 	}
 	
