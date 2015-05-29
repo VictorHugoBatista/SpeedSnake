@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 27 05 2015
+ *	Speed Snake Beta - 29 05 2015
  *
  *	File: snake_game.js
  *	Author: Victor Hugo Batista
@@ -121,13 +121,31 @@ function pauseGame(){
 	Ação da morte da snake.
 	Pára a thread e exibe uma mensagem com a pontuação.
 	Parâmetros:
-	|	msg: mensagem exibida na tela após o fim do jogo
+	|	msg = mensagem exibida na tela após o fim do jogo
 */
 function killSnake(msg){
 	snakeAlive = false;
 	clearInterval(thread);//para thread
-	$("#area").html("<div class='txtCentralizado' id='txtResultado'><p>"+msg+"<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>Pressione Espaço<br />para reiniciar</div>");
+	$("#area").html(messageScoreRanking(msg));
 	$("#gameScore, #gameLevel").empty();
+}
+
+/**
+	Gera mensagem de fim de jogo com pontuação e formulário de salvamento no ranking.
+	Parâmetros:
+	|	msg = mensagem exibida no topo da mensagem gerada pelo programa
+ */
+function messageScoreRanking(msg){
+	return "<div class='txtCentralizado' id='txtResultado'>" +
+				"<p>"+msg+"<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
+				"<form method='get' action='RankingSaverServlet'>" +
+					"<input type='hidden' name='score' value='"+gameScore+"'/>" +
+					"<input type='hidden' name='level' value='"+gameLevel+"'/>" +
+					"Salvar Pontuação:<br/><input type='text' name='name' maxlength='3' placeholder='nome'/>" +
+					"<input type='submit' value='OK' />" +
+				"</form> <br/>" +
+				"Pressione Espaço<br />para reiniciar" +
+			"</div>";
 }
 
 /**

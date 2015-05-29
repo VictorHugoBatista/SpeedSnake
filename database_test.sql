@@ -28,7 +28,7 @@ CREATE TABLE `ranking` (
 
 /*Data for the table `ranking` */
 
-insert  into `ranking`(`Name`,`Score`,`Level`) values ('MAR',42,5);
+insert  into `ranking`(`Name`,`Score`,`Level`) values ('VHB',56,6),('bad',83,9),('pow',36,4),('aws',111,12),('hsv',67,7),('GAN',48,5),('SAN',79,8),('BON',64,7),('GAL',91,10),('FRO',6,1),('TUK',0,1),('VHB',61,7),('LAN',3,1),('ALM',20,3),('ARD',10,2),('MER',23,3);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
