@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import org.victorhbatista.speedsnake.model.RankingItem;
 
 /**
- * Speed Snake Beta - 28 05 2015
+ * Speed Snake Beta - 29 05 2015
  * 
  * File: Connection_DAO.java
  * @author: Victor Hugo Batista
- * Description: Classe de interface com base de dados
+ * Description: Classe de interface com a base de dados
  */
 public class Connection_DAO {
 	private static Connection con;//conexão com o SGBD
@@ -62,7 +62,7 @@ public class Connection_DAO {
 	 */
 	public ArrayList<RankingItem> getRanking(){
 		ArrayList<RankingItem> ranking = new ArrayList<RankingItem>();//lista a ser preenchida com os itens do ranking
-		String query = "SELECT * FROM ranking ORDER BY score DESC LIMIT 20";//query de pesquisa, retorna as 20 primeiras pontuações
+		String query = "SELECT * FROM ranking ORDER BY score DESC LIMIT 15";//query de pesquisa, retorna as 15 primeiras pontuações
 		try{
 			PreparedStatement stmt = con.prepareStatement(query);
 			ResultSet rs = stmt.executeQuery();//dados retornados em uma estrutura de dados da API do mysql

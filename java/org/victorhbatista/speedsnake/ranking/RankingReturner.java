@@ -28,8 +28,7 @@ public class RankingReturner {
 			cDAO.closeCon();//se chegou aqui, fechar a conexão
 			return htmlLista;
 		}
-		catch(Exception e){
-			//possível erro n
+		catch(Exception e){//possível erro n
 			e.printStackTrace();
 			return "";
 		}
