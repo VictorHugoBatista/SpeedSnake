@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 29 05 2015
+ *	Speed Snake Beta - 30 05 2015
  *
  *	File: snake_game.js
  *	Author: Victor Hugo Batista
@@ -138,7 +138,7 @@ function killSnake(msg){
 function messageScoreRanking(msg){
 	return "<div class='txtCentralizado' id='txtResultado'>" +
 				"<p>"+msg+"<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
-				"<form method='get' action='RankingSaverServlet'>" +
+				"<form method='post' action='RankingSaverServlet'>" +
 					"<input type='hidden' name='score' value='"+gameScore+"'/>" +
 					"<input type='hidden' name='level' value='"+gameLevel+"'/>" +
 					"Salvar Pontuação:<br/><input type='text' name='name' maxlength='3' placeholder='nome'/>" +
