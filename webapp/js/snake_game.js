@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 30 05 2015
+ *	Speed Snake Beta - 31 05 2015
  *
  *	File: snake_game.js
  *	Author: Victor Hugo Batista
@@ -123,10 +123,10 @@ function pauseGame(){
 	Parâmetros:
 	|	msg = mensagem exibida na tela após o fim do jogo
 */
-function killSnake(msg){
+function killSnake(){
 	snakeAlive = false;
 	clearInterval(thread);//para thread
-	$("#area").html(messageScoreRanking(msg));
+	$("#area").html(messageScoreRanking());	
 	$("#gameScore, #gameLevel").empty();
 }
 
@@ -135,17 +135,31 @@ function killSnake(msg){
 	Parâmetros:
 	|	msg = mensagem exibida no topo da mensagem gerada pelo programa
  */
-function messageScoreRanking(msg){
+function messageScoreRanking(){
 	return "<div class='txtCentralizado' id='txtResultado'>" +
-				"<p>"+msg+"<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
-				"<form method='post' action='RankingSaverServlet'>" +
-					"<input type='hidden' name='score' value='"+gameScore+"'/>" +
-					"<input type='hidden' name='level' value='"+gameLevel+"'/>" +
-					"Salvar Pontuação:<br/><input type='text' name='name' required value='' maxlength='3' placeholder='nome'/>" +
-					"<input type='submit' value='OK' />" +
+				"<p>Perdeu!!<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
+				"<form id='rankingForm' method='post' action='RankingSaverServlet'>" +
+					"Salvar Pontuação:<br/><input type='text' name='name' id='playerName' required title='Adicione seu nome!!' maxlength='3' placeholder='nome'/>" +
+					"<input type='button' value='OK' onClick='saveRanking()' />" +
 				"</form> <br/>" +
 				"Pressione Espaço<br />para reiniciar" +
 			"</div>";
+}
+
+/**
+ 	[USA JQUERY]
+ 	Executa validação do campo de nome do ranking e executa submit das informações para o servlet
+ */
+function saveRanking(){
+	var playerName = $("#playerName").val();//captura valor do campo de nome para validação
+	
+	if(playerName != ""){//se campo não estiver vazio
+		$("#rankingForm").append("<input type='hidden' name='score' value='"+gameScore+"'/>");
+		$("#rankingForm").append("<input type='hidden' name='level' value='"+gameLevel+"'/>");
+		
+		$("#rankingForm").submit();
+	}
+	else alert("Preencha o campo nome!!");//se o campo estiver vazio
 }
 
 /**
@@ -193,21 +207,21 @@ function step(){
 				if(x == food.x && y-partSize == food.y) eatFood = true;
 				snake[0].y -= partSize;
 			}
-			else killSnake("Perdeu!!");
+			else killSnake();
 			break;
 		case "down":
 			if(y < areaSize && !eatHerself(x, y+partSize)){
 				if(x == food.x && y+partSize == food.y) eatFood = true;
 				snake[0].y += partSize;
 			}
-			else killSnake("Perdeu!!");
+			else killSnake();
 			break;
 		case "left":
 			if(x > 0 && !eatHerself(x-partSize, y)){
 				if(x-partSize == food.x && y == food.y) eatFood = true;
 				snake[0].x -= partSize;
 			}
-			else killSnake("Perdeu!!");
+			else killSnake();
 			break;
 		case "right":
 			if(x < areaSize && !eatHerself(x+partSize, y)){
@@ -276,7 +290,7 @@ function refreshScore(){
 	var taxaAceleracao = 15;//velocidade da aceleração da snake
 	var newDelay = delayThread-taxaAceleracao;//cálculo do novo delay
 	
-	if(++gameScore % 1 == 0 && gameLevel < 13){//aumenta pontuação dentro do if com ++
+	if(++gameScore % 10 == 0 && gameLevel < 13){//aumenta pontuação dentro do if com ++
 		switchTheme(++gameLevel);//aumenta nível do jogo com ++
 		clearInterval(thread);//para thread
 		run(newDelay);//reinicia thread com delay menor - sem parar o jogo
