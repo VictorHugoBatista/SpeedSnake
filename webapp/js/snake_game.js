@@ -141,7 +141,7 @@ function messageScoreRanking(msg){
 				"<form method='post' action='RankingSaverServlet'>" +
 					"<input type='hidden' name='score' value='"+gameScore+"'/>" +
 					"<input type='hidden' name='level' value='"+gameLevel+"'/>" +
-					"Salvar Pontuação:<br/><input type='text' name='name' maxlength='3' placeholder='nome'/>" +
+					"Salvar Pontuação:<br/><input type='text' name='name' required value='' maxlength='3' placeholder='nome'/>" +
 					"<input type='submit' value='OK' />" +
 				"</form> <br/>" +
 				"Pressione Espaço<br />para reiniciar" +
@@ -270,22 +270,17 @@ function refreshFood(){
 }
 
 /**
-	Aumenta a pontuação e sobe de nível - se a pontuação for múltipla de 10
+	Aumenta a pontuação e sobe de nível - se a pontuação for múltipla de 10 - até o nível 13
 */
 function refreshScore(){
 	var taxaAceleracao = 15;//velocidade da aceleração da snake
 	var newDelay = delayThread-taxaAceleracao;//cálculo do novo delay
 	
-	if(++gameScore % 10 == 0){//aumenta pontuação dentro do if com ++
-		if(newDelay > 15){
-			switchTheme(++gameLevel);//aumenta nível do jogo com ++
-			clearInterval(thread);//para thread
-			run(newDelay);//reinicia thread com delay menor - sem parar o jogo
-			//$(document.body).append(delayThread + " ");//debug
-		}
-		else{
-			killSnake("Você venceu, parabéns :D :D");
-		}
+	if(++gameScore % 1 == 0 && gameLevel < 13){//aumenta pontuação dentro do if com ++
+		switchTheme(++gameLevel);//aumenta nível do jogo com ++
+		clearInterval(thread);//para thread
+		run(newDelay);//reinicia thread com delay menor - sem parar o jogo
+		//$(document.body).append(delayThread + " ");//debug
 	}
 }
 
@@ -324,7 +319,6 @@ function switchTheme(level){
 		case 13://tema do nível 13 (HELL)
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			gameLevel = "HELL";
 			//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme666.css");
 			break;
 	}
