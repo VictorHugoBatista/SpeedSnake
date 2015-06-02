@@ -13,7 +13,7 @@ import org.victorhbatista.speedsnake.database.Connection_DAO;
 import org.victorhbatista.speedsnake.model.RankingItem;
 
 /**
- * Speed Snake Beta - 30 05 2015
+ * Speed Snake Beta - 01 06 2015
  * 
  * File: RankingSaverServlet.java
  * @author: Victor
@@ -29,12 +29,13 @@ public class RankingSaverServlet extends HttpServlet {
     public RankingSaverServlet() {
         super();
     }
-
+    
     /**
-	 * Função principal do servlet. Salva registro de jogo no ranking.
+	 * Método post: Tentativa de acesso ao ranking autorizada.
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	//recebimento de parâmetros enviados pela página
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//recebimento de parâmetros enviados pela página
     	String name = request.getParameter("name");
     	short score = Short.parseShort(request.getParameter("score")),
     			level = Short.parseShort(request.getParameter("level"));
@@ -48,14 +49,6 @@ public class RankingSaverServlet extends HttpServlet {
     	catch(Exception e){//possível erro n
 			e.printStackTrace();
 		}
-    }
-    
-    /**
-	 * Método post: Tentativa de acesso ao ranking autorizada.
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
 	}
     
 	/**
@@ -69,7 +62,7 @@ public class RankingSaverServlet extends HttpServlet {
 		
 		//geração de página de aviso
 		out.println("<!DOCTYPE html>");
-		out.println("<html>");
+		out.println("<html lang='pt-br'>");
 		out.println("	<head>");
 		out.println("		<title>Speed Snake Beta | Método GET</title>");
 		out.println("	</head>");

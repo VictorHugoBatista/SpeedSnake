@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="org.victorhbatista.speedsnake.ranking.RankingReturner" %>
+
+<!--
+	Speed Snake Beta - 01 06 2015
+
+	File: ranking.jsp
+	Author: Victor Hugo Batista
+	Description: Página de exibição do ranking armazenado em base de dados
+-->
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 	<head>
 		<title>Speed Snake Beta | Ranking</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -22,6 +31,5 @@
 			<header>Ranking</header>
 			<% out.println(RankingReturner.returner());	%>
 		</section>
-		<div style="text-align: center; font-weight: bold;">*PÁGINA EM CONSTRUÇÃO. DADOS USADOS PARA TESTE</div>
 	</body>
 </html>
