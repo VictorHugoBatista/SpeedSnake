@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `ranking`;
 
 CREATE TABLE `ranking` (
   `Name` varchar(3) DEFAULT NULL,
-  `Score` tinyint(3) unsigned DEFAULT NULL,
-  `Level` tinyint(3) unsigned DEFAULT NULL
+  `Score` smallint(6) DEFAULT NULL,
+  `Level` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `ranking` */
