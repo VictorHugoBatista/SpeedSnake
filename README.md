@@ -2,7 +2,8 @@ SpeedSnake
 ==========
 
 Desenvolvedor: @VictorHugoBatista.
-Link: speedsnake-victorhbatista.rhcloud.com.
+
+Link do jogo: http://speedsnake-victorhbatista.rhcloud.com.
 
 Descrição
 ---------
