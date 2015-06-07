@@ -1,7 +1,8 @@
 SpeedSnake
 ==========
 
-Desenvolvedor: @VictorHugoBatista
+Desenvolvedor: @VictorHugoBatista.
+Link: speedsnake-victorhbatista.rhcloud.com.
 
 Descrição
 ---------
