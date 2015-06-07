@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 01 06 2015
+ *	Speed Snake Beta - 07 06 2015
  *
  *	File: gameplay.js
  *	Author: Victor Hugo Batista
@@ -74,7 +74,7 @@ function step(){
 	var y = snake[0].y;
 	var eatFood = false;
 	
-	switch(direction){
+	switch(direction){//passo
 		case "up":
 			if(y > 0 && !eatHerself(x, y-partSize)){
 				if(x == food.x && y-partSize == food.y) eatFood = true;
@@ -104,9 +104,10 @@ function step(){
 			else killSnake("Perdeu!!");
 	}
 	
-	for(i=1; i<snake.length; i++) snake[i] = snakeAux[i-1];
-	if(eatFood){
-		createPart(snake.length, snakeAux[snakeAux.length-1].x, snakeAux[snakeAux.length-1].y, direction);
+	for(i=1; i<snake.length; i++) snake[i] = snakeAux[i-1];//copia snakeAux para snake, sem o último elemento
+	
+	if(eatFood){//ação de comer
+		createPart(snake.length, snakeAux[snakeAux.length-1].x, snakeAux[snakeAux.length-1].y, snakeAux[snakeAux.length-1].dir);
 		refreshFood();
 		refreshScore();
 	}
