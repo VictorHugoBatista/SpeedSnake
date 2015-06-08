@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 29 03 2015
+ *	Speed Snake Beta - 07 06 2015
  *
  *	File: header.css
  *	Author: Victor Hugo Batista
@@ -8,12 +8,12 @@
 
 @font-face {
     font-family: SegoeUiLight;
-    src: url('fonts/segoeuil.eot');/*IE*/
+    src: url('fonts/segoeuil.eot');/*navegador IE*/
 } 
 
 @font-face {
     font-family: SegoeUiLight;
-    src: url('fonts/segoeuil.ttf');/*todos os outros*/
+    src: url('fonts/segoeuil.ttf');/*todos os outros navegadores*/
 }
  
 body{
@@ -40,7 +40,7 @@ body header{
 	-moz-box-shadow:    2px 4px 3px 0px rgba(0, 0, 0, 0.6);
 	box-shadow:         2px 4px 3px 0px rgba(0, 0, 0, 0.6);
 }
-body header p{
+body header p{/*título do site*/
 	margin-top: 9px;
 	margin-left: 19%;
 	
@@ -56,14 +56,14 @@ body header nav{
 	
 	float: left;
 }
-nav ul{
+nav ul{/*lista de links do menu*/
 	margin: 0px;
 	
 	padding: 5px;
 	
 	float: left;
 }
-nav ul li{
+nav ul li{/*link de menu*/
 	margin-left: 20px;
 	margin-right: 20px;
 	

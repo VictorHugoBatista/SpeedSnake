@@ -1,0 +1,49 @@
+/**
+ *	Speed Snake Beta - 07 06 2015
+ *
+ *	File: footer.css
+ *	Author: Victor Hugo Batista
+ *	Description: Estilo do rodapé das páginas
+ */
+
+body footer{
+	padding: 10px;
+	
+	height: 20px;
+	background-color: #85ADFF;
+	
+	-webkit-box-shadow: 2px -4px 3px 0px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:    2px -4px 3px 0px rgba(0, 0, 0, 0.6);
+	box-shadow:         2px -4px 3px 0px rgba(0, 0, 0, 0.6);
+}
+ 
+.footerFixed{
+	position: fixed;
+	bottom: 0px;
+	
+	width: 100%;
+}
+
+.footerNormal{	
+	margin-top: 30px;
+	
+	width: auto;
+}
+
+/*--------------------botões do github--------------------*/
+.githubLink{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	
+	text-align: center;
+}
+.githubLink iframe{
+	height: 20px;
+}
+.follow{
+	width: 180px;
+}
+.star{
+	width: 50px;
+}
