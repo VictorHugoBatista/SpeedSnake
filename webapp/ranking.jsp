@@ -2,7 +2,7 @@
 <%@page import="org.victorhbatista.speedsnake.ranking.RankingReturner" %>
 
 <!--
-	Speed Snake Beta - 07 06 2015
+	Speed Snake Beta - 08 06 2015
 
 	File: ranking.jsp
 	Author: Victor Hugo Batista
