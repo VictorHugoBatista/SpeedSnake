@@ -14,8 +14,7 @@
 	<head>
 		<title>Speed Snake Beta | Ranking</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="css/header.css">
-		<link rel="stylesheet" type="text/css" href="css/footer.css">
+		<link rel="stylesheet" type="text/css" href="css/common_style.css">
 		<link rel="stylesheet" type="text/css" href="css/ranking.css">
 	</head>
 	<body>

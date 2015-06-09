@@ -1,9 +1,9 @@
 /**
  *	Speed Snake Beta - 07 06 2015
  *
- *	File: header.css
+ *	File: common_style.css
  *	Author: Victor Hugo Batista
- *	Description: Estilo do cabeçalho das páginas + elementos gerais de página
+ *	Description: Elementos gerais da página + cabeçalho + rodapé
  */
 
 @font-face {
@@ -50,7 +50,7 @@ body header p{/*título do site*/
 	font-weight: bold;
 }
 
-/*--------------------menu da página--------------------*/
+/*--------------------menu do cabeçalho--------------------*/
 body header nav{
 	margin-top: 9px;
 	
@@ -68,4 +68,47 @@ nav ul li{/*link de menu*/
 	margin-right: 20px;
 	
 	display: inline;
+}
+
+/*--------------------rodapé da página--------------------*/
+body footer{
+	padding: 10px;
+	
+	height: 20px;
+	background-color: #85ADFF;
+	
+	-webkit-box-shadow: 2px -4px 3px 0px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:    2px -4px 3px 0px rgba(0, 0, 0, 0.6);
+	box-shadow:         2px -4px 3px 0px rgba(0, 0, 0, 0.6);
+}
+ 
+.footerFixed{
+	position: fixed;
+	bottom: 0px;
+	
+	width: 100%;
+}
+
+.footerNormal{	
+	margin-top: 30px;
+	
+	width: auto;
+}
+
+/*--------------------botões do github--------------------*/
+.githubLink{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	
+	text-align: center;
+}
+.githubLink iframe{
+	height: 20px;
+}
+.follow{
+	width: 180px;
+}
+.star{
+	width: 50px;
 }
