@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 27 05 2015
+ *	Speed Snake Beta - 10 06 2015
  *
  *	File: ranking.css
  *	Author: Victor Hugo Batista
@@ -11,14 +11,14 @@
  	margin-top: 20px;
 	padding: 15px;
 	
-	border: 2px solid #527ACC;
+	border: 2px solid #3A79A0;
 	-webkit-border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
 	border-radius: 5px 5px 5px 5px;
 	
 	width: 450px;
 	
-	background-color: #85ADFF;
+	background-color: #6DACD2;
 	
 	-moz-box-shadow: inset 1px 1px 12px #000;
 	-webkit-box-shadow: inset 1px 1px 12px #000;
@@ -31,7 +31,7 @@
 	width: 175px;
 	height: 22px;
 	
-	background-color: #648BDD;
+	background-color: #4B8AB1;
 	
 	text-align: center;
 	font-weight: bold;

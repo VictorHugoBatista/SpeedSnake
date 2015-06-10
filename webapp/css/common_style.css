@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 08 06 2015
+ *	Speed Snake Beta - 10 06 2015
  *
  *	File: common_style.css
  *	Author: Victor Hugo Batista
@@ -34,7 +34,7 @@ body header{
 	padding: 10px;
 	
 	height: 38px;
-	background-color: #85ADFF;
+	background-color: #6DACD2;
 	
 	-webkit-box-shadow: 2px 4px 3px 0px rgba(0, 0, 0, 0.6);
 	-moz-box-shadow:    2px 4px 3px 0px rgba(0, 0, 0, 0.6);
@@ -75,7 +75,7 @@ body footer{
 	padding: 10px;
 	
 	height: 20px;
-	background-color: #85ADFF;
+	background-color: #6DACD2;
 	
 	-webkit-box-shadow: 2px -4px 3px 0px rgba(0, 0, 0, 0.6);
 	-moz-box-shadow:    2px -4px 3px 0px rgba(0, 0, 0, 0.6);
@@ -99,6 +99,9 @@ body footer{
 .githubLink{
 	position: relative;
 	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 	
 	text-align: center;

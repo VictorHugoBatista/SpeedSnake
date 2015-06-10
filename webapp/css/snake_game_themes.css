@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 09 04 2015
+ *	Speed Snake Beta - 10 06 2015
  *
  *	File: snake_game_themes.css
  *	Author: Victor Hugo Batista
@@ -8,11 +8,11 @@
 
 /*--------Esquema de cores azuis--------*/
 .screen_1{/*tela de jogo/pontuação*/
-	border-color: #527ACC;
-	background-color: #85ADFF;
+	border-color: #3A79A0;
+	background-color: #6DACD2;
 }
 .entity_1{/*snake e food*/
-	background-color: #3058AA;
+	background-color: #185780;
 }
 
 /*--------Esquema de cores verdes--------*/
