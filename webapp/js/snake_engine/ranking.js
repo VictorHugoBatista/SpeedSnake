@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 01 06 2015
+ *	Speed Snake Beta - 11 06 2015
  *
  *	File: ranking.js
  *	Author: Victor Hugo Batista
@@ -13,7 +13,7 @@
  */
 function messageScoreRanking(){
 	return "<div class='txtCentralizado' id='txtResultado'>" +
-				"<p>Perdeu!!<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
+				"<p>Você perdeu!<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
 				"<form id='rankingForm' method='post'>" +
 					"Salvar Pontuação:<br/><input type='text' name='name' id='playerName' required title='Adicione seu nome!!' maxlength='3' placeholder='nome'/>" +
 					"<input type='button' value='OK' onClick='saveRanking()' />" +
