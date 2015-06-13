@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 09 06 2015
+ *	Speed Snake Beta - 13 06 2015
  *
  *	File: snake_game.css
  *	Author: Victor Hugo Batista
@@ -8,11 +8,11 @@
 
 .avisos{/*Avisos do jogo*/
 	text-align: center;
-	color: red;
+	color: #FF0000;
 	font-weight: bold;
 }
  
-#area{/*Área de jogo*/
+.area{/*Área de jogo*/
 	position: relative;
 	
 	margin-left: 31%;
@@ -85,7 +85,7 @@
 	border-radius: 5px 0px 0px 5px;
 }
 
-#food{/*módulo da comida da snake*/
+.food{/*módulo da comida da snake*/
 	-webkit-border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
@@ -99,25 +99,25 @@
 	
 	text-align: center;
 }
-#txtInicial{
+.txtInicial{
 	margin-top: 70px;
 	
 	font-size: 20pt;
 	font-weight: bold;
 }
-#txtInicial img{
+.txtInicial img{
 	width: 140px;
 }
-#txtResultado{
+.txtResultado{
 	margin-top: 55px;
 	
 	font-size: 15pt;
 }
-#txtResultado p{
+.txtResultado p{
 	font-size: 20pt;
 	font-weight: bold;
 }
-#txtResultado form input[type="text"]{
+.txtResultado form input[type="text"]{
 	width: 80px;
 	height: 20px;
 	
@@ -125,23 +125,23 @@
 	
 	text-align: center;
 }
-#txtResultado form input[type="button"]{
+.txtResultado form input[type="button"]{
 	height: 25px;
 }
-#txtResultado form input[type="text"], #txtResultado form input[type="button"]{
+.txtResultado form input[type="text"], .txtResultado form input[type="button"]{
 	-webkit-border-radius: 3px 3px 3px 3px;
 	-moz-border-radius: 3px 3px 3px 3px;
 	border-radius: 3px 3px 3px 3px;
 }
 
 /*nível e pontuação do jogo*/
-#leftContainer{
+.leftContainer{
 	margin-top: 32px;
 	margin-left: 15px;
 	
 	float: left;
 }
-#scoreContainer{
+.scoreContainer{
 	border-width: 2px;
 	border-style: solid;
 	-webkit-border-radius: 5px 5px 5px 5px;
@@ -162,7 +162,7 @@
 	float: right;
 }
 
-#postTexts{
+.postTexts{
 	margin-top: 10px;
 	
 	width: 150px;

@@ -1,11 +1,12 @@
 /**
- *	Speed Snake Beta - 10 06 2015
+ *	Speed Snake Beta - 13 06 2015
  *
  *	File: common_style.css
  *	Author: Victor Hugo Batista
  *	Description: Elementos gerais da página + cabeçalho + rodapé
  */
 
+/*--------------------elementos gerais--------------------*/
 @font-face {
     font-family: SegoeUiLight;
     src: url('fonts/segoeuil.eot');/*navegador IE*/
@@ -27,18 +28,48 @@ a, a:hover{
 	text-decoration: none;
 }
 
+.headerNfooter{/*elementos comuns do header e do footer*/
+	padding: 10px;
+	
+	background-color: #6DACD2;
+	
+	-webkit-box-shadow: 0px 0px 3px 4px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow:    0px 0px 3px 4px rgba(0, 0, 0, 0.6);
+	box-shadow:         0px 0px 3px 4px rgba(0, 0, 0, 0.6);
+}
+
+.sectionContent{/*estilo das sections de conteúdo das páginas ranking e about*/
+	margin-top: 20px;
+	padding: 15px;
+	
+	border: 2px solid #3A79A0;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	
+	background-color: #6DACD2;
+	
+	-moz-box-shadow: inset 1px 1px 12px #000;
+	-webkit-box-shadow: inset 1px 1px 12px #000;
+	box-shadow: inset 1px 1px 12px #000;
+}
+
+.headerContent{/*estilo dos headers de conteúdo das páginas ranking e about*/
+	margin: 0 auto;
+	
+	width: 175px;
+	height: 22px;
+	
+	background-color: #4B8AB1;
+	
+	text-align: center;
+	font-weight: bold;
+}
 /*--------------------cabeçalho da página--------------------*/
 body header{
 	position: relative;
 	
-	padding: 10px;
-	
 	height: 38px;
-	background-color: #6DACD2;
-	
-	-webkit-box-shadow: 2px 4px 3px 0px rgba(0, 0, 0, 0.6);
-	-moz-box-shadow:    2px 4px 3px 0px rgba(0, 0, 0, 0.6);
-	box-shadow:         2px 4px 3px 0px rgba(0, 0, 0, 0.6);
 }
 body header p{/*título do site*/
 	margin-top: 9px;
@@ -72,24 +103,17 @@ nav ul li{/*link de menu*/
 
 /*--------------------rodapé da página--------------------*/
 body footer{
-	padding: 10px;
-	
 	height: 20px;
-	background-color: #6DACD2;
-	
-	-webkit-box-shadow: 2px -4px 3px 0px rgba(0, 0, 0, 0.6);
-	-moz-box-shadow:    2px -4px 3px 0px rgba(0, 0, 0, 0.6);
-	box-shadow:         2px -4px 3px 0px rgba(0, 0, 0, 0.6);
 }
  
-.footerFixed{
+.footerFixed{/*posição fixa do footer*/
 	position: fixed;
 	bottom: 0px;
 	
 	width: 100%;
 }
 
-.footerNormal{	
+.footerNormal{/*posição normal do footer*/
 	margin-top: 30px;
 	
 	width: auto;

@@ -12,10 +12,10 @@
 	|	msg = mensagem exibida no topo da mensagem gerada pelo programa
  */
 function messageScoreRanking(){
-	return "<div class='txtCentralizado' id='txtResultado'>" +
+	return "<div class='txtCentralizado txtResultado' id='txtResultado'>" +
 				"<p>Você perdeu!<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
 				"<form id='rankingForm' method='post'>" +
-					"Salvar Pontuação:<br/><input type='text' name='name' id='playerName' required title='Adicione seu nome!!' maxlength='3' placeholder='nome'/>" +
+					"Salvar Pontuação:<br/><input type='text' name='name' id='playerName' maxlength='3' placeholder='nome'/>" +
 					"<input type='button' value='OK' onClick='saveRanking()' />" +
 				"</form> <br/>" +
 				"Pressione Espaço<br />para reiniciar" +

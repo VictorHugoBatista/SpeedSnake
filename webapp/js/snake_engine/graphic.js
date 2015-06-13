@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 07 06 2015
+ *	Speed Snake Beta - 13 06 2015
  *
  *	File: graphic.js
  *	Author: Victor Hugo Batista
@@ -12,7 +12,7 @@
 */
 function repaint(){
 	paintSnake();
-	$("#area").append("<div class='part entity_"+theme+"' id='food' style='left: "+food.x+"px; top: "+food.y+"px'</div>");//comida
+	$("#area").append("<div class='part entity_"+theme+" food' id='food' style='left: "+food.x+"px; top: "+food.y+"px'</div>");//comida
 	$("#gameScore").html(gameScore);//pontuação atual
 	$("#gameLevel").html(gameLevel);//nível atual
 	//$(document.body).append("|"+food.x+"|"+food.y+"|");//debug

@@ -1,56 +1,32 @@
 /**
- *	Speed Snake Beta - 10 06 2015
+ *	Speed Snake Beta - 13 06 2015
  *
  *	File: about.css
  *	Author: Victor Hugo Batista
  *	Description: Estilo da página sobre
  */
  
-section{
+section{/*estilo das sections de conteúdo*/
 	margin: 0 auto;
 	margin-top: 20px;
 	
 	width: 900px;
 }
-section article{
-	margin-top: 20px;
-	padding: 15px;
-	
-	border: 2px solid #3A79A0;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	-moz-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	
-	background-color: #6DACD2;
-	
-	-moz-box-shadow: inset 1px 1px 12px #000;
-	-webkit-box-shadow: inset 1px 1px 12px #000;
-	box-shadow: inset 1px 1px 12px #000;
-}
-section article header{
-	margin: 0 auto;
-	
-	width: 175px;
-	height: 22px;
-	
-	background-color: #4B8AB1;
-	
-	text-align: center;
-	font-weight: bold;
-}
 section article p{
 	text-align: justify;
 }
-#linkedin{
+
+.linkedin{/*estilo da seção de linkedin*/
 	margin-left: 250px;
 }
-#linkedin iframe{
+.linkedin iframe{
 	margin: 0 auto;
 	width: 364px;
 	height: 125px;
 	display: inline-block;
 }
-ul{
+
+ul{/*listas de tecnologias e navegadores suportados*/
 	margin-left: 38px;
 } 
 ul li{

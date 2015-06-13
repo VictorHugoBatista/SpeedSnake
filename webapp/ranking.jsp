@@ -2,7 +2,7 @@
 <%@page import="org.victorhbatista.speedsnake.ranking.RankingReturner" %>
 
 <!--
-	Speed Snake Beta - 08 06 2015
+	Speed Snake Beta - 13 06 2015
 
 	File: ranking.jsp
 	Author: Victor Hugo Batista
@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="css/ranking.css">
 	</head>
 	<body>
-		<header>
+		<header class="headerNfooter">
 			<p><a href="index.html">Speed Snake Beta</a></p>			
 			<nav>
 				<ul>
@@ -28,12 +28,12 @@
 			</nav>			
 		</header>
 		
-		<section>
-			<header>Ranking</header>
+		<section class="sectionContent">
+			<header class="headerNfooter headerContent">Ranking</header>
 			<% out.println(RankingReturner.returner());	%>
 		</section>
 		
-		<footer class="footerFixed">
+		<footer class="headerNfooter footerFixed">
 			<div class="githubLink">
 				<iframe class="follow" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&type=follow&count=false" frameborder="0" scrolling="0"></iframe>
 				<iframe class="star" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&repo=SpeedSnake&type=star&count=false" frameborder="0" scrolling="0"></iframe>
