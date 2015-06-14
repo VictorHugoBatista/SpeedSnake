@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 07 06 2015
+ *	Speed Snake Beta - 14 06 2015
  *
  *	File: gameplay.js
  *	Author: Victor Hugo Batista
@@ -60,6 +60,7 @@ function killSnake(){
 	Snake executa um passo.
 	Algoritmo:
 	|	copia snake atual para snakeAux
+	|	inicia variáveis com os dados de posição da primeira part da snake
 	|	primeira parte dá o passo de acordo com a direção atual
 	|	|	se há comida da snake na posição do passo: seta eatFood para true
 	|	snakeAux é copiada para snake - a última parte de snakeAux é ignorada
@@ -101,7 +102,7 @@ function step(){
 				if(x+partSize == food.x && y == food.y) eatFood = true;
 				snake[0].x += partSize;
 			}
-			else killSnake("Perdeu!!");
+			else killSnake();
 	}
 	
 	for(i=1; i<snake.length; i++) snake[i] = snakeAux[i-1];//copia snakeAux para snake, sem o último elemento
@@ -150,7 +151,7 @@ function refreshScore(){
 	var taxaAceleracao = 15;//velocidade da aceleração da snake
 	var newDelay = delayThread-taxaAceleracao;//cálculo do novo delay
 	
-	if(++gameScore % 10 == 0 && gameLevel < 13){//aumenta pontuação dentro do if com ++
+	if(((++gameScore) % 10 == 0) && (gameLevel < 13)){//aumenta pontuação dentro do if com ++
 		switchTheme(++gameLevel);//aumenta nível do jogo com ++
 		clearInterval(thread);//para thread
 		run(newDelay);//reinicia thread com delay menor - sem parar o jogo

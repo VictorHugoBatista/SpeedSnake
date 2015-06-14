@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 13 06 2015
+ *	Speed Snake Beta - 14 06 2015
  *
  *	File: graphic.js
  *	Author: Victor Hugo Batista
@@ -26,14 +26,13 @@ function repaint(){
 	|	Adiciona as outras com ".append()".
 */
 function paintSnake(){
-	$("#area").html("<div class='part entity_"+theme+" firstPart_"+snake[0].dir+"' id='snake' style='left: "+snake[0].x+"px; top: "+snake[0].y+"px'</div>");//primeiro elemento
+	$("#area").html("<div class='part entity_"+theme+" firstPart_"+snake[0].dir+"' style='left: "+snake[0].x+"px; top: "+snake[0].y+"px'</div>");//primeiro elemento
 	//$(document.body).append("||"+snake[0].x+"|"+snake[0].y+"|"+snake[0].dir+"|");//debug
 	for(i=1; i<snake.length-1; i++){
-		var part = "<div class='part entity_"+theme+"' id='snake' style='left: "+snake[i].x+"px; top: "+snake[i].y+"px;'</div>";//elementos intermediários
-		$("#area").append(part);
+		$("#area").append("<div class='part entity_"+theme+"' style='left: "+snake[i].x+"px; top: "+snake[i].y+"px;'</div>");//elementos intermediários
 		//$(document.body).append("||"+snake[i].x+"|"+snake[i].y+"|"+snake[i].dir+"|");//debug
 	}
-	$("#area").append("<div class='part entity_"+theme+" lastPart_"+snake[snake.length-1].dir+"' id='snake' style='left: "+snake[snake.length-1].x+"px; top: "+snake[snake.length-1].y+"px'</div>");//último elemento
+	$("#area").append("<div class='part entity_"+theme+" lastPart_"+snake[snake.length-1].dir+"' style='left: "+snake[snake.length-1].x+"px; top: "+snake[snake.length-1].y+"px'</div>");//último elemento
 	//$(document.body).append("||"+snake[snake.length-1].x+"|"+snake[snake.length-1].y+"|"+snake[snake.length-1].dir+"|");//debug
 	//$(document.body).append("|<br />");//debug
 }

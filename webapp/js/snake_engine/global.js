@@ -3,7 +3,7 @@
  *
  *	File: global.js
  *	Author: Victor Hugo Batista
- *	Description: Pacote de todas variáveis globais da snake engine.
+ *	Description: Pacote com todas variáveis globais da snake engine.
  */
 
 var partSize = 20;//tamanho da parte em altura e largura.
@@ -15,7 +15,7 @@ var gamePaused;//indica se o jogo está pausado
 var switchDirection;//permite mudança de direção da snake se verdadeiro
 
 var snake;//entidade da snake
-var food ;//esntidade da comida da snake
+var food;//esntidade da comida da snake
 var thread;//objeto da thread principal
 
 var gameLevel;//nível do jogador

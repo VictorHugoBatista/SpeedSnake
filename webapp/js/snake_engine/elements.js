@@ -7,13 +7,13 @@
  */
 
 /**
-Criação da snake no centro da área de jogo.
-Parâmetro:
-	|	n = tamanho da snake a ser criada.
-	Índices do loop:
-	|	i = índice da adição da parte no vetor.
-	|	j = posição na página em x (left).
-	|	|	monta snake do início para o fim.
+	Criação da snake no centro da área de jogo.
+	Parâmetro:
+		|	n = tamanho da snake a ser criada.
+		Índices do loop:
+		|	i = índice da adição da parte no vetor.
+		|	j = posição na página em x (left).
+		|	|	monta snake do início para o fim.
 */
 function createSnake(n){
 	for(i=0, j=areaSize/2; i<n; i++, j-=partSize)
