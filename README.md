@@ -1,13 +1,15 @@
-SpeedSnake
-==========
+SpeedSnake - master
+===================
 
-Desenvolvedor: @VictorHugoBatista.
-
-Link do jogo: http://speedsnake-victorhbatista.rhcloud.com.
+Branch principal do projeto.
 
 Descrição
 ---------
 Jogo web criado em homenagem aos jogos snake dos modelos antigos de celular, com o objetivo de enriquecer meu portfólio e ganhar mais experiência com desenvolvimento web.
+
+Desenvolvedor: @VictorHugoBatista.
+
+Link do jogo: http://speedsnake-victorhbatista.rhcloud.com.
 
 Linguagens Utilizadas
 ---------------------
