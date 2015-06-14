@@ -50,6 +50,7 @@ function pauseGame(){
 	|	msg = mensagem exibida na tela após o fim do jogo
 */
 function killSnake(){
+	play("tap");
 	snakeAlive = false;
 	clearInterval(thread);//para thread
 	$("#area").html(messageScoreRanking());	
