@@ -1,13 +1,15 @@
-SpeedSnake
-==========
+SpeedSnake - soundDev
+=====================
 
-Desenvolvedor: @VictorHugoBatista.
-
-Link do jogo: http://speedsnake-victorhbatista.rhcloud.com.
+Branch do desenvolvimento de som ao jogo.
 
 Descrição
 ---------
 Jogo web criado em homenagem aos jogos snake dos modelos antigos de celular, com o objetivo de enriquecer meu portfólio e ganhar mais experiência com desenvolvimento web.
+
+Desenvolvedor: @VictorHugoBatista.
+
+Link do jogo: http://speedsnake-victorhbatista.rhcloud.com.
 
 Linguagens Utilizadas
 ---------------------
@@ -30,5 +32,6 @@ Bibliotecas Utilizadas
   - Javascript
     - jQuery: http://jquery.com/.
     - touchSwipe: http://labs.rampinteractive.co.uk/touchSwipe/demos/index.html.
+    - Ion.Sound: http://ionden.com/a/plugins/ion.sound/en.html
   - Java
     - Conector Java-MySQL: http://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.18.
