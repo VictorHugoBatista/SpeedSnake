@@ -31,6 +31,8 @@ function startGame(){
 	$("#area, #scoreContainer").toggleClass("screen_"+theme);
 	//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme1.css");//retorna ao tema inicial 1
 	
+	play("afogando_em_numeros");//inicia trilha do jogo
+	
 	run(210);//inicia a thread com a velocidade inicial | 210 - 30
 }
 
@@ -39,6 +41,7 @@ function startGame(){
 	Se estiver executando, o jogo irá pausar; se tiver pausado, o jogo irá executar
 */
 function pauseGame(){
+	pause("afogando_em_numeros");//pausa trilha do jogo
 	gamePaused = !gamePaused;
 }
 
@@ -50,7 +53,8 @@ function pauseGame(){
 	|	msg = mensagem exibida na tela após o fim do jogo
 */
 function killSnake(){
-	play("tap");
+	stop("afogando_em_numeros");//para trilha do jogo
+	play("tap");//toque do som de fim de jogo
 	snakeAlive = false;
 	clearInterval(thread);//para thread
 	$("#area").html(messageScoreRanking());	
@@ -109,6 +113,7 @@ function step(){
 	for(i=1; i<snake.length; i++) snake[i] = snakeAux[i-1];//copia snakeAux para snake, sem o último elemento
 	
 	if(eatFood){//ação de comer
+		play("tap");//toque da ação de comer
 		createPart(snake.length, snakeAux[snakeAux.length-1].x, snakeAux[snakeAux.length-1].y, snakeAux[snakeAux.length-1].dir);
 		refreshFood();
 		refreshScore();

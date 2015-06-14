@@ -12,10 +12,10 @@
 */
 ion.sound({
 	sounds:[//nome dos arquivos, sem extensão
-		{name: "afogando_em_numeros"},
+		{name: "afogando_em_numeros", volume: 0.5},
 		//{name: "black_sea"},
 		//{name: "Parataste"},
-		{name: "aprazolam"},
+		{name: "aprazolam", volume: 0.5},
 		{name: "tap", multiplay : true} //permite várias instâncias do áudio tocando
 	],
 	path : "sounds/",//local dos arquivos
