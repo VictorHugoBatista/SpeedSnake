@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 14 06 2015
+ *	Speed Snake Beta - 15 06 2015
  *
  *	File: sound.js
  *	Author: Victor Hugo Batista
@@ -12,17 +12,19 @@
 */
 ion.sound({
 	sounds:[//nome dos arquivos, sem extensão
-		{name: "afogando_em_numeros", volume: 0.5},
-		//{name: "black_sea"},
-		//{name: "Parataste"},
-		{name: "aprazolam", volume: 0.5},
-		{name: "tap", multiplay : true} //permite várias instâncias do áudio tocando
+		{name: musicList[0]},
+		{name: musicList[1]},
+		//{name: musicList[2]},
+		//{name: musicList[3]},
+		{name: "tap", volume:1, loop: false, multiplay : true} //permite várias instâncias do áudio tocando
 	],
 	path : "sounds/",//local dos arquivos
 	preload: true,//carga dos arquivos na inicialização
 	multiplay: false,//não permite várias instâncias do áudio tocando
-
-	ready_callback:function(obj) {//muda a cor do nome da música para verde ao carregar
+	loop: true,
+	volume: 0.55,
+	
+	ready_callback:function(obj){//muda a cor do nome da música para verde ao carregar
 		
 	}
 });
@@ -41,4 +43,10 @@ function pause(soundName) {//executa som pelo Ion-Sound
 
 function stop(soundName) {//para o som pelo Ion-Sound
 	ion.sound.stop(soundName);
+}
+
+function switchSound(newSound){//troca música por nova
+	stop(currentMusic);
+	currentMusic = newSound;
+	play(currentMusic);
 }

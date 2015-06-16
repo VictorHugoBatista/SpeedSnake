@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 14 06 2015
+ *	Speed Snake Beta - 15 06 2015
  *
  *	File: graphic.js
  *	Author: Victor Hugo Batista
@@ -39,7 +39,7 @@ function paintSnake(){
 
 /**
 	[USA JQUERY]
-	Muda o tema do jogo se o jogador ultrapassar certos níveis
+	Muda o tema do jogo (cores e música) se o jogador ultrapassar certos níveis
 	Parâmetros:
 	|	level = nível atual do jogo
 */
@@ -48,31 +48,27 @@ function switchTheme(level){
 		case 3://tema do nível 3-4
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme2.css");
 			break;
 		
 		case 5://tema do nível 5-7
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme3.css");
 			break;
 		
 		case 8://tema do nível 8-10
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme4.css");
 			break;
 		
 		case 11://tema do nível 11-12
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme5.css");
 			break;
 		
 		case 13://tema do nível 13 (HELL)
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme666.css");
+			switchSound(musicList[1]);
 			break;
 	}
 }
