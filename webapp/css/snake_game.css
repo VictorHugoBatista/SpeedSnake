@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 13 06 2015
+ *	Speed Snake Beta - 16 06 2015
  *
  *	File: snake_game.css
  *	Author: Victor Hugo Batista
@@ -89,6 +89,16 @@
 	-webkit-border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
+}
+
+/*barra de loading dos recursos*/
+.loading{	
+	margin: 0 auto;
+	text-align: center;
+}
+.loading img{
+	margin-top: 200px;
+	width: 220px;
 }
 
 /*mensagens do jogo*/

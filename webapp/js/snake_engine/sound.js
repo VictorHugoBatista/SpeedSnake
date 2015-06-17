@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 15 06 2015
+ *	Speed Snake Beta - 16 06 2015
  *
  *	File: sound.js
  *	Author: Victor Hugo Batista
@@ -7,7 +7,7 @@
  */
 
 /**
-	[USA ION.SOUND]
+	[USA JQUERY] [USA ION.SOUND]
 	Carrega os arquivos de som no início do jogo.
 */
 ion.sound({
@@ -25,7 +25,7 @@ ion.sound({
 	volume: 0.55,
 	
 	ready_callback:function(obj){//muda a cor do nome da música para verde ao carregar
-		
+		if(obj.name == musicList[0]) $("#area").html(messageBeginGame());
 	}
 });
 
@@ -49,4 +49,12 @@ function switchSound(newSound){//troca música por nova
 	stop(currentMusic);
 	currentMusic = newSound;
 	play(currentMusic);
+}
+
+function messageBeginGame(){
+	return "<div class='txtCentralizado txtInicial' id='txtInicial'>" +
+				"Controles:" +
+				"<p><img src='images/game/setas.png'></img></p>" +
+				"Pressione Espaço<br />para iniciar" +
+			"</div>";
 }
