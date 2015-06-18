@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 15 06 2015
+ *	Speed Snake Beta - 18 06 2015
  *
  *	File: global.js
  *	Author: Victor Hugo Batista
@@ -10,6 +10,7 @@ var partSize = 20;//tamanho da parte em altura e largura.
 var areaSize = 20*partSize;//tamanho da área de jogo. depende da área da parte.
 
 var direction;//direção de movimento. modificado com o evento de tecla.
+var canStart;//indica se o jogo pode ser iniciado
 var snakeAlive;//indica se a snake está viva
 var gamePaused;//indica se o jogo está pausado
 var switchDirection;//permite mudança de direção da snake se verdadeiro

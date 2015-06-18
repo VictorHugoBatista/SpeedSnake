@@ -16,16 +16,24 @@ ion.sound({
 		{name: musicList[1]},
 		//{name: musicList[2]},
 		//{name: musicList[3]},
-		{name: "tap", volume:1, loop: false, multiplay : true} //permite várias instâncias do áudio tocando
+		{
+			name: "tap",//
+			volume:1,//volume dos efeitos sonoros
+			loop: false,//
+			multiplay : true//permite várias instâncias do áudio tocando
+		} 
 	],
 	path : "sounds/",//local dos arquivos
 	preload: true,//carga dos arquivos na inicialização
 	multiplay: false,//não permite várias instâncias do áudio tocando
-	loop: true,
-	volume: 0.55,
+	loop: true,//loop infinito da trilha sonora
+	volume: 0.55,//volume da trilha sonora
 	
-	ready_callback:function(obj){//muda a cor do nome da música para verde ao carregar
-		if(obj.name == musicList[0]) $("#area").html(messageBeginGame());
+	ready_callback:function(obj){//callback chamado ao fim da carga de uma música
+		if(obj.name == musicList[0]){
+			$("#area").html(messageBeginGame());
+			canStart = true;//permite o jogo ser iniciado
+		}
 	}
 });
 
@@ -51,7 +59,7 @@ function switchSound(newSound){//troca música por nova
 	play(currentMusic);
 }
 
-function messageBeginGame(){
+function messageBeginGame(){//mensagem de início de jogo
 	return "<div class='txtCentralizado txtInicial' id='txtInicial'>" +
 				"Controles:" +
 				"<p><img src='images/game/setas.png'></img></p>" +

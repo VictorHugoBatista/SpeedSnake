@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 15 06 2015
+ *	Speed Snake Beta - 18 06 2015
  *
  *	File: gameplay.js
  *	Author: Victor Hugo Batista
@@ -12,29 +12,32 @@
 	Inicializa todas variáveis importantes para o gameplay.
 */
 function startGame(){
-	direction = "right";
-	gamePaused = false;
-	switchDirection = true;
-
-	snake = new Array(); createSnake(4);//inicialização da snake
-	food = new Object();//inicialização comida da snake
+	if(canStart){
+		direction = "right";
+		canStart = false;
+		gamePaused = false;
+		switchDirection = true;
 	
-	gameLevel = 1;
-	gameScore = 0;
-	
-	refreshFood();//primeira posição da comida da snake
-	snakeAlive = true;
-	
-	//retorna ao tema inicial
-	$("#area, #scoreContainer").toggleClass("screen_"+theme);
-	theme = 1;
-	$("#area, #scoreContainer").toggleClass("screen_"+theme);
-	//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme1.css");//retorna ao tema inicial 1
-	
-	currentMusic = musicList[0];
-	play(currentMusic);//inicia trilha do jogo
-	
-	run(210);//inicia a thread com a velocidade inicial | 210 - 30
+		snake = new Array(); createSnake(4);//inicialização da snake
+		food = new Object();//inicialização comida da snake
+		
+		gameLevel = 1;
+		gameScore = 0;
+		
+		refreshFood();//primeira posição da comida da snake
+		snakeAlive = true;
+		
+		//retorna ao tema inicial
+		$("#area, #scoreContainer").toggleClass("screen_"+theme);
+		theme = 1;
+		$("#area, #scoreContainer").toggleClass("screen_"+theme);
+		//$("#theme").attr("href", "css/snake_game_themes/snake_game_theme1.css");//retorna ao tema inicial 1
+		
+		currentMusic = musicList[0];
+		play(currentMusic);//inicia trilha do jogo
+		
+		run(210);//inicia a thread com a velocidade inicial | 210 - 30
+	}
 }
 
 /**
@@ -56,6 +59,7 @@ function pauseGame(){
 function killSnake(){
 	stop(currentMusic);//para trilha do jogo
 	play(endSound);//toque do som de fim de jogo
+	canStart = true;//ao fim, o jogo pode ser reiniciado
 	snakeAlive = false;
 	clearInterval(thread);//para thread
 	$("#area").html(messageScoreRanking());	
