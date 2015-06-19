@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 16 06 2015
+ *	Speed Snake Beta - 19 06 2015
  *
  *	File: sound.js
  *	Author: Victor Hugo Batista
@@ -11,17 +11,23 @@
 	Carrega os arquivos de som no início do jogo.
 */
 ion.sound({
-	sounds:[//nome dos arquivos, sem extensão
-		{name: musicList[0]},
+	sounds:[
+		{name: musicList[0]},//trilha sonora
 		{name: musicList[1]},
 		{name: musicList[2]},
 		{name: musicList[3]},
 		{
-			name: "tap",//
+			name: eatSound,//som da ação de comer
 			volume:1,//volume dos efeitos sonoros
 			loop: false,//
 			multiplay : true//permite várias instâncias do áudio tocando
-		} 
+		},
+		{
+			name: endSound,//som de fim de jogo
+			volume:1,//volume dos efeitos sonoros
+			loop: false,//
+			multiplay : true//permite várias instâncias do áudio tocando
+		}
 	],
 	path : "sounds/",//local dos arquivos
 	preload: true,//carga dos arquivos na inicialização

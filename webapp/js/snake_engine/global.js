@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 18 06 2015
+ *	Speed Snake Beta - 19 06 2015
  *
  *	File: global.js
  *	Author: Victor Hugo Batista
@@ -27,5 +27,5 @@ var theme = 1;//número do tema a ser acionado - 0 = posição inicial
 
 var currentMusic;//nome da música se fundo atual
 var musicList = ["black_sea", "Parataste", "afogando_em_numeros", "aprazolam"];//lista de todas as músicas do jogo
-var eatSound = "tap";//efeito sonoro da ação de comer
+var eatSound = "GULP2";//efeito sonoro da ação de comer
 var endSound = "tap";//efeito sonoro do fim de jogo

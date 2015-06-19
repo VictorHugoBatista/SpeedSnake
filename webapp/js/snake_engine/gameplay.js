@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 18 06 2015
+ *	Speed Snake Beta - 19 06 2015
  *
  *	File: gameplay.js
  *	Author: Victor Hugo Batista
@@ -162,7 +162,7 @@ function refreshScore(){
 	var taxaAceleracao = 15;//velocidade da aceleração da snake
 	var newDelay = delayThread-taxaAceleracao;//cálculo do novo delay
 	
-	if(((++gameScore) % 1 == 0) && (gameLevel < 13)){//aumenta pontuação dentro do if com ++
+	if(((++gameScore) % 10 == 0) && (gameLevel < 13)){//aumenta pontuação dentro do if com ++
 		switchTheme(++gameLevel);//aumenta nível do jogo com ++
 		clearInterval(thread);//para thread
 		run(newDelay);//reinicia thread com delay menor - sem parar o jogo
