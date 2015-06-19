@@ -53,6 +53,7 @@ function switchTheme(level){
 		case 5://tema do nível 5-7
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
+			switchSound(musicList[1]);
 			break;
 		
 		case 8://tema do nível 8-10
@@ -63,12 +64,13 @@ function switchTheme(level){
 		case 11://tema do nível 11-12
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
+			switchSound(musicList[2]);
 			break;
 		
 		case 13://tema do nível 13 (HELL)
 			$("#area, #scoreContainer").toggleClass("screen_"+(theme++));
 			$("#area, #scoreContainer").toggleClass("screen_"+theme);
-			switchSound(musicList[1]);
+			switchSound(musicList[3]);
 			break;
 	}
 }

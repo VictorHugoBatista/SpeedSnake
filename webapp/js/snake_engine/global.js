@@ -26,6 +26,6 @@ var delayThread;//delay da thread do jogo
 var theme = 1;//número do tema a ser acionado - 0 = posição inicial
 
 var currentMusic;//nome da música se fundo atual
-var musicList = ["afogando_em_numeros", "aprazolam", "black_sea", "Parataste"];//lista de todas as músicas do jogo
+var musicList = ["black_sea", "Parataste", "afogando_em_numeros", "aprazolam"];//lista de todas as músicas do jogo
 var eatSound = "tap";//efeito sonoro da ação de comer
 var endSound = "tap";//efeito sonoro do fim de jogo

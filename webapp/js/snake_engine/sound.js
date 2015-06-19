@@ -14,8 +14,8 @@ ion.sound({
 	sounds:[//nome dos arquivos, sem extensão
 		{name: musicList[0]},
 		{name: musicList[1]},
-		//{name: musicList[2]},
-		//{name: musicList[3]},
+		{name: musicList[2]},
+		{name: musicList[3]},
 		{
 			name: "tap",//
 			volume:1,//volume dos efeitos sonoros
@@ -36,10 +36,6 @@ ion.sound({
 		}
 	}
 });
-
-//força execução antes de carregar completamente
-ion.sound.preload("pop_cork");
-ion.sound.play("pop_cork");
 
 function play(soundName) {//executa som pelo Ion-Sound
 	ion.sound.play(soundName);

@@ -83,19 +83,17 @@
 				}
 			});
 			
-			//força execução antes de carregar completamente
-			ion.sound.preload("pop_cork");
-			ion.sound.play("pop_cork");
-			
 			$(document.body).keydown(//eventos de tecla
 				function(event){
 					switch(event.which){
-						case 38: play("afogando_em_numeros"); $(".eventos").append("^ "); break;//up
-						case 40: play("black_sea"); $(".eventos").append("v "); break;//down
-						case 37: play("Parataste"); $(".eventos").append("< "); break;//left
-						case 39: play("aprazolam"); $(".eventos").append("> "); break;//right
+						case 38: play("afogando_em_numeros"); $(".eventos").append("[^] "); break;//up
+						case 40: play("black_sea"); $(".eventos").append("[v] "); break;//down
+						case 37: play("Parataste"); $(".eventos").append("[<] "); break;//left
+						case 39: play("aprazolam"); $(".eventos").append("[>] "); break;//right
 						
-						case 32: play("tap"); $(".eventos").append("[SPACE] ");//barra de espaço
+						case 32: play("tap"); $(".eventos").append("[SPACE] "); break;//barra de espaço
+						
+						case 77: mute(); $(".eventos").append("[M] ");//tecla M
 					}
 				}
 			);
@@ -110,6 +108,10 @@
 			
 			function stop(soundName){//para o som pelo Ion-Sound
 				ion.sound.stop(soundName);
+			}
+			
+			function mute(){//deixa todos os sons mudos pelo Ion-Sound
+				ion.sound.volume({"volume": 0.0});
 			}
 		</script>
 	</body>
