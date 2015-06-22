@@ -1,5 +1,5 @@
 <!--
-	Speed Snake Beta - 20 06 2015
+	Speed Snake Beta - 22 06 2015
 
 	File: soundtrack.html
 	Author: Victor Hugo Batista
@@ -16,17 +16,32 @@
 		<style>
 			section{/*estilo das sections de conteÃºdo*/
 				margin: 0 auto;
-				width: 650px;
+				width: 700px;
 			}
 			
-			section li{
+			section ul{
+				padding-left: 0;
+			}		
+			section ul li{
 				list-style-type: none;
-				margin-top: 5px;
-				margin-down: 5px;
+				margin-top: 7px;
+				margin-bottom: 7px;
 			}
 			
 			section a{
 				text-decoration: underline;
+			}
+			
+			.content{
+				margin: 0 auto;
+				width: 615px;
+			}
+			.names{			
+				float: right;
+				text-align: right;
+			}
+			.players{
+				float: left;
 			}
 		</style>
 	</head>
@@ -44,34 +59,51 @@
 		
 		<section class="sectionContent">
 			<header class="headerNfooter headerContent">Trilha Sonora</header>
-			<ul>
-				<li>
-					tMt - <span style="font-weight: bold;">Black Sea</span> (album Regress)
-					<input type="button" value="PLAY" onClick="play('black_sea');" /> |
-					<input type="button" value="PAUSE" onClick="pause('black_sea');" /> |
-					<input type="button" value="STOP" onClick="stop('black_sea');" />
-				</li>
-				<li>
-					The Industrialism - <span style="font-weight: bold;">Parataste</span> (album Ultrastage)
-					<input type="button" value="PLAY" onClick="play('Parataste');" /> |
-					<input type="button" value="PAUSE" onClick="pause('Parataste');" /> |
-					<input type="button" value="STOP" onClick="stop('Parataste');" />
-				</li>
-				<li>
-					Pulselooper - <span style="font-weight: bold;">Afogando em Números</span> (album Hexadecimal)
-					<input type="button" value="PLAY" onClick="play('afogando_em_numeros');" /> |
-					<input type="button" value="PAUSE" onClick="pause('afogando_em_numeros');" /> |
-					<input type="button" value="STOP" onClick="stop('afogando_em_numeros');" />
-				</li>
-				<li>
-					Pulselooper - <span style="font-weight: bold;">Aprazolam</span> (album Hexadecimal)
-					<input type="button" value="PLAY" onClick="play('aprazolam');" /> |
-					<input type="button" value="PAUSE" onClick="pause('aprazolam');" /> |
-					<input type="button" value="STOP" onClick="stop('aprazolam');" />
-				</li>
-			</ul>
-			
-			* Todas a músicas podem ser encontradas para download no site <a href="http://www.chippanze.org/">Chippanze.org</a>.
+			<div class="content">
+				<div class="players">
+					<ul>
+						<li>
+							<input type="button" value="PLAY" onClick="play('black_sea');" /> |
+							<input type="button" value="PAUSE" onClick="pause('black_sea');" /> |
+							<input type="button" value="STOP" onClick="stop('black_sea');" />
+						</li>
+						<li>
+							<input type="button" value="PLAY" onClick="play('Parataste');" /> |
+							<input type="button" value="PAUSE" onClick="pause('Parataste');" /> |
+							<input type="button" value="STOP" onClick="stop('Parataste');" />
+						</li>
+						<li>
+							<input type="button" value="PLAY" onClick="play('afogando_em_numeros');" /> |
+							<input type="button" value="PAUSE" onClick="pause('afogando_em_numeros');" /> |
+							<input type="button" value="STOP" onClick="stop('afogando_em_numeros');" />
+						</li>
+						<li>
+							<input type="button" value="PLAY" onClick="play('aprazolam');" /> |
+							<input type="button" value="PAUSE" onClick="pause('aprazolam');" /> |
+							<input type="button" value="STOP" onClick="stop('aprazolam');" />
+						</li>
+					</ul>
+				</div>
+				
+				<div class="names">
+					<ul>
+						<li>
+							tMt - <span style="font-weight: bold;">Black Sea</span> (album Regress)
+						</li>
+						<li>
+							The Industrialism - <span style="font-weight: bold;">Parataste</span> (album Ultrastage)
+						</li>
+						<li>
+							Pulselooper - <span style="font-weight: bold;">Afogando em Números</span> (album Hexadecimal)
+						</li>
+						<li>
+							Pulselooper - <span style="font-weight: bold;">Aprazolam</span> (album Hexadecimal)
+						</li>
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+				* Todas a músicas podem ser encontradas para download no site <a href="http://www.chippanze.org/">chippanze.org</a>.
+			</div>
 		</section>
 		
 		<footer class="headerNfooter footerFixed">
