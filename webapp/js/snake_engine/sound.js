@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 19 06 2015
+ *	Speed Snake Beta - 23 06 2015
  *
  *	File: sound.js
  *	Author: Victor Hugo Batista
@@ -36,10 +36,14 @@ ion.sound({
 	volume: 0.55,//volume da trilha sonora
 	
 	ready_callback:function(obj){//callback chamado ao fim da carga de uma música
+		//callback relativo à página do jogo
 		if(obj.name == musicList[0]){
 			$("#area").html(messageBeginGame());
 			canStart = true;//permite o jogo ser iniciado
 		}
+		
+		//callback relativo à página de trilha sonora
+		$("#"+obj.name).css("background-color", "green");
 	}
 });
 

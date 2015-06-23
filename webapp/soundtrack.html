@@ -1,5 +1,5 @@
 <!--
-	Speed Snake Beta - 22 06 2015
+	Speed Snake Beta - 23 06 2015
 
 	File: soundtrack.html
 	Author: Victor Hugo Batista
@@ -12,38 +12,7 @@
 		<title>Speed Snake | Trilha Sonora</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="css/common_style.css">
-		
-		<style>
-			section{/*estilo das sections de conteÃºdo*/
-				margin: 0 auto;
-				width: 700px;
-			}
-			
-			section ul{
-				padding-left: 0;
-			}		
-			section ul li{
-				list-style-type: none;
-				margin-top: 7px;
-				margin-bottom: 7px;
-			}
-			
-			section a{
-				text-decoration: underline;
-			}
-			
-			.content{
-				margin: 0 auto;
-				width: 615px;
-			}
-			.names{			
-				float: right;
-				text-align: right;
-			}
-			.players{
-				float: left;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/soundtrack.css">
 	</head>
 	<body>
 		<header class="headerNfooter">
@@ -61,25 +30,29 @@
 			<header class="headerNfooter headerContent">Trilha Sonora</header>
 			<div class="content">
 				<div class="players">
-					<ul>
+					<ul id="listPlayer">
 						<li>
-							<input type="button" value="PLAY" onClick="play('black_sea');" /> |
-							<input type="button" value="PAUSE" onClick="pause('black_sea');" /> |
+							<div></div>
+							<input type="button" value="PLAY" onClick="play('black_sea');" />
+							<input type="button" value="PAUSE" onClick="pause('black_sea');" />
 							<input type="button" value="STOP" onClick="stop('black_sea');" />
 						</li>
 						<li>
-							<input type="button" value="PLAY" onClick="play('Parataste');" /> |
-							<input type="button" value="PAUSE" onClick="pause('Parataste');" /> |
+							<div></div>
+							<input type="button" value="PLAY" onClick="play('Parataste');" />
+							<input type="button" value="PAUSE" onClick="pause('Parataste');" />
 							<input type="button" value="STOP" onClick="stop('Parataste');" />
 						</li>
 						<li>
-							<input type="button" value="PLAY" onClick="play('afogando_em_numeros');" /> |
-							<input type="button" value="PAUSE" onClick="pause('afogando_em_numeros');" /> |
+							<div></div>
+							<input type="button" value="PLAY" onClick="play('afogando_em_numeros');" />
+							<input type="button" value="PAUSE" onClick="pause('afogando_em_numeros');" />
 							<input type="button" value="STOP" onClick="stop('afogando_em_numeros');" />
 						</li>
 						<li>
-							<input type="button" value="PLAY" onClick="play('aprazolam');" /> |
-							<input type="button" value="PAUSE" onClick="pause('aprazolam');" /> |
+							<div></div>
+							<input type="button" value="PLAY" onClick="play('aprazolam');" />
+							<input type="button" value="PAUSE" onClick="pause('aprazolam');" />
 							<input type="button" value="STOP" onClick="stop('aprazolam');" />
 						</li>
 					</ul>
@@ -87,18 +60,10 @@
 				
 				<div class="names">
 					<ul>
-						<li>
-							tMt - <span style="font-weight: bold;">Black Sea</span> (album Regress)
-						</li>
-						<li>
-							The Industrialism - <span style="font-weight: bold;">Parataste</span> (album Ultrastage)
-						</li>
-						<li>
-							Pulselooper - <span style="font-weight: bold;">Afogando em Números</span> (album Hexadecimal)
-						</li>
-						<li>
-							Pulselooper - <span style="font-weight: bold;">Aprazolam</span> (album Hexadecimal)
-						</li>
+						<li>tMt - <span style="font-weight: bold;">Black Sea</span> (album Regress)</li>
+						<li>The Industrialism - <span style="font-weight: bold;">Parataste</span> (album Ultrastage)</li>
+						<li>Pulselooper - <span style="font-weight: bold;">Afogando em Números</span> (album Hexadecimal)</li>
+						<li>Pulselooper - <span style="font-weight: bold;">Aprazolam</span> (album Hexadecimal)</li>
 					</ul>
 				</div>
 				<div style="clear: both;"></div>
@@ -117,18 +82,14 @@
 		<script src="js/ion.sound.min.js"></script>
 		<script src="js/snake_engine/global.js"></script>
 		<script src="js/snake_engine/sound.js"></script>
-		<script>		
-			$(document.body).keydown(//eventos de tecla
-				function(event){
-					switch(event.which){					
-						case 77: mute();//tecla M
-					}
-				}
-			);
-			
-			function mute(){//deixa todos os sons mudos pelo Ion-Sound
-				ion.sound.volume({"volume": 0.0});
-			}
+		<script>
+			/**
+				[USA JQUERY]
+				Adição de id aos elementos de indicação de carga, com os nomes das músicas.
+			*/
+			$("#listPlayer li div").each(function(i){
+				$(this).attr("id", musicList[i])
+			});
 		</script>
 	</body>
 </html>
