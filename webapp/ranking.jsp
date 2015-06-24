@@ -2,7 +2,7 @@
 <%@page import="org.victorhbatista.speedsnake.ranking.RankingReturner" %>
 
 <!--
-	Speed Snake Beta - 13 06 2015
+	Speed Snake Beta - 20 06 2015
 
 	File: ranking.jsp
 	Author: Victor Hugo Batista
@@ -23,6 +23,7 @@
 			<nav>
 				<ul>
 					<li><a href="ranking.jsp">Ranking</a></li>
+					<li><a href="soundtrack.html">Trilha Sonora</a></li>
 					<li><a href="about.html">Sobre</a></li>
 				</ul>
 			</nav>			

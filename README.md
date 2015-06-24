@@ -32,5 +32,6 @@ Bibliotecas Utilizadas
   - Javascript
     - jQuery: http://jquery.com/.
     - touchSwipe: http://labs.rampinteractive.co.uk/touchSwipe/demos/index.html.
+    - Ion.Sound: http://ionden.com/a/plugins/ion.sound/en.html
   - Java
     - Conector Java-MySQL: http://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.18.
