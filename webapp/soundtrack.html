@@ -1,5 +1,5 @@
 <!--
-	Speed Snake Beta - 23 06 2015
+	Speed Snake Beta - 24 06 2015
 
 	File: soundtrack.html
 	Author: Victor Hugo Batista
@@ -32,28 +32,28 @@
 				<div class="players">
 					<ul id="listPlayer">
 						<li>
-							<div></div>
-							<input type="button" value="PLAY" onClick="play('black_sea');" />
-							<input type="button" value="PAUSE" onClick="pause('black_sea');" />
-							<input type="button" value="STOP" onClick="stop('black_sea');" />
+							<div></div><!-- indicador de carregamento  -->
+							<input type="button" id="play" value="PLAY" />
+							<input type="button" id="pause" value="PAUSE" />
+							<input type="button" id="stop" value="STOP" />
 						</li>
 						<li>
-							<div></div>
-							<input type="button" value="PLAY" onClick="play('Parataste');" />
-							<input type="button" value="PAUSE" onClick="pause('Parataste');" />
-							<input type="button" value="STOP" onClick="stop('Parataste');" />
+							<div></div><!-- indicador de carregamento  -->
+							<input type="button" id="play" value="PLAY" />
+							<input type="button" id="pause" value="PAUSE" />
+							<input type="button" id="stop" value="STOP" />
 						</li>
 						<li>
-							<div></div>
-							<input type="button" value="PLAY" onClick="play('afogando_em_numeros');" />
-							<input type="button" value="PAUSE" onClick="pause('afogando_em_numeros');" />
-							<input type="button" value="STOP" onClick="stop('afogando_em_numeros');" />
+							<div></div><!-- indicador de carregamento  -->
+							<input type="button" id="play" value="PLAY" />
+							<input type="button" id="pause" value="PAUSE" />
+							<input type="button" id="stop" value="STOP" />
 						</li>
 						<li>
-							<div></div>
-							<input type="button" value="PLAY" onClick="play('aprazolam');" />
-							<input type="button" value="PAUSE" onClick="pause('aprazolam');" />
-							<input type="button" value="STOP" onClick="stop('aprazolam');" />
+							<div></div><!-- indicador de carregamento  -->
+							<input type="button" id="play" value="PLAY" />
+							<input type="button" id="pause" value="PAUSE" />
+							<input type="button" id="stop" value="STOP" />
 						</li>
 					</ul>
 				</div>
@@ -85,10 +85,23 @@
 		<script>
 			/**
 				[USA JQUERY]
-				Adição de id aos elementos de indicação de carga, com os nomes das músicas.
+				Adição dos nomes das músicas aos elementos da página a partir de global.js
 			*/
-			$("#listPlayer li div").each(function(i){
-				$(this).attr("id", musicList[i])
+			$("#listPlayer li div").each(function(i){//indicadores de carregamento
+				$(this).attr("id", musicList[i]);
+			});
+			
+			//botões do player
+			$("#listPlayer li #play").each(function(i){
+				$(this).attr("onClick", "play('"+musicList[i]+"');");
+			});
+			
+			$("#listPlayer li #pause").each(function(i){
+				$(this).attr("onClick", "pause('"+musicList[i]+"');");
+			});
+			
+			$("#listPlayer li #stop").each(function(i){
+				$(this).attr("onClick", "stop('"+musicList[i]+"');");
 			});
 		</script>
 	</body>
