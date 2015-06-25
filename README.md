@@ -35,3 +35,8 @@ Bibliotecas Utilizadas
     - Ion.Sound: http://ionden.com/a/plugins/ion.sound/en.html
   - Java
     - Conector Java-MySQL: http://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.18.
+
+Licença
+-------
+  - Todo o código fonte do jogo (exceto bibliotecas utilizadas) está sob a licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional.
+  - A trilha sonora (em estilo chiptune) está sob a licença Creative Commons Atribuição-SemDerivações-SemDerivados 3.0 Não Adaptada, sob o selo chippanze e pertence aos seus recpectivos artistas.
