@@ -2,7 +2,7 @@
 <%@page import="org.victorhbatista.speedsnake.ranking.RankingReturner" %>
 
 <!--
-	Speed Snake Beta - 20 06 2015
+	Speed Snake Beta - 26 06 2015
 
 	File: ranking.jsp
 	Author: Victor Hugo Batista
@@ -31,7 +31,15 @@
 		
 		<section class="sectionContent">
 			<header class="headerNfooter headerContent">Ranking</header>
-			<% out.println(RankingReturner.returner());	%>
+			<table>
+				<tr>
+					<th>Pos</th>
+					<th>Nome</th>
+					<th>Pontuação</th>
+					<th>Nível</th>
+				</tr>
+				<% out.println(RankingReturner.returner());	%>
+			</table>
 		</section>
 		
 		<footer class="headerNfooter footerFixed">
