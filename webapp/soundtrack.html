@@ -1,5 +1,5 @@
 <!--
-	Speed Snake Beta - 24 06 2015
+	Speed Snake Beta - 26 06 2015
 
 	File: soundtrack.html
 	Author: Victor Hugo Batista
@@ -57,25 +57,25 @@
 				<div class="names" id="listIndicators">
 					<ul>
 						<li>
-							tMt - <span style="font-weight: bold;">Black Sea</span> (album Regress)<div>
-							</div><!-- indicador de carregamento  -->
-						</li>
-						<li>
-							The Industrialism - <span style="font-weight: bold;">Parataste</span> (album Ultrastage)
+							tMt - <span class="boldText">Black Sea</span> (album Regress)
 							<div></div><!-- indicador de carregamento  -->
 						</li>
 						<li>
-							Pulselooper - <span style="font-weight: bold;">Afogando em Números</span> (album Hexadecimal)
+							The Industrialism - <span class="boldText">Parataste</span> (album Ultrastage)
 							<div></div><!-- indicador de carregamento  -->
 						</li>
 						<li>
-							Pulselooper - <span style="font-weight: bold;">Aprazolam</span> (album Hexadecimal)
+							Pulselooper - <span class="boldText">Afogando em Números</span> (album Hexadecimal)
+							<div></div><!-- indicador de carregamento  -->
+						</li>
+						<li>
+							Pulselooper - <span class="boldText">Aprazolam</span> (album Hexadecimal)
 							<div></div><!-- indicador de carregamento  -->
 						</li>
 					</ul>
 				</div>
 				<div style="clear: both;"></div>
-				* Todas a músicas podem ser encontradas para download no site <a href="http://www.chippanze.org/">chippanze.org</a>.
+				* Todas a músicas podem ser encontradas para download no site <a class="underlineText" href="http://www.chippanze.org/">chippanze.org</a>.
 			</div>
 		</section>
 		
@@ -99,12 +99,10 @@
 			//botões do player
 			$("#listPlayer li #play").each(function(i){
 				$(this).attr("onClick", "play('"+musicList[i]+"');");
-			});
-			
+			});			
 			$("#listPlayer li #pause").each(function(i){
 				$(this).attr("onClick", "pause('"+musicList[i]+"');");
 			});
-			
 			$("#listPlayer li #stop").each(function(i){
 				$(this).attr("onClick", "stop('"+musicList[i]+"');");
 			});

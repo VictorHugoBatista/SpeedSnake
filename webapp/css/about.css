@@ -1,9 +1,9 @@
 /**
- *	Speed Snake Beta - 25 06 2015
+ *	Speed Snake Beta - 26 06 2015
  *
  *	File: about.css
  *	Author: Victor Hugo Batista
- *	Description: Estilo da pÃ¡gina sobre
+ *	Description: Estilo da página sobre
  */
  
 section{/*estilo das sections de conteúdo*/
@@ -47,16 +47,3 @@ section article p{
 	width: 100px;
 	height: 100px;
  }
-
-/*---------------------------------*/ 
-.boldText{
-	font-weight: bold;
-}
-
-.centerText{
-	text-align: center;
-}
-
-.underlineText{
-	text-decoration: underline;
-}
