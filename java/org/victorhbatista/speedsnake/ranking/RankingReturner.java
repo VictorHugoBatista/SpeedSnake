@@ -11,24 +11,19 @@ import org.victorhbatista.speedsnake.model.RankingItem;
  * 
  * File: RankingReturner.java
  * @author: Victor
- * Description: Bean que recebe os dados do ranking na conexão com a base de dados e os organiza em uma tabela
+ * Description: Bean que recebe os dados do ranking na conexão com a base de dados e os retorna em ArrayList
  */
 public class RankingReturner {
-	public static String returner(){
+	public static ArrayList<RankingItem> returner(){
 		try{
 			Connection_DAO cDAO = new Connection_DAO();//criação da conexão com a base de dados
 			ArrayList<RankingItem> lista = cDAO.getRanking();//retorno dos n registros ranking
-			String htmlLista = "";//criação da string da tabela
-			short posicao = 1;//posição do jogador atual
-			for(RankingItem item : lista){//percorre a lista inteira, criando a tabela com seus dados, incrementando posicao
-				htmlLista += "<tr><td>"+(posicao++)+"</td><td>" + item.getName() + "</td><td>"+item.getScore()+"</td><td>"+item.getLevel()+"</td></tr>\n";
-			}
 			cDAO.closeCon();//se chegou aqui, fechar a conexão
-			return htmlLista;
+			return lista;//retorna lista diretamente
 		}
 		catch(Exception e){//possível erro n
 			e.printStackTrace();
-			return "";
+			return null;
 		}
 	}
 }

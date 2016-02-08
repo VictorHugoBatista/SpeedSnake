@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList" %>
 <%@page import="org.victorhbatista.speedsnake.ranking.RankingReturner" %>
+<%@page import="org.victorhbatista.speedsnake.model.RankingItem" %>
 
 <!--
 	Speed Snake Beta - 26 06 2015
@@ -38,7 +40,16 @@
 					<th>Pontuação</th>
 					<th>Nível</th>
 				</tr>
-				<% out.println(RankingReturner.returner());	%>
+				<% ArrayList<RankingItem> ranking = RankingReturner.returner();	%>
+				<% int pos = 1; %>
+				<% for(RankingItem item : ranking){ %>
+				<tr>
+					<td><%= pos++ %></td>
+					<td><%= item.getName() %></td>
+					<td><%= item.getScore() %></td>
+					<td><%= item.getLevel() %></td>
+				</tr>
+				<% } %>
 			</table>
 		</section>
 		
