@@ -4,7 +4,7 @@
 <%@page import="org.victorhbatista.speedsnake.model.RankingItem" %>
 
 <!--
-	Speed Snake Beta - 26 06 2015
+	Speed Snake Beta - 08 02 2016
 
 	File: ranking.jsp
 	Author: Victor Hugo Batista
@@ -16,8 +16,8 @@
 	<head>
 		<title>Speed Snake Beta | Ranking</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="css/common_style.css">
-		<link rel="stylesheet" type="text/css" href="css/ranking.css">
+		<link rel="stylesheet" type="text/css" href="library/css/common_style.css">
+		<link rel="stylesheet" type="text/css" href="library/css/ranking.css">
 	</head>
 	<body>
 		<header class="headerNfooter">
@@ -41,7 +41,8 @@
 					<th>Nível</th>
 				</tr>
 				<% ArrayList<RankingItem> ranking = RankingReturner.returner();	%>
-				<% int pos = 1; %>
+				<% int pos = 1; /* contador da posição do registro */ %>
+				<%-- exibe todos os registros de ranking retornados da função 'RankingReturner.returner()' --%>
 				<% for(RankingItem item : ranking){ %>
 				<tr>
 					<td><%= pos++ %></td>
