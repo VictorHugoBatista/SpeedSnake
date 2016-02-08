@@ -96,20 +96,23 @@
 				Adição dos nomes das músicas aos elementos da página a partir de global.js
 			*/			
 			
-			//botões do player
-			$("#listPlayer li #play").each(function(i){
-				$(this).attr("onClick", "play('"+musicList[i]+"');");
-			});			
-			$("#listPlayer li #pause").each(function(i){
-				$(this).attr("onClick", "pause('"+musicList[i]+"');");
-			});
-			$("#listPlayer li #stop").each(function(i){
-				$(this).attr("onClick", "stop('"+musicList[i]+"');");
-			});
-			
-			$("#listIndicators li div").each(function(i){//indicadores de carregamento
-				$(this).attr("id", musicList[i]);
-			});
+			(function($){
+				//botões do player
+				$("#listPlayer li").each(function(i){
+					$(this).on("click", "#play", function(){
+						play(musicList[i]);
+					});
+					$(this).on("click", "#pause", function(){
+						pause(musicList[i]);
+					});
+					$(this).on("click", "#stop", function(){
+						stop(musicList[i]);
+					});
+				});
+				$("#listIndicators li").each(function(i){//indicadores de carregamento
+					$(this).children("div").attr("id", musicList[i]);
+				});
+			})(jQuery);
 		</script>
 	</body>
 </html>
