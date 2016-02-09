@@ -13,7 +13,7 @@ import org.victorhbatista.speedsnake.database.Connection_DAO;
 import org.victorhbatista.speedsnake.model.RankingItem;
 
 /**
- * Speed Snake Beta - 01 06 2015
+ * Speed Snake Beta - 08 02 2016
  * 
  * File: RankingSaverServlet.java
  * @author: Victor
