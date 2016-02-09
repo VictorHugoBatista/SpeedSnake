@@ -32,6 +32,9 @@ public class RankingSaverServlet extends HttpServlet {
     
     /**
 	 * Método post: Tentativa de acesso ao ranking autorizada.
+	 * Printa "save-ok" caso o salvamento do ranking tenha sido em sucesso.
+	 * Printa "save-err" em caso de falha.
+	 * (os valores printados podem ser capturados como resposta de requisição ajax)
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,15 +43,21 @@ public class RankingSaverServlet extends HttpServlet {
     	short score = Short.parseShort(request.getParameter("score")),
     			level = Short.parseShort(request.getParameter("level"));
     	
+    	PrintWriter out = response.getWriter();
+    	
     	try{
 			Connection_DAO cDAO = new Connection_DAO();//criação da conexão com a base de dados
 			boolean resultado = cDAO.saveRanking(new RankingItem(name, score, level));//salva o registro no ranking
 			
-			if(resultado) response.sendRedirect("ranking.jsp");//se o registro foi salvo com sucesso, o site redireciona para a tela de ranking
+			if(resultado){
+				out.print("save-ok");
+				return;
+			}
 		}
     	catch(Exception e){//possível erro n
 			e.printStackTrace();
 		}
+    	out.print("save-err");
 	}
     
 	/**
