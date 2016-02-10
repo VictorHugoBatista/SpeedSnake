@@ -1,7 +1,7 @@
-SpeedSnake - master
+SpeedSnake - upgrade-frontend
 ===================
 
-Branch principal do projeto.
+Melhoras conteituais, sintáticas e semânticas ao frontend da aplicação.
 
 Descrição
 ---------
