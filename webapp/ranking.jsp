@@ -16,8 +16,7 @@
 	<head>
 		<title>Speed Snake Beta | Ranking</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="library/css/common_style.css">
-		<link rel="stylesheet" type="text/css" href="library/css/ranking.css">
+		<link rel="stylesheet" type="text/css" href="library/css/style.css">
 	</head>
 	<body>
 		<header class="headerNfooter">
@@ -31,7 +30,7 @@
 			</nav>			
 		</header>
 		
-		<section class="sectionContent">
+		<section class="sectionContent sectionRanking">
 			<header class="headerNfooter headerContent">Ranking</header>
 			<table>
 				<tr>
@@ -54,7 +53,7 @@
 			</table>
 		</section>
 		
-		<footer class="headerNfooter footerFixed">
+		<footer class="headerNfooter footerNormal">
 			<div class="githubLink">
 				<iframe class="follow" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&type=follow&count=false" frameborder="0" scrolling="0"></iframe>
 				<iframe class="star" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&repo=SpeedSnake&type=star&count=false" frameborder="0" scrolling="0"></iframe>
