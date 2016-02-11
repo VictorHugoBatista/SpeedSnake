@@ -6,49 +6,16 @@
  *	Description: Esquemas de cores do jogo
  */
 
-/*--------Esquema de cores azuis--------*/
-.screen_1{/*tela de jogo/pontuação*/
-	border-color: #3A79A0;
-	background-color: #6DACD2;
-}
-.entity_1{/*snake e food*/
-	background-color: #185780;
-}
-
-/*--------Esquema de cores verdes--------*/
-.screen_2{
-	border-color: #699688;
-	background-color: #7CB9BB;
-}
-.entity_2{
-	background-color: #277466;
-}
-
-/*--------Esquema de cores amarelas--------*/
-.screen_3{
-	border-color: #888855;
-	background-color: #BBBB88;
-}
-.entity_3{
-	background-color: #666633;
-}
-
-/*--------Esquema de cores vermelhas--------*/
-.screen_4{
-	border-color: #CC6A52;
-	background-color: #FF9D85;
-}
-.entity_4{
-	background-color: #AA4830;
-}
-
-/*--------Esquema de cores preto/branco--------*/
-.screen_5{
-	border-color: #404040;
-	background-color: #CFCFCF;
-}
-.entity_5{
-	background-color: #202020;
+//gera as classes dos esquemas de cores estáticos
+@for $i from 1 through 5 {
+    .screen_#{$i} {
+    	border-color: nth($theme-border-color, $i);
+        background-color: nth($theme-bg-color, $i);
+    }
+    
+    .entity_#{$i} {
+    	background-color: nth($theme-entity-color, $i);
+    }
 }
 
 /*--------Esquema de cores dinâmico--------*/
