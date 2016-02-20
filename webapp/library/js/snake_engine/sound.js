@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 08 02 2016
+ *	Speed Snake Beta - 20 02 2016
  *
  *	File: sound.js
  *	Author: Victor Hugo Batista
@@ -66,7 +66,7 @@ function switchSound(newSound){//troca música por nova
 }
 
 function messageBeginGame(){//mensagem de início de jogo
-	return "<div class='txtCentralizado txtInicial' id='txtInicial'>" +
+	return "<div class='msg-inicial' id='txtInicial'>" +
 				"Controles:" +
 				"<p><img src='library/images/game/setas.png'></img></p>" +
 				"Pressione Espaço<br />para iniciar" +

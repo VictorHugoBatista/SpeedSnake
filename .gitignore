@@ -3,3 +3,6 @@ webapp/library/css
 
 # diretório com os módulos instalados pelo npm
 webapp/node_modules
+
+# cache gerado pela compilação do sass através do grunt
+webapp/.sass-cache

@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 08 02 2016
+ *	Speed Snake Beta - 20 02 2016
  *
  *	File: ranking.js
  *	Author: Victor Hugo Batista
@@ -12,7 +12,7 @@
 	|	msg = mensagem exibida no topo da mensagem gerada pelo programa
  */
 function messageScoreRanking(){
-	return "<div class='txtCentralizado txtResultado' id='txtResultado'>" +
+	return "<div class='msg-resultado' id='txtResultado'>" +
 				"<p>Você perdeu!<br/><br/>Nível:	"+gameLevel+"<br/>Pontuação:	"+gameScore+"</p>" +
 				"<form id='rankingForm'>" +
 					"Salvar Pontuação:<br/><input type='text' name='name' id='playerName' maxlength='3' placeholder='nome'/>" +
