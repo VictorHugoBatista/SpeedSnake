@@ -6,17 +6,7 @@
  *	Description: Elementos gerais da página + cabeçalho + rodapé
  */
 
-/*--------------------elementos gerais--------------------*/
-@font-face {
-    font-family: SegoeUiLight;
-    src: url('../fonts/segoeuil.eot');/*navegador IE*/
-} 
-
-@font-face {
-    font-family: SegoeUiLight;
-    src: url('../fonts/segoeuil.ttf');/*todos os outros navegadores*/
-}
- 
+/*--------------------elementos gerais--------------------*/ 
 body{
 	font-family: SegoeUiLight;
 	padding:0;
@@ -34,6 +24,12 @@ a, a:hover{
 }
 .text-underline{
 	text-decoration: underline;
+}
+.text-justify{
+	text-align: justify;
+}
+.text-center{
+	text-align: center;
 }
 
 %header-footer{/*elementos comuns do header e do footer*/

@@ -11,3 +11,13 @@
  $theme-border-color: 	#3A79A0, #699688, #888855, #CC6A52, #404040;
  $theme-bg-color: 		#6DACD2, #7CB9BB, #BBBB88, #FF9D85, #CFCFCF;
  $theme-entity-color: 	#185780, #277466, #666633, #AA4830, #202020;
+ 
+ @font-face {
+    font-family: SegoeUiLight;
+    src: url('../fonts/segoeuil.eot');/*navegador IE*/
+} 
+
+@font-face {
+    font-family: SegoeUiLight;
+    src: url('../fonts/segoeuil.ttf');/*todos os outros navegadores*/
+}
