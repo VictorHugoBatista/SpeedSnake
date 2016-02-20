@@ -1,2 +1,5 @@
 # diretório de css compilados a partir do SASS
 webapp/library/css
+
+# diretório com os módulos instalados pelo npm
+webapp/node_modules

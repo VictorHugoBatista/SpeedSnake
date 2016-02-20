@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="library/css/style.css">
 	</head>
 	<body>
-		<header class="headerNfooter">
+		<header>
 			<p><a href="index.html">Speed Snake Beta</a></p>			
 			<nav>
 				<ul>
@@ -30,8 +30,8 @@
 			</nav>			
 		</header>
 		
-		<section class="sectionContent sectionRanking">
-			<header class="headerNfooter headerContent">Ranking</header>
+		<section class="content-section sectionRanking">
+			<header class="content-header">Ranking</header>
 			<table>
 				<tr>
 					<th>Pos</th>
@@ -53,8 +53,8 @@
 			</table>
 		</section>
 		
-		<footer class="headerNfooter footerNormal">
-			<div class="githubLink">
+		<footer>
+			<div class="link-github">
 				<iframe class="follow" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&type=follow&count=false" frameborder="0" scrolling="0"></iframe>
 				<iframe class="star" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&repo=SpeedSnake&type=star&count=false" frameborder="0" scrolling="0"></iframe>
 			</div>
