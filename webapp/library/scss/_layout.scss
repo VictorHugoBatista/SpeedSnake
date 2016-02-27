@@ -10,6 +10,12 @@
 	width: 100%;
 }
 
+.container-full-height {
+	@extend .container;
+	
+	height: 100%;
+}
+
 //tamanho smartphone
 @media (min-width: $screen-min-smartphone) {
 }

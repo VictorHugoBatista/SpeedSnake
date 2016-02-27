@@ -38,21 +38,15 @@ a, a:hover{
 }
 
 /*--------------------cabeçalho da página--------------------*/
-.container-header {
-	@extend .container;
-	
-	height: 100%;
-}
-
-header {
+body > header {
 	@extend %header-footer;
 	
-	height: 35px;
+	height: 40px;
 	
 	border-bottom: 2px solid #000;
 	
 	p{//título do site
-		height: 85%;
+		height: 87%;
 	
 		margin-top: 0;
 		margin-bottom: 0;
@@ -99,9 +93,9 @@ header {
 			float: left;
 			
 			li{//link de menu
-				height: 85%;
+				height: 75%;
 				
-				padding-top: 5px;
+				padding-top: 10px;
 				
 				padding-left: 15px;
 				padding-right: 15px;
@@ -155,7 +149,7 @@ header {
 }
 
 /*--------------------rodapé da página--------------------*/
-footer {
+body > footer {
 	@extend %header-footer;
 	
 	width: auto;
