@@ -6,11 +6,6 @@
  *	Description: Elementos gerais da página + cabeçalho + rodapé
  */
 
-/*---------------------estilos gerais---------------------*/
-%header-footer{/*elementos comuns do header e do footer*/
-	background-color: #6DACD2;
-}
-
 /*--------------------elementos gerais--------------------*/ 
 body{
 	font-family: SegoeUiLight;
@@ -46,37 +41,18 @@ body > header {
 	border-bottom: 2px solid #000;
 	
 	p{//título do site
-		height: 87%;
-	
+		height: 100%;
+		
 		margin-top: 0;
 		margin-bottom: 0;
-		//margin-left: 19%;
 		
 		float: left;
 		
 		font-size: 15pt;
 		font-weight: bold;
 		
-		a {
-			height: 100%;
-			
-			display: block;
-			
-			padding-top: 5px;
-			padding-left: 15px;
-			padding-right: 15px;
-			
-			border-bottom: 2px solid;
-			
-			transition: all .5s ease-out;
-			
-			&:hover {
-				background-color: #EEE;
-					
-				color: #3A79A0 !important;
-					
-				border-color: #3A79A0;
-			}
+		a {			
+			@extend %main-menu-nav-item;
 		}
 	}
 	
@@ -93,28 +69,7 @@ body > header {
 			float: left;
 			
 			li{//link de menu
-				height: 75%;
-				
-				padding-top: 10px;
-				
-				padding-left: 15px;
-				padding-right: 15px;
-				
-				border-bottom: 2px solid;
-				
-				display: inline-block;
-				
-				transition: all .5s ease-out;
-				
-				&:hover{
-					background-color: #EEE;
-					
-					border-color: #3A79A0;
-					
-					a {
-						color: #3A79A0;
-					}
-				}
+				@extend %main-menu-nav-item;
 			}
 		}
 	}
