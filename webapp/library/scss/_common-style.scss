@@ -1,10 +1,15 @@
 /**
- *	Speed Snake Beta - 20 02 2016
+ *	Speed Snake Beta - 27 02 2016
  *
  *	File: _common_style.scss
  *	Author: Victor Hugo Batista
  *	Description: Elementos gerais da página + cabeçalho + rodapé
  */
+
+/*---------------------estilos gerais---------------------*/
+%header-footer{/*elementos comuns do header e do footer*/
+	background-color: #6DACD2;
+}
 
 /*--------------------elementos gerais--------------------*/ 
 body{
@@ -32,25 +37,96 @@ a, a:hover{
 	text-align: center;
 }
 
-%header-footer{/*elementos comuns do header e do footer*/
-	padding: 10px;
+/*--------------------cabeçalho da página--------------------*/
+.container-header {
+	@extend .container;
 	
-	background-color: #6DACD2;
-	
-	-webkit-box-shadow: 0px 0px 3px 4px rgba(0, 0, 0, 0.6);
-	-moz-box-shadow:    0px 0px 3px 4px rgba(0, 0, 0, 0.6);
-	box-shadow:         0px 0px 3px 4px rgba(0, 0, 0, 0.6);
+	height: 100%;
 }
 
 header {
 	@extend %header-footer;
+	
+	height: 35px;
+	
+	border-bottom: 2px solid #000;
+	
+	p{//título do site
+		height: 85%;
+	
+		margin-top: 0;
+		margin-bottom: 0;
+		//margin-left: 19%;
+		
+		float: left;
+		
+		font-size: 15pt;
+		font-weight: bold;
+		
+		a {
+			height: 100%;
+			
+			display: block;
+			
+			padding-top: 5px;
+			padding-left: 15px;
+			padding-right: 15px;
+			
+			border-bottom: 2px solid;
+			
+			transition: all .5s ease-out;
+			
+			&:hover {
+				background-color: #EEE;
+					
+				color: #3A79A0 !important;
+					
+				border-color: #3A79A0;
+			}
+		}
+	}
+	
+	nav{//menu do cabeçalho
+		height: 100%;
+	
+		float: left;
+		
+		ul{
+			height: 100%;
+			
+			margin: 0px;
+			//padding: 5px;			
+			float: left;
+			
+			li{//link de menu
+				height: 85%;
+				
+				padding-top: 5px;
+				
+				padding-left: 15px;
+				padding-right: 15px;
+				
+				border-bottom: 2px solid;
+				
+				display: inline-block;
+				
+				transition: all .5s ease-out;
+				
+				&:hover{
+					background-color: #EEE;
+					
+					border-color: #3A79A0;
+					
+					a {
+						color: #3A79A0;
+					}
+				}
+			}
+		}
+	}
 }
 
-footer {
-	@extend %header-footer;
-}
-
-.content-section{/*estilo das sections de conteúdo das páginas ranking e about*/
+.content-section{//estilo das sections de conteúdo das páginas ranking e about
 	margin-top: 20px !important;
 	padding: 15px;
 	
@@ -66,7 +142,7 @@ footer {
 	box-shadow:			inset 1px 1px 12px #000;
 }
 
-.content-header{/*estilo dos headers de conteúdo das páginas ranking e about*/
+.content-header{//estilo dos headers de conteúdo das páginas ranking e about
 	margin: 0 auto;
 	
 	width: 175px;
@@ -77,48 +153,20 @@ footer {
 	text-align: center;
 	font-weight: bold;
 }
-/*--------------------cabeçalho da página--------------------*/
-header{
-	height: 38px;
-	
-	p{//título do site
-		margin-top: 9px;
-		margin-left: 19%;
-		
-		float: left;
-		
-		font-size: 15pt;
-		font-weight: bold;
-	}
-	
-	nav{//menu do cabeçalho
-		margin-top: 9px;
-	
-		float: left;
-		
-		ul{
-			margin: 0px;
-			padding: 5px;			
-			float: left;
-			
-			li{//link de menu
-				margin-left: 20px;
-				margin-right: 20px;
-				
-				display: inline;
-			}
-		}
-	}
-}
 
 /*--------------------rodapé da página--------------------*/
-footer{
-	margin-top: 30px;
+footer {
+	@extend %header-footer;
 	
 	width: auto;
 	height: 20px;
+	
+	padding: 10px;
+	border-top: 1px solid #000;
+	
+	margin-top: 30px;
 }
- 
+
 .footer-fixed{/*posição fixa do footer*/
 	position: fixed;
 	bottom: 0px;
@@ -147,4 +195,20 @@ footer{
 	.star{
 		width: 50px;
 	}
+}
+
+//tamanho smartphone
+@media (min-width: $screen-min-smartphone) {
+}
+
+//tamanho tablets
+@media (min-width: $screen-min-tablet) {
+}
+
+//tamanho desktop
+@media (min-width: $screen-min-desktop) {
+}
+
+//tamanho desktop grande
+@media (min-width: $screen-min-large-desktop) {
 }

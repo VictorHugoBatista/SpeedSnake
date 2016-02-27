@@ -1,0 +1,41 @@
+/**
+ *	Speed Snake Beta - 27 02 2016
+ *
+ *	File: _layout.scss
+ *	Author: Victor Hugo Batista
+ *	Description: Estilos de layout de página. Inclui visibilidade/tamanho de containeres e elementos responsivos.
+ */
+ 
+.container {
+	width: 100%;
+}
+
+//tamanho smartphone
+@media (min-width: $screen-min-smartphone) {
+}
+
+//tamanho tablets
+@media (min-width: $screen-min-tablet) {
+	.container {
+		position: relative;
+		display: block;
+		
+		margin: 0 auto;
+		
+		width: 700px;
+	}
+}
+
+//tamanho desktop
+@media (min-width: $screen-min-desktop) {
+	.container {
+		width: 900px;
+	}
+}
+
+//tamanho desktop grande
+@media (min-width: $screen-min-large-desktop) {
+	.container {
+		width: 1000px;
+	}
+}

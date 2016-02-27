@@ -4,7 +4,7 @@
 <%@page import="org.victorhbatista.speedsnake.model.RankingItem" %>
 
 <!--
-	Speed Snake Beta - 20 02 2016
+	Speed Snake Beta - 27 02 2016
 
 	File: ranking.jsp
 	Author: Victor Hugo Batista
@@ -20,14 +20,16 @@
 	</head>
 	<body>
 		<header>
-			<p><a href="index.html">Speed Snake Beta</a></p>			
-			<nav>
-				<ul>
-					<li><a href="ranking.jsp">Ranking</a></li>
-					<li><a href="soundtrack.html">Trilha Sonora</a></li>
-					<li><a href="about.html">Sobre</a></li>
-				</ul>
-			</nav>			
+			<div class="container-header">
+				<p><a href="index.html">Speed Snake Beta</a></p>			
+				<nav>
+					<ul>
+						<li><a href="ranking.jsp">Ranking</a></li>
+						<li><a href="soundtrack.html">Trilha Sonora</a></li>
+						<li><a href="about.html">Sobre</a></li>
+					</ul>
+				</nav>
+			</div>	
 		</header>
 		
 		<section class="content-section sectionRanking">

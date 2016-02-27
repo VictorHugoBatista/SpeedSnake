@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 10 02 2015
+ *	Speed Snake Beta - 27 02 2015
  *
  *	File: _variables.scss
  *	Author: Victor Hugo Batista
@@ -11,6 +11,12 @@
  $theme-border-color: 	#3A79A0, #699688, #888855, #CC6A52, #404040;
  $theme-bg-color: 		#6DACD2, #7CB9BB, #BBBB88, #FF9D85, #CFCFCF;
  $theme-entity-color: 	#185780, #277466, #666633, #AA4830, #202020;
+ 
+ //tamanhos de tela
+ $screen-min-smartphone: 480px;
+ $screen-min-tablet: 768px;
+ $screen-min-desktop: 992px;
+ $screen-min-large-desktop: 1200px;
  
  @font-face {
     font-family: SegoeUiLight;
