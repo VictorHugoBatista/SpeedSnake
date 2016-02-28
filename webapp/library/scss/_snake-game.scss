@@ -13,24 +13,15 @@
 }
  
 .area{//Área de jogo
+	@include game-box(3px, 7px, 16px);
+	
 	position: relative;
 	
-	margin-left: 31%;
 	margin-top: 20px;
-	
-	border-width: 3px;
-	border-style: solid;
-	-webkit-border-radius: 7px;
-	-moz-border-radius: 7px;
-	border-radius: 7px;
 	
 	width: 420px;
 	height: 420px;
 	float: left;
-	
-	-moz-box-shadow:	inset 1px 1px 16px #000;
-	-webkit-box-shadow:	inset 1px 1px 16px #000;
-	box-shadow:			inset 1px 1px 16px #000;
 	
 	.part{//módulo genérico snake/food
 		position: absolute;
@@ -135,28 +126,20 @@
 }
 
 /*nível e pontuação do jogo*/
-.right-container{
+.left-container{
 	margin-top: 32px;
-	margin-left: 15px;
+	margin-right: 15px;
 	
 	float: left;
 	
 	.score-container{
-		border-width: 2px;
-		border-style: solid;
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
+		@include game-box(2px, 5px, 13px);
 		
 		padding: 10px;
 		
 		width: 130px;
 		
 		font-size: 15pt;
-		
-		-moz-box-shadow:	inset 1px 1px 13px #000;
-		-webkit-box-shadow:	inset 1px 1px 13px #000;
-		box-shadow:			inset 1px 1px 13px #000;
 		
 		.score{
 			float: right;
