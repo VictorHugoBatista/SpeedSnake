@@ -1,0 +1,29 @@
+/**
+ *	Speed Snake Beta - 28 02 2016
+ *
+ *	File: _forms.scss
+ *	Author: Victor Hugo Batista
+ *	Description: Estilos dos elementos de formulários
+ */
+
+form{
+	input[type="text"],
+	input[type="button"]{
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	
+	input[type="text"]{
+		width: 80px;
+		height: 20px;
+				
+		margin-right: 10px;
+				
+		text-align: center;
+	}
+			
+	input[type="button"]{
+		height: 25px;
+	}
+}
