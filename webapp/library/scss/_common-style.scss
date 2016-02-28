@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 27 02 2016
+ *	Speed Snake Beta - 28 02 2016
  *
  *	File: _common_style.scss
  *	Author: Victor Hugo Batista
@@ -41,12 +41,12 @@ body > header {
 	border-bottom: 2px solid #000;
 	
 	p{//título do site
+		display: inline-block;
+		
 		height: 100%;
 		
 		margin-top: 0;
 		margin-bottom: 0;
-		
-		float: left;
 		
 		font-size: 15pt;
 		font-weight: bold;
@@ -57,16 +57,17 @@ body > header {
 	}
 	
 	nav{//menu do cabeçalho
-		height: 100%;
+		display: inline-block;
 	
-		float: left;
+		position: absolute;
+		top: 0;
+	
+		height: 100%;
 		
 		ul{
 			height: 100%;
 			
-			margin: 0px;
-			//padding: 5px;			
-			float: left;
+			margin: 0px;		
 			
 			li{//link de menu
 				@extend %main-menu-nav-item;
