@@ -1,5 +1,5 @@
 /**
- *	Speed Snake Beta - 27 02 2016
+ *	Speed Snake Beta - 28 02 2016
  *
  *	File: _layout.scss
  *	Author: Victor Hugo Batista
@@ -7,6 +7,8 @@
  */
  
 .container {
+	position: relative;
+	
 	width: 100%;
 }
 
@@ -16,32 +18,81 @@
 	height: 100%;
 }
 
+.visible {
+  display: block !important;
+}
+
+.invisible {
+  display: none !important;
+}
+
+//estilos exclusivos para mobile menores
+@media (max-width: $screen-min-smartphone - 1){
+	.small-smartphone-visible {
+	  display: block !important;
+	}
+	
+	.small-smartphone-invisible {
+	  display: none !important;
+	}
+}
+
 //tamanho smartphone
-@media (min-width: $screen-min-smartphone) {
+@media (min-width: $screen-min-smartphone) /*and (max-width: $screen-min-tablet)*/{
+	.smartphone-visible {
+	  display: block !important;
+	}
+	
+	.smartphone-invisible {
+	  display: none !important;
+	}
 }
 
 //tamanho tablets
-@media (min-width: $screen-min-tablet) {
+@media (min-width: $screen-min-tablet) /*and (max-width: $screen-min-desktop)*/ {
 	.container {
-		position: relative;
 		display: block;
 		
 		margin: 0 auto;
 		
 		width: 700px;
 	}
+	
+	.tablet-visible {
+	  display: block !important;
+	}
+	
+	.tablet-invisible {
+	  display: none !important;
+	}
 }
 
 //tamanho desktop
-@media (min-width: $screen-min-desktop) {
+@media (min-width: $screen-min-desktop) /*and (max-width: $screen-min-large-desktop)*/ {
 	.container {
 		width: 900px;
+	}
+	
+	.desktop-visible {
+	  display: block !important;
+	}
+	
+	.desktop-invisible {
+	  display: none !important;
 	}
 }
 
 //tamanho desktop grande
 @media (min-width: $screen-min-large-desktop) {
 	.container {
-		width: 1000px;
+		//width: 1000px;
+	}
+	
+	.large-desktop-visible {
+	  display: block !important;
+	}
+	
+	.large-desktop-invisible {
+	  display: none !important;
 	}
 }

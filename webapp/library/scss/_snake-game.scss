@@ -13,15 +13,21 @@
 }
  
 .area{//Área de jogo
+	margin: 0 auto;
+	
 	@include game-box(3px, 7px, 16px);
 	
 	position: relative;
 	
 	margin-top: 20px;
+
+	width: 90%;
 	
-	width: 420px;
-	height: 420px;
-	float: left;
+	&:before {
+		content: '';
+		display: block;
+		padding-top: 100%;
+	}
 	
 	.part{//módulo genérico snake/food
 		position: absolute;
@@ -49,7 +55,10 @@
 	
 	/*mensagens do jogo*/
 	%msg-game{
-		width: 260px;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		//width: 260px;
 		
 		margin: 0 auto;
 		
@@ -78,6 +87,35 @@
 			font-size: 20pt;
 			font-weight: bold;
 		}
+	}
+}
+
+/*nível e pontuação do jogo*/
+.left-container{
+	margin-top: 32px;
+	
+	.score-container{
+		margin: 0 auto;
+	
+		@include game-box(2px, 5px, 13px);
+		
+		padding: 10px;
+		
+		width: 90%;//130px;
+		
+		font-size: 15pt;
+		
+		.score{
+			float: right;
+		}
+	}
+	.msg-score{
+		margin-top: 10px;
+		
+		width: 150px;
+		
+		font-weight: bold;
+		text-align: center;
 	}
 }
 
@@ -125,32 +163,52 @@
 	border-radius:			5px 0px 0px 5px;
 }
 
-/*nível e pontuação do jogo*/
-.left-container{
-	margin-top: 32px;
-	margin-right: 15px;
-	
-	float: left;
-	
-	.score-container{
-		@include game-box(2px, 5px, 13px);
-		
-		padding: 10px;
-		
-		width: 130px;
-		
-		font-size: 15pt;
-		
-		.score{
-			float: right;
+//estilos exclusivos para mobile menores
+@media (max-width: $screen-min-smartphone - 1){
+}
+
+//tamanho smartphone
+@media (min-width: $screen-min-smartphone)/* and (max-width: $screen-min-tablet)*/ {
+	.left-container {
+		.score-container {
+			width: 75%;
 		}
 	}
-	.msg-score{
-		margin-top: 10px;
-		
-		width: 150px;
-		
-		font-weight: bold;
-		text-align: center;
+	
+	.area {
+		width: 75%;
 	}
+}
+
+//tamanho tablets
+@media (min-width: $screen-min-tablet)/* and (max-width: $screen-min-desktop)*/ {
+	.area,
+	.left-container {
+		float: left;
+	}
+	
+	.area {
+		width: 420px;
+		height: 420px;
+		
+		&:before {
+			display: none;
+		}
+	}
+	
+	.left-container {
+		margin-right: 25px;
+		
+		.score-container {
+			width: 130px;
+		}
+	}
+}
+
+//tamanho desktop
+@media (min-width: $screen-min-desktop)/* and (max-width: $screen-min-large-desktop)*/ {
+}
+
+//tamanho desktop grande
+@media (min-width: $screen-min-large-desktop) {
 }

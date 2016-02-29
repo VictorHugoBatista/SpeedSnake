@@ -147,16 +147,24 @@ body > footer {
 	}
 }
 
+//estilos exclusivos para mobile menores
+@media (max-width: $screen-min-smartphone - 1){
+}
+
 //tamanho smartphone
-@media (min-width: $screen-min-smartphone) {
+@media (min-width: $screen-min-smartphone) and (max-width: $screen-min-tablet){
 }
 
 //tamanho tablets
-@media (min-width: $screen-min-tablet) {
+@media (min-width: $screen-min-tablet) and (max-width: $screen-min-desktop) {
+	.center-element {
+		display: inline-block;
+		margin: 0 auto;
+	}
 }
 
 //tamanho desktop
-@media (min-width: $screen-min-desktop) {
+@media (min-width: $screen-min-desktop) and (max-width: $screen-min-large-desktop) {
 }
 
 //tamanho desktop grande
