@@ -62,7 +62,9 @@ function killSnake(){
 	canStart = true;//ao fim, o jogo pode ser reiniciado
 	snakeAlive = false;
 	clearInterval(thread);//para thread
-	$("#area").html(messageScoreRanking());	
+	$("#area").html("<div class='txtCentralizado txtResultado' id='txtResultado'>" +
+		"Pressione Espaço<br />para reiniciar" +
+	"</div>");	
 	$("#gameScore, #gameLevel").empty();
 }
 
