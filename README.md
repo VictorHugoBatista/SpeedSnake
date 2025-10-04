@@ -9,12 +9,10 @@ Jogo web criado em homenagem aos jogos snake dos modelos antigos de celular, com
 
 Desenvolvedor: @VictorHugoBatista.
 
-Link do jogo: http://speedsnake-victorhbatista.rhcloud.com.
-
 Linguagens Utilizadas
 ---------------------
-  - HTML5, CSS3: front-end/design. Diretórios: webapp, webapp/css.
-  - JavaScript: engine do jogo. Diretório: webapp/js.
+  - HTML5, CSS3: front-end/design
+  - JavaScript: engine do jogo
 
 Bibliotecas Utilizadas
 ----------------------
