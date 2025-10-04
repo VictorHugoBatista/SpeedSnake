@@ -5,7 +5,11 @@ function Page(props) {
   return (
     <main>
       <Header />
-      {props.children}
+      <div className="page-content">
+        <div className="page-content-inner">
+          {props.children}
+        </div>
+      </div>
       <Footer />
     </main>
   );

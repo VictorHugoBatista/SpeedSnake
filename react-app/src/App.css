@@ -1,38 +1,133 @@
-.App {
+main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+body {
+  font-family: Silkscreen;
+  font-size: 18px;
+}
+
+.header {
+  align-items: center;
+  background-color: #fa9d46;
+  color: #2e3082;
+  display: flex;
+  justify-content: center;
+  padding: 15px 30px 15px;
+}
+
+.header ul {
+  margin: 0;
+}
+
+.header li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.header li:last-child {
+  margin-right: 0;
+}
+
+@keyframes headerTitle {
+  0% {
+    color: #fa9d46;
+    text-shadow: 1px 2px 1px rgba(46, 48, 130, 1);
+    transform: scale(1);
+  }
+  40% {
+    color: #fa9d46;
+    text-shadow: 1px 2px 1px rgba(46, 48, 130, 1);
+    transform: scale(1);
+  }
+  50% {
+    color: #2e3082;
+    text-shadow: 1px 2px 4px rgba(1, 1, 1, .7);
+    transform: scale(1.025);
+  }
+  90% {
+    color: #2e3082;
+    text-shadow: 1px 2px 4px rgba(1, 1, 1, .7);
+    transform: scale(1.025);
+  }
+  100% {
+    color: #fa9d46;
+    text-shadow: 1px 2px 1px rgba(46, 48, 130, 1);
+    transform: scale(1);
+  }
+}
+.header-title {
+  animation: 60s headerTitle ease-out infinite;
+  color: #fa9d46;
+  text-shadow: 1px 2px 1px #2e3082;
+  font-family: "Trade Winds";
+  font-size: 30px;
+}
+
+.page-content {
+  background-color: #fa9d46;
+  display: flex;
+  flex: 1;
+  padding: 0 30px 30px;
+}
+
+.page-content-inner {
+  align-items: center;
+  background: rgba(255, 255, 255, 10.05);
+  background: linear-gradient(180deg,rgba(255, 255, 255, .4) 0%, rgba(255, 255, 255, 1) 50%);
+  border-radius: 25px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 50px 30px 30px;
+}
+
+.footer {
+  background-color: #100040;
+  color: #00bb00;
+  padding: 15px 30px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes footerLinkGlow {
+  0% {
+    text-shadow: 2px 2px 0px rgba(0,187,0,1);
+  }
+  20% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,.9);
+  }
+  35% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,.4);
+  }
+  40% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,.7);
+  }
+  50% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,.2);
+  }
+  60% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,.7);
+  }
+  70% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,.3);
+  }
+  80% {
+    text-shadow: 2px 2px 6px rgba(0,187,0,0.9);
+  }
+  100% {
+    text-shadow: 2px 2px 0px rgba(0,187,0,1);
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.footer a {
+  animation: 1s footerLinkGlow ease-in-out 1s infinite reverse;
+  color: #00bb00;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mock-gamearea {
+  aspect-ratio: 1/1;
+  background-color: green;
+  border-radius: 4px;
+  height: calc(90% - 10px);
 }

@@ -3,7 +3,7 @@ import Page from '../layout/Page';
 function Game() {
   return (
     <Page>
-      game
+      <div className="mock-gamearea"></div>
     </Page>
   );
 }
