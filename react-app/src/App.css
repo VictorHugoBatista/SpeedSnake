@@ -129,5 +129,12 @@ body {
   aspect-ratio: 1/1;
   background-color: green;
   border-radius: 4px;
-  height: calc(90% - 10px);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .mock-gamearea {
+    height: calc(90% - 10px);
+    width: auto;
+  }
 }
