@@ -20,8 +20,8 @@ const Controls = function () {
   return (
     <>
       <div className="button-virtual-buttons">
-        <span>Press P to Pause</span>
         <div className="button button-blue" onClick={toggleControls}>Virtual controls</div>
+        <span>Press P to Pause</span>
       </div>
       {showControls ?
         <div className="controls">

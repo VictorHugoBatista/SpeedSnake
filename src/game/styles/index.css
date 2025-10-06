@@ -3,34 +3,34 @@
   flex-direction: column;
   flex: 0 0 auto;
   height: 100%;
+  width: 100%;
 }
 
 .game-area,
 .controls {
-  aspect-ratio: 1/1;
   background-color: #2e3082;
   background: linear-gradient(150deg,rgba(46, 48, 130, .15) 0%, rgba(46, 48, 130, .6) 30%, rgba(46, 48, 130, .85) 60%, rgba(46, 48, 130, 1) 100%);
   border-radius: 4px;
 }
 
 .game-area {
+  aspect-ratio: 1/1;
   margin-bottom: 20px;
-  height: calc(60% - 10px);
+  width: calc(100%);
 }
 
 .controls {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: calc(40% - 10px);
   justify-content: center;
+  width: 100%;
 }
 
 .controls-up,
 .controls-down {
   display: flex;
   flex-direction: row;
-  height: 100%;
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -86,9 +86,14 @@
 }
 
 @media (min-width: 768px) {
+  .game {
+    width: auto;
+  }
+
   .game-area {
     height: calc(90% - 10px);
     margin-bottom: 0;
+    width: auto;
   }
 
   .button-virtual-buttons {

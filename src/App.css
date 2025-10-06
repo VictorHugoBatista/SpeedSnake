@@ -1,14 +1,14 @@
 @import './game/styles/index.css';
 
+body {
+  font-family: Silkscreen;
+  font-size: 18px;
+}
+
 main {
   display: flex;
   height: 100vh;
   flex-direction: column;
-}
-
-body {
-  font-family: Silkscreen;
-  font-size: 18px;
 }
 
 .header {
