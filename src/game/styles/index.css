@@ -85,6 +85,11 @@
   display: none;
 }
 
+.button-virtual-buttons .button,
+.controls-text {
+  font-size: 14px;
+}
+
 @media (min-width: 768px) {
   .game {
     width: auto;
