@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Stage, Layer, Rect, Circle } from "react-konva";
+import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/store";
 
@@ -15,8 +15,11 @@ const GameArea = function () {
   }, []);
 
   const gameArea = useGameStore(state => state.gameArea);
+  const updateGameArea = useGameStore(state => state.updateGameArea);
 
-  console.log(gameArea, dimensions);
+  useEffect(() => {
+    updateGameArea();
+  }, []);
 
   return (
     <>
