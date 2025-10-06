@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 
 const useKeyboardShortcut = function ({
-  key,
+  keys,
   onKeyPressed
 }) {
   useEffect(() => {
     function keyDownHandler(e) {
-      if (e.key.toLowerCase() === key.toLowerCase()) {
+      if (keys.includes(e.key.toLowerCase())) {
         e.preventDefault();
         onKeyPressed();
       }

@@ -22,10 +22,34 @@ const Controls = function () {
 
   const changeDirection = useGameStore(state => state.changeDirection);
 
+  const changeDirectionEvents = {
+    UP: () => changeDirection("UP"),
+    LEFT: () => changeDirection("LEFT"),
+    DOWN: () => changeDirection("DOWN"),
+    RIGHT: () => changeDirection("RIGHT"),
+  };
+
   useKeyboardShortcut({
-    key: "W",
-    onKeyPressed: () => console.log("W pressed!"),
-  })
+    keys: ["w", "arrowup"],
+    onKeyPressed: () => changeDirectionEvents["UP"](),
+  });
+  useKeyboardShortcut({
+    keys: ["a", , "arrowleft"],
+    onKeyPressed: () => changeDirectionEvents["LEFT"](),
+  });
+  useKeyboardShortcut({
+    keys: ["s", "arrowdown"],
+    onKeyPressed: () => changeDirectionEvents["DOWN"](),
+  });
+  useKeyboardShortcut({
+    keys: ["d", "arrowright"],
+    onKeyPressed: () => changeDirectionEvents["RIGHT"](),
+  });
+
+  useKeyboardShortcut({
+    keys: ["p"],
+    onKeyPressed: () => console.log('PAUSE'),
+  });
 
   return (
     <>
@@ -36,12 +60,12 @@ const Controls = function () {
       {showControls ?
         <div className="controls">
           <div className="controls-up">
-            <div className="button controls-button" onClick={() => changeDirection("UP")}>up</div>
+            <div className="button controls-button" onClick={() => changeDirectionEvents["UP"]()}>up</div>
           </div>
           <div className="controls-down">
-            <div className="button controls-button" onClick={() => changeDirection("LEFT")}>left</div>
-            <div className="button controls-button" onClick={() => changeDirection("DOWN")}>down</div>
-            <div className="button controls-button" onClick={() => changeDirection("RIGHT")}>right</div>
+            <div className="button controls-button" onClick={() => changeDirectionEvents["LEFT"]()}>left</div>
+            <div className="button controls-button" onClick={() => changeDirectionEvents["DOWN"]()}>down</div>
+            <div className="button controls-button" onClick={() => changeDirectionEvents["RIGHT"]()}>right</div>
           </div>
         </div>
       : null}
