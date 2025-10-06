@@ -1,40 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Rect, Circle } from "react-konva";
 
+import { useGameStore } from "../states/store";
+
 const GameArea = function () {
   const gameAreaRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  console.log('dimensions 1', dimensions);
   useEffect(() => {
     if (gameAreaRef.current) {
       const { width, height } = gameAreaRef.current.getBoundingClientRect();
       setDimensions({ width, height });
-      console.log('dimensions 2', {width, height});
     }
   }, []);
+
+  const gameArea = useGameStore(state => state.gameArea);
+
+  console.log(gameArea, dimensions);
 
   return (
     <>
       <div className="game-area" ref={gameAreaRef}>
         <Stage width={dimensions.width} height={dimensions.height}>
           <Layer>
-            <Rect
-              x={500}
-              y={500}
-              width={100}
-              height={100}
-              fill="red"
-              shadowBlur={10}
-              draggable
-            />
-            <Circle
-              x={100}
-              y={100}
-              radius={50}
-              fill="green"
-              draggable
-            />
+            {gameArea.map(item => (<Rect
+              x={(item.x / 100) * dimensions.width}
+              y={(item.y / 100) * dimensions.height}
+              width={(item.size / 100) * dimensions.width}
+              height={(item.size / 100) * dimensions.height}
+              fill="#fa9d46"
+            />))}
           </Layer>
         </Stage>
       </div>
