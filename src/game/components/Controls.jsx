@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import useScreenSize from "../../utils/screenSize";
+import useKeyboardShortcut from "../../utils/keyboardShortcut";
 
 import { useGameStore } from "../states/store";
 
@@ -21,6 +22,11 @@ const Controls = function () {
 
   const changeDirection = useGameStore(state => state.changeDirection);
 
+  useKeyboardShortcut({
+    key: "W",
+    onKeyPressed: () => console.log("W pressed!"),
+  })
+
   return (
     <>
       <div className="button-virtual-buttons">
@@ -30,12 +36,12 @@ const Controls = function () {
       {showControls ?
         <div className="controls">
           <div className="controls-up">
-            <div className="button controls-button" onClick={changeDirection("UP")}>up</div>
+            <div className="button controls-button" onClick={() => changeDirection("UP")}>up</div>
           </div>
           <div className="controls-down">
-            <div className="button controls-button" onClick={changeDirection("LEFT")}>left</div>
-            <div className="button controls-button" onClick={changeDirection("DOWN")}>down</div>
-            <div className="button controls-button" onClick={changeDirection("RIGHT")}>right</div>
+            <div className="button controls-button" onClick={() => changeDirection("LEFT")}>left</div>
+            <div className="button controls-button" onClick={() => changeDirection("DOWN")}>down</div>
+            <div className="button controls-button" onClick={() => changeDirection("RIGHT")}>right</div>
           </div>
         </div>
       : null}
