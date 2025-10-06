@@ -20,11 +20,16 @@ body {
 
 .header ul {
   margin: 0;
+  padding: 0;
 }
 
 .header li {
   display: inline-block;
   margin-right: 20px;
+}
+
+.header a {
+  color: #2e3082;
 }
 
 .header li:last-child {
@@ -64,6 +69,7 @@ body {
   text-shadow: 1px 2px 1px #2e3082;
   font-family: "Trade Winds";
   font-size: 30px;
+  margin: 0 30px
 }
 
 .page-content {

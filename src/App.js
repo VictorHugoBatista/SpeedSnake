@@ -3,8 +3,8 @@ import './App.css';
 import GoogleFontLoader from 'react-google-font';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
+import About from './pages/About';
 import Game from './pages/Game';
-import Soundtrack from './pages/Soundtrack';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Game />} />
-          <Route path="/soundtrack" element={<Soundtrack />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </HashRouter>
     </>

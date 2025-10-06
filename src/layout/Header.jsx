@@ -3,17 +3,21 @@ import { Link } from 'react-router';
 function Header() {
   return (
     <header className="header">
-      <span className="header-title">SpeedSnake 2025</span>
-      {/* <nav>
+      <nav>
         <ul>
           <li>
-            <Link to="/">Game</Link>
-          </li>
-          <li>
-            <Link to="/soundtrack">Soundtrack</Link>
+            <Link to="/about">About</Link>
           </li>
         </ul>
-      </nav> */}
+      </nav>
+      <span className="header-title">SpeedSnake 2025</span>
+      <nav>
+        <ul>
+          <li>
+            <a target="_blank" href="/legacy">Legacy</a>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

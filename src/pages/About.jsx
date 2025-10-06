@@ -1,11 +1,11 @@
 import Page from '../layout/Page';
 
-function Soundtrack() {
+function About() {
   return (
     <Page>
-      soundtrack
+      about
     </Page>
   );
 }
 
-export default Soundtrack;
+export default About;
