@@ -1,3 +1,3 @@
 export const constants = {
-  stepSizePercent: 3,
+  stepSizePercent: 2.5,
 };

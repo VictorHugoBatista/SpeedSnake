@@ -15,11 +15,16 @@ const GameArea = function () {
   }, []);
 
   const gameArea = useGameStore(state => state.gameArea);
+  const makeStep = useGameStore(state => state.makeStep);
   const updateGameArea = useGameStore(state => state.updateGameArea);
 
   useEffect(() => {
     updateGameArea();
-  }, []);
+    setTimeout(() => {
+      makeStep();
+      updateGameArea();
+    }, 1000);
+  }, [updateGameArea]);
 
   return (
     <>
@@ -27,6 +32,7 @@ const GameArea = function () {
         <Stage width={dimensions.width} height={dimensions.height}>
           <Layer>
             {gameArea.map(item => (<Rect
+            key={`${item.x}_${item.y}`}
               x={(item.x / 100) * dimensions.width}
               y={(item.y / 100) * dimensions.height}
               width={(item.size / 100) * dimensions.width}

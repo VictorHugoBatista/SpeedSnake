@@ -3,6 +3,7 @@ import {create} from "zustand";
 import { constants } from "./constants";
 
 export const useGameStore = create(set => ({
+  direction: "RIGHT",
   snake: [
     {
       x: 50,
@@ -48,6 +49,29 @@ export const useGameStore = create(set => ({
     part.size = constants.stepSizePercent;
     snakeToUpdate.push((part));
     return {snake: snakeToUpdate};
+  })),
+  makeStep: () =>  (set((state) => {
+    const snakeToStep = structuredClone(state.snake);
+    const [snakeHead] = structuredClone(snakeToStep);
+    switch (state.direction) {
+      case "UP":
+        snakeHead.y = snakeHead.y - constants.stepSizePercent;
+        break;
+      case "DOWN":
+        snakeHead.y = snakeHead.y + constants.stepSizePercent;
+        break;
+      case "RIGHT":
+        snakeHead.x = snakeHead.x + constants.stepSizePercent;
+        break;
+      case "LEFT":
+        snakeHead.x = snakeHead.x - constants.stepSizePercent;
+    }
+
+    const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
+
+    const snakeMoved = [snakeHead, ...snakeNewBody];
+
+    return {snake: snakeMoved};
   })),
   updateGameArea: () => (set((state) => {
     state.gameArea = state.snake.slice(0);
