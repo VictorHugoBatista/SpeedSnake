@@ -60,6 +60,10 @@
   opacity: 1;
 }
 
+.button:active {
+  transform: scale(1);
+}
+
 .button-blue {
   background: linear-gradient(150deg,rgba(46, 48, 130, .6) 0%, rgba(46, 48, 130, .8) 30% 100%);
   color: white;
