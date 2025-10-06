@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/store";
+import useGameLoop from "./gameLoop";
 
 const GameArea = function () {
   const gameAreaRef = useRef(null);
@@ -18,13 +19,11 @@ const GameArea = function () {
   const makeStep = useGameStore(state => state.makeStep);
   const updateGameArea = useGameStore(state => state.updateGameArea);
 
-  useEffect(() => {
+  const gameLoop = () => {
+    makeStep();
     updateGameArea();
-    setTimeout(() => {
-      makeStep();
-      updateGameArea();
-    }, 1000);
-  }, [updateGameArea]);
+  };
+  useGameLoop(gameLoop);
 
   return (
     <>

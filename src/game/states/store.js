@@ -43,42 +43,54 @@ export const useGameStore = create(set => ({
     type: "snake",
   },
   gameArea: {},
-  addSnakeItem: part => (set((state) => {
-    const snakeToUpdate = structuredClone(state.snake);
-    part.size = constants.stepSizePercent;
-    snakeToUpdate.push((part));
-    return {snake: snakeToUpdate};
-  })),
-  makeStep: () =>  (set((state) => {
-    const snakeToStep = structuredClone(state.snake);
-    const [snakeHead] = structuredClone(snakeToStep);
-    switch (state.direction) {
-      case "UP":
-        snakeHead.y = snakeHead.y - constants.stepSizePercent;
-        break;
-      case "DOWN":
-        snakeHead.y = snakeHead.y + constants.stepSizePercent;
-        break;
-      case "RIGHT":
-        snakeHead.x = snakeHead.x + constants.stepSizePercent;
-        break;
-      case "LEFT":
-        snakeHead.x = snakeHead.x - constants.stepSizePercent;
-    }
 
-    const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
+  changeDirection: newDirection => {
+    set(() => ({direction: newDirection}));
+  },
 
-    const snakeMoved = [snakeHead, ...snakeNewBody];
+  makeStep: () => {
+    set((state) => {
+      const snakeToStep = structuredClone(state.snake);
+      const [snakeHead] = structuredClone(snakeToStep);
+      switch (state.direction) {
+        case "UP":
+          snakeHead.y = snakeHead.y - constants.stepSizePercent;
+          break;
+        case "DOWN":
+          snakeHead.y = snakeHead.y + constants.stepSizePercent;
+          break;
+        case "RIGHT":
+          snakeHead.x = snakeHead.x + constants.stepSizePercent;
+          break;
+        case "LEFT":
+          snakeHead.x = snakeHead.x - constants.stepSizePercent;
+      }
 
-    return {snake: snakeMoved};
-  })),
-  updateGameArea: () => (set((state) => {
-    const newGameArea = {};
-    state.snake.forEach(part => {
-      newGameArea[`${part.x}_${part.y}`] = part;
+      const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
+
+      const snakeMoved = [snakeHead, ...snakeNewBody];
+
+      return {snake: snakeMoved};
     });
-    newGameArea[`${state.food.x}_${state.food.y}`] = state.food;
+  },
+  updateGameArea: () => {
+    set((state) => {
+      const newGameArea = {};
+      state.snake.forEach(part => {
+        newGameArea[`${part.x}_${part.y}`] = part;
+      });
+      newGameArea[`${state.food.x}_${state.food.y}`] = state.food;
 
-    return {gameArea: newGameArea};
-  })),
+      return {gameArea: newGameArea};
+    });
+  },
+
+  addSnakeItem: part => {
+    set((state) => {
+      const snakeToUpdate = structuredClone(state.snake);
+      part.size = constants.stepSizePercent;
+      snakeToUpdate.push((part));
+      return {snake: snakeToUpdate};
+    });
+  },
 }));
