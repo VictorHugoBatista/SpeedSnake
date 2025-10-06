@@ -31,12 +31,12 @@ const GameArea = function () {
       <div className="game-area" ref={gameAreaRef}>
         <Stage width={dimensions.width} height={dimensions.height}>
           <Layer>
-            {gameArea.map(item => (<Rect
-            key={`${item.x}_${item.y}`}
-              x={(item.x / 100) * dimensions.width}
-              y={(item.y / 100) * dimensions.height}
-              width={(item.size / 100) * dimensions.width}
-              height={(item.size / 100) * dimensions.height}
+            {Object.keys(gameArea).map(key => (<Rect
+            key={key}
+              x={(gameArea[key].x / 100) * dimensions.width}
+              y={(gameArea[key].y / 100) * dimensions.height}
+              width={(gameArea[key].size / 100) * dimensions.width}
+              height={(gameArea[key].size / 100) * dimensions.height}
               fill="#fa9d46"
             />))}
           </Layer>

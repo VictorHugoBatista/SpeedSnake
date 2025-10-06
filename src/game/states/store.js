@@ -42,10 +42,9 @@ export const useGameStore = create(set => ({
     size: constants.stepSizePercent,
     type: "snake",
   },
-  gameArea: [
-  ],
+  gameArea: {},
   addSnakeItem: part => (set((state) => {
-    const snakeToUpdate = state.snake.slice(0);
+    const snakeToUpdate = structuredClone(state.snake);
     part.size = constants.stepSizePercent;
     snakeToUpdate.push((part));
     return {snake: snakeToUpdate};
@@ -74,8 +73,12 @@ export const useGameStore = create(set => ({
     return {snake: snakeMoved};
   })),
   updateGameArea: () => (set((state) => {
-    state.gameArea = state.snake.slice(0);
-    state.gameArea.push(state.food);
-    return {gameArea: state.gameArea}
+    const newGameArea = {};
+    state.snake.forEach(part => {
+      newGameArea[`${part.x}_${part.y}`] = part;
+    });
+    newGameArea[`${state.food.x}_${state.food.y}`] = state.food;
+
+    return {gameArea: newGameArea};
   })),
 }));
