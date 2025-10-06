@@ -96,6 +96,11 @@
   }
 
   .controls {
-    display: none
+    aspect-ratio: auto;
+    bottom: 10px;
+    height: 200px;
+    position: fixed;
+    right: 10px;
+    width: 300px;
   }
 }
