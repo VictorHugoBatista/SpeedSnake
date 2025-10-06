@@ -1,9 +1,10 @@
 import Page from '../layout/Page';
+import Main from '../game/components/Main';
 
 function Game() {
   return (
     <Page>
-      <div className="mock-gamearea"></div>
+      <Main />
     </Page>
   );
 }

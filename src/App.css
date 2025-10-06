@@ -1,3 +1,5 @@
+@import './game/styles/index.css';
+
 main {
   display: flex;
   height: 100vh;
@@ -129,18 +131,4 @@ body {
 .footer a {
   animation: 1s footerLinkGlow ease-in-out 1s infinite reverse;
   color: #00bb00;
-}
-
-.mock-gamearea {
-  aspect-ratio: 1/1;
-  background-color: green;
-  border-radius: 4px;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .mock-gamearea {
-    height: calc(90% - 10px);
-    width: auto;
-  }
 }
