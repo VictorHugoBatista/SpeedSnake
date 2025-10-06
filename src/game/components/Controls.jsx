@@ -1,14 +1,18 @@
 const Controls = function () {
   return (
     <>
+      <div class="button-virtual-buttons">
+        <span>Press P to Pause</span>
+        <div className="button button-blue">Virtual controls</div>
+      </div>
       <div className="controls">
         <div className="controls-up">
-          <div className="controls-button">up</div>
+          <div className="button controls-button">up</div>
         </div>
         <div className="controls-down">
-          <div className="controls-button">left</div>
-          <div className="controls-button">down</div>
-          <div className="controls-button">right</div>
+          <div className="button controls-button">left</div>
+          <div className="button controls-button">down</div>
+          <div className="button controls-button">right</div>
         </div>
       </div>
     </>

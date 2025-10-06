@@ -45,24 +45,54 @@
   align-items: first baseline;
 }
 
+.button {
+  border-radius: 4px;
+  background: linear-gradient(150deg,rgba(250, 157, 70, .6) 0%, rgba(250, 157, 70, .8) 30% 100%);
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  transition: 300ms ease-in-out;
+  opacity: 1;
+}
+
+.button-blue {
+  background: linear-gradient(150deg,rgba(46, 48, 130, .6) 0%, rgba(46, 48, 130, .8) 30% 100%);
+  color: white;
+}
+
 .controls-button {
   align-items: center;
   aspect-ratio: 1/1;
-  background-color: #2e3082;
-  background: linear-gradient(150deg,rgba(250, 157, 70, .6) 0%, rgba(250, 157, 70, .8) 30% 100%);
-  border-radius: 4px;
-  color: white;
+  color: #2e3082;
   display: flex;
   font-size: 20px;
   justify-content: center;
   margin: 10px;
+  padding: 0;
   width: calc(33% - 20px);
+}
+
+.button-virtual-buttons {
+  display: none;
 }
 
 @media (min-width: 768px) {
   .game-area {
     height: calc(90% - 10px);
     margin-bottom: 0;
+  }
+
+  .button-virtual-buttons {
+    align-items: center;
+    display: flex;
+    margin-top: 10px;
+    flex-flow: row;
+    justify-content: space-between;
   }
 
   .controls {
