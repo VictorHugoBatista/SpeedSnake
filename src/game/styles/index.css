@@ -36,12 +36,13 @@
   position: absolute;
   top: 0;
   transition: 200ms ease-out;
-  z-index: 2;
+  z-index: -1;
   width: 100%;
 }
 
 .game-area-overlay.active {
   opacity: .95;
+  z-index: 2;
 }
 
 .game-area-overlay.active.clickable {

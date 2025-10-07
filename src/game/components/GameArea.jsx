@@ -13,9 +13,11 @@ const GameArea = function () {
 
   const isPaused = useGameStore(state => state.isPaused);
   const gameArea = useGameStore(state => state.gameArea);
-  const startGame = useGameStore(state => state.startGame);
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
   const showEndOverlay = useGameStore(state => state.showEndOverlay);
+  const showReadyCountOverlay = useGameStore(state => state.showReadyCountOverlay);
+
+  const startReadyCount = useGameStore(state => state.startReadyCount);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
 
   const gameLoop = (deltaTime) => {
@@ -25,16 +27,20 @@ const GameArea = function () {
 
   return (
     <div className={`game-area`} ref={gameAreaRef}>
-      <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
-      <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startGame()}>
+      <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startReadyCount()}>
         {screenSize.width >= 768 ? <span>Press Start or click here</span> : null}
         {screenSize.width < 768 ? <span>Tap to start</span> : null}
       </div>
-      <div className={`game-area-overlay clickable ${showEndOverlay ? 'active' : ''}`} onClick={() => startGame()}>
+      <div className={`game-area-overlay clickable ${showEndOverlay ? 'active' : ''}`} onClick={() => startReadyCount()}>
         <span>You lose!</span>
         {screenSize.width >= 768 ? <span>Press Start or click to restart</span> : null}
         {screenSize.width < 768 ? <span>Tap to restart</span> : null}
       </div>
+      <div className={`game-area-overlay ${showReadyCountOverlay ? 'active' : ''}`}>
+        Ready
+      </div>
+      <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
+
       <Stage width={dimensions.width} height={dimensions.height}>
         <Layer>
           {Object.keys(gameArea).map(key => (<Rect

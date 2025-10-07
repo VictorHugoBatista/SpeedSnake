@@ -19,6 +19,8 @@ export const useGameStore = create((set, get) => ({
   // Main state, the game area will reflect what is here.
   gameArea: {},
 
+  readyCountTimeAccumulator: 0,
+
   // Stores the partial time until the next game loop iteration.
   gameLoopIterationTimeAccumulator: 0,
 
@@ -39,6 +41,7 @@ export const useGameStore = create((set, get) => ({
   isRunning: false,
   isPaused: false,
   showStartOverlay: true,
+  showReadyCountOverlay: false,
   showEndOverlay: false,
 
   // ------------------------------------------------------------
@@ -181,6 +184,12 @@ export const useGameStore = create((set, get) => ({
   },
 
   // ------------------------------------------------------------
+  startReadyCount: () => {
+    set(() => ({
+      showStartOverlay: false,
+      showReadyCountOverlay: true,
+    }));
+  },
 
   // Initialize snake, the direction and reset food location.
   // Hide all overlays.

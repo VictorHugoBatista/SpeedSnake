@@ -22,7 +22,7 @@ const Controls = function () {
 
   const changeDirection = useGameStore(state => state.changeDirection);
   const togglePause = useGameStore(state => state.togglePause);
-  const startGame = useGameStore(state => state.startGame);
+  const startReadyCount = useGameStore(state => state.startReadyCount);
 
   const changeDirectionEvents = {
     UP: () => changeDirection("UP"),
@@ -50,7 +50,7 @@ const Controls = function () {
 
   useKeyboardShortcut({
     keys: ["enter"],
-    onKeyPressed: () => startGame(),
+    onKeyPressed: () => startReadyCount(),
   });
 
   useKeyboardShortcut({

@@ -3,6 +3,7 @@ export const gameAreaMinPositionPercent = 0;
 export const gameAreaMaxPositionPercent = 100 - stepSizePercent;
 
 export const iterationTimeInMilliseconds = 50;
+export const readyCountTimeInMilliseconds= 3000;
 
 export const notAllowedDirectionChanges = {
   RIGHT: "LEFT",
