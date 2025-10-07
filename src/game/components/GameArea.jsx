@@ -13,8 +13,9 @@ const GameArea = function () {
 
   const isPaused = useGameStore(state => state.isPaused);
   const gameArea = useGameStore(state => state.gameArea);
-  const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
+  const startGame = useGameStore(state => state.startGame);
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
+  const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
 
   const gameLoop = (deltaTime) => {
     mainLoopIteration(deltaTime);
@@ -24,8 +25,8 @@ const GameArea = function () {
   return (
     <div className={`game-area`} ref={gameAreaRef}>
       <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
-      <div className={`game-area-overlay ${showStartOverlay ? 'active' : ''}`}>
-        {screenSize.width >= 768 ? <span>Press space to start</span> : null}
+      <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startGame()}>
+        {screenSize.width >= 768 ? <span>Click to start</span> : null}
         {screenSize.width < 768 ? <span>Tap to start</span> : null}
       </div>
       <Stage width={dimensions.width} height={dimensions.height}>

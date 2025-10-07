@@ -204,6 +204,14 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
+  startGame: () => {
+    set(() => ({
+      showStartOverlay: false,
+      showEndOverlay: false,
+      isRunning: true,
+    }));
+  },
+
   // Pausing / unpausing operations.
   togglePause: () => {
     set((state) => ({
