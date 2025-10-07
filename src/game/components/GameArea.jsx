@@ -19,7 +19,8 @@ const GameArea = function () {
   useGameLoop(gameLoop);
 
   return (
-    <div className={`game-area ${isPaused ? 'paused' : ''}`} ref={gameAreaRef}>
+    <div className={`game-area`} ref={gameAreaRef}>
+      <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
       <Stage width={dimensions.width} height={dimensions.height}>
         <Layer>
           {Object.keys(gameArea).map(key => (<Rect

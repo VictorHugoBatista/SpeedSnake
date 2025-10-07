@@ -21,12 +21,11 @@
   width: calc(100%);
 }
 
-.game-area::after {
+.game-area-overlay {
   align-items: center;
   background-color: rgba(0, 0, 0, .35);
   border-radius: 4px;
   color: #FFF;
-  content: 'Paused';
   display: flex;
   font-size: 40px;
   height: 100%;
@@ -39,7 +38,7 @@
   width: 100%;
 }
 
-.game-area.paused::after {
+.game-area-overlay.active {
   opacity: 1;
 }
 
