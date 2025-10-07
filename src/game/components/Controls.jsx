@@ -31,19 +31,19 @@ const Controls = function () {
   };
 
   useKeyboardShortcut({
-    keys: ["w", "arrowup"],
+    keys: ["w", "arrowup", "k"],
     onKeyPressed: () => changeDirectionEvents["UP"](),
   });
   useKeyboardShortcut({
-    keys: ["a", "arrowleft"],
+    keys: ["a", "arrowleft", "h"],
     onKeyPressed: () => changeDirectionEvents["LEFT"](),
   });
   useKeyboardShortcut({
-    keys: ["s", "arrowdown"],
+    keys: ["s", "arrowdown", "j"],
     onKeyPressed: () => changeDirectionEvents["DOWN"](),
   });
   useKeyboardShortcut({
-    keys: ["d", "arrowright"],
+    keys: ["d", "arrowright", "l"],
     onKeyPressed: () => changeDirectionEvents["RIGHT"](),
   });
 
