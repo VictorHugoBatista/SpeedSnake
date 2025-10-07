@@ -48,7 +48,10 @@ export const useGameStore = create((set, get) => ({
     type: "snake",
   },
   gameArea: {},
+  isPaused: false,
   timeForNextLoopIteration: 0,
+
+  // ------------------------------------------------------------
 
   // Direction operations.
   changeDirection: newDirection => {
@@ -60,6 +63,8 @@ export const useGameStore = create((set, get) => ({
       return {direction: newDirection};
     });
   },
+
+  // ------------------------------------------------------------
 
   // Movement operations.
   makeStep: () => {
@@ -99,6 +104,8 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
+  // ------------------------------------------------------------
+
   // Adding snake iem operations.
   addSnakeItem: part => {
     set((state) => {
@@ -109,6 +116,20 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
+  // ------------------------------------------------------------
+
+  // Pausing / unpausing operations.
+  togglePause: () => {
+    set((state) => ({
+      isPaused: ! state.isPaused,
+    }));
+  },
+
+  // ------------------------------------------------------------
+
+  // Calculate if the current game loop iteration complete the actual game iteration time.
+  // It sums the time in a state until it overflows, then back reset it to zero again.
+  // @see mainLoopIteration
   updateTime: deltaTime => {
     set((state) => {
       const newTime = state.iterationTimeInMilliseconds + deltaTime;
@@ -121,12 +142,20 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
+  // ------------------------------------------------------------
+
   // Main loop.
   mainLoopIteration: (deltaTime) => {
     const state = get();
 
+    // If iteration time state not back to zero, isn't time for execute the game iteration.
+    // @see updateTime
     state.updateTime(deltaTime);
     if (state.iterationTimeInMilliseconds > 0) {
+      return;
+    }
+
+    if (state.isPaused) {
       return;
     }
 

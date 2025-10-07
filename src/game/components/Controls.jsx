@@ -21,6 +21,7 @@ const Controls = function () {
   };
 
   const changeDirection = useGameStore(state => state.changeDirection);
+  const togglePause = useGameStore(state => state.togglePause);
 
   const changeDirectionEvents = {
     UP: () => changeDirection("UP"),
@@ -48,7 +49,7 @@ const Controls = function () {
 
   useKeyboardShortcut({
     keys: ["p"],
-    onKeyPressed: () => console.log('PAUSE'),
+    onKeyPressed: () => togglePause(),
   });
 
   return (
