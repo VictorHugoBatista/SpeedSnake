@@ -61,8 +61,9 @@ export const useGameStore = create((set, get) => ({
   timeForNextLoopIteration: 0,
 
   // ------------------------------------------------------------
+  // ------------------------------------------------------------
 
-  // Direction operations.
+  // Change the direction. Deny going to the opposite direction.
   changeDirection: newDirection => {
     set((state) => {
       if (notAllowedDirectionChanges[newDirection] === state.direction) {
@@ -75,7 +76,9 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
-  // Movement operations.
+  // Make a step, deppending on the current direction.
+  // Can move across the game border for reaches it.
+  // @see tryToStepAcrossBorder
   makeStep: () => {
     set((state) => {
       const snakeToStep = structuredClone(state.snake);
@@ -95,6 +98,8 @@ export const useGameStore = create((set, get) => ({
       }
       snakeHead = state.tryToStepAcrossBorder(snakeHead);
 
+      // Add last snake part to a separated state, for the case the food is being eaten.
+      // @see incrementSnake()
       const snakePartToExclude = snakeToStep.at(-1);
       const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
 
@@ -104,6 +109,9 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
+  // Calculate the jump across the border.
+  // Warning: Doesn't use nothung from the state.
+  // @see tryToStepAcrossBorder
   tryToStepAcrossBorder: (newPositionCandidate) => {
     if (newPositionCandidate.x < gameAreaMinPositionPercent) {
       newPositionCandidate.x = gameAreaMaxPositionPercent;
@@ -126,7 +134,7 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
-  // Collisions and positioning.
+  // If there's a collision, return the object with position and type.
   checkCollision: () => {
     const state = get();
     const [ newPosition ] = state.snake;
@@ -143,12 +151,13 @@ export const useGameStore = create((set, get) => ({
     return state.gameArea[collision];
   },
 
+  // Execute different actions  the type of object from the collision.
   processCollision: (collision) => {
     const state = get();
     switch (collision.type) {
       case "food":
         state.incrementSnake();
-        state.generateNewFood();
+        state.generateNewFoodLocation();
         break;
       case "snake":
       case "map":
@@ -158,16 +167,26 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
-  // Adding snake part and food operations.
-  generateNewFood: () => {
+  // Generate a new food location, but, if the new one
+  // overlaps something in the game area, calculate again.
+  generateNewFoodLocation: () => {
     set((state) => {
-      const oldFoodLocation = structuredClone(state.food);
-      oldFoodLocation.x = randomStep();
-      oldFoodLocation.y = randomStep();
-      return {food: oldFoodLocation};
+      let foodLocationString;
+      const foodLocation = structuredClone(state.food);
+
+      do {
+        foodLocation.x = randomStep();
+        foodLocation.y = randomStep();
+
+        foodLocationString = genStringPosition(foodLocation);
+      } while(state.gameArea[foodLocationString]);
+
+      return {food: foodLocation};
     });
   },
 
+  // Get the snakePartToExclude object back as a snake part to incrase its size.
+  // @see makeStep()
   incrementSnake: () => {
     set((state) => {
       const snakeToUpdate = structuredClone(state.snake);
@@ -186,10 +205,11 @@ export const useGameStore = create((set, get) => ({
   },
 
   // ------------------------------------------------------------
+  // ------------------------------------------------------------
 
   // Calculate if the current game loop iteration complete the actual game iteration time.
   // It sums the time in a state until it overflows, then back reset it to zero again.
-  // @see mainLoopIteration
+  // @see mainLoopIteration()
   updateTime: deltaTime => {
     set((state) => {
       const newTime = state.iterationTimeInMilliseconds + deltaTime;
@@ -202,6 +222,7 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
+  // ------------------------------------------------------------
   // ------------------------------------------------------------
 
   // Update the main state with the game changes.
@@ -218,13 +239,14 @@ export const useGameStore = create((set, get) => ({
   },
 
   // ------------------------------------------------------------
+  // ------------------------------------------------------------
 
   // Main loop.
   mainLoopIteration: (deltaTime) => {
     const state = get();
 
     // If iteration time state not back to zero, isn't time for execute the game iteration.
-    // @see updateTime
+    // @see updateTime()
     state.updateTime(deltaTime);
     if (state.iterationTimeInMilliseconds > 0) {
       return;
