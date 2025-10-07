@@ -15,6 +15,7 @@ const GameArea = function () {
   const gameArea = useGameStore(state => state.gameArea);
   const startGame = useGameStore(state => state.startGame);
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
+  const showEndOverlay = useGameStore(state => state.showEndOverlay);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
 
   const gameLoop = (deltaTime) => {
@@ -28,6 +29,11 @@ const GameArea = function () {
       <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startGame()}>
         {screenSize.width >= 768 ? <span>Press Start or click here</span> : null}
         {screenSize.width < 768 ? <span>Tap to start</span> : null}
+      </div>
+      <div className={`game-area-overlay clickable ${showEndOverlay ? 'active' : ''}`} onClick={() => startGame()}>
+        <span>You lose!</span>
+        {screenSize.width >= 768 ? <span>Press Start or click to restart</span> : null}
+        {screenSize.width < 768 ? <span>Tap to restart</span> : null}
       </div>
       <Stage width={dimensions.width} height={dimensions.height}>
         <Layer>

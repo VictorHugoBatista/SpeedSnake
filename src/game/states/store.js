@@ -166,7 +166,7 @@ export const useGameStore = create((set, get) => ({
         break;
       case "snake":
       case "map":
-        // finish the game
+        state.endGame();
         break;
       default:
     }
@@ -212,11 +212,26 @@ export const useGameStore = create((set, get) => ({
     }));
   },
 
+  endGame: () => {
+    set(() => ({
+      showEndOverlay: true,
+      isRunning: false,
+    }));
+  },
+
   // Pausing / unpausing operations.
   togglePause: () => {
-    set((state) => ({
-      isPaused: ! state.isPaused,
-    }));
+    set((state) => {
+      if (! state.isRunning) {
+        return {
+          isPaused: false,
+        };
+      }
+
+      return {
+        isPaused: ! state.isPaused,
+      };
+    });
   },
 
   // ------------------------------------------------------------
