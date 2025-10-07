@@ -10,7 +10,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <span className="header-title">SpeedSnake 2025</span>
+      <span className="header-title"><Link to="/">SpeedSnake 2025</Link></span>
       <nav>
         <ul>
           <li>

@@ -65,13 +65,14 @@ main {
     transform: scale(1);
   }
 }
-.header-title {
+.header-title a {
   animation: 60s headerTitle ease-out infinite;
   color: #fa9d46;
   text-shadow: 1px 2px 1px #2e3082;
   font-family: "Trade Winds";
   font-size: 30px;
-  margin: 0 30px
+  margin: 0 30px;
+  text-decoration: none;
 }
 
 .page-content {

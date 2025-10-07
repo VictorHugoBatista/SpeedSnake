@@ -141,4 +141,16 @@
     right: 10px;
     width: 300px;
   }
+
+  .button-virtual-buttons .button,
+  .controls-text {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .button-virtual-buttons .button,
+  .controls-text {
+    font-size: 18px;
+  }
 }
