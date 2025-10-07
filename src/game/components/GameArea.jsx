@@ -15,6 +15,7 @@ const GameArea = function () {
     }
   }, []);
 
+  const isPaused = useGameStore(state => state.isPaused);
   const gameArea = useGameStore(state => state.gameArea);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
 
@@ -24,7 +25,7 @@ const GameArea = function () {
   useGameLoop(gameLoop);
 
   return (
-    <div className="game-area" ref={gameAreaRef}>
+    <div className={`game-area ${isPaused ? 'paused' : ''}`} ref={gameAreaRef}>
       <Stage width={dimensions.width} height={dimensions.height}>
         <Layer>
           {Object.keys(gameArea).map(key => (<Rect
