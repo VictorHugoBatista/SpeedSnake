@@ -26,7 +26,7 @@ const GameArea = function () {
     <div className={`game-area`} ref={gameAreaRef}>
       <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
       <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startGame()}>
-        {screenSize.width >= 768 ? <span>Click to start</span> : null}
+        {screenSize.width >= 768 ? <span>Press Start or click here</span> : null}
         {screenSize.width < 768 ? <span>Tap to start</span> : null}
       </div>
       <Stage width={dimensions.width} height={dimensions.height}>
