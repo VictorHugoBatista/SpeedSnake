@@ -6,7 +6,7 @@ const useGameLoop = function (gameLoopCallback) {
 
   useEffect(() => {
     const gameLoop = (currentTime) => {
-      const deltaTime = currentTime - lastUpdateTime.current;
+      const deltaTime = Math.abs(currentTime - lastUpdateTime.current);
       lastUpdateTime.current = currentTime;
 
       gameLoopCallback(deltaTime);

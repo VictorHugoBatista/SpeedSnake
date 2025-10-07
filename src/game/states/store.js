@@ -6,6 +6,7 @@ import {
   gameAreaMinPositionPercent,
   gameAreaMaxPositionPercent,
   iterationTimeInMilliseconds,
+  readyCountTimeInMilliseconds,
   notAllowedDirectionChanges,
   stepSizePercent,
   initialSnakeParts,
@@ -19,7 +20,7 @@ export const useGameStore = create((set, get) => ({
   // Main state, the game area will reflect what is here.
   gameArea: {},
 
-  readyCountTimeAccumulator: 0,
+  readyCountTimeAccumulator: 0.1,
 
   // Stores the partial time until the next game loop iteration.
   gameLoopIterationTimeAccumulator: 0,
@@ -185,20 +186,23 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
   startReadyCount: () => {
-    set(() => ({
-      showStartOverlay: false,
-      showReadyCountOverlay: true,
-    }));
+    set((state) => {
+      if (state.isRunning) {
+        return {};
+      }
+
+      return {
+        showStartOverlay: false,
+        showEndOverlay: false,
+        showReadyCountOverlay: true,
+      };
+    });
   },
 
   // Initialize snake, the direction and reset food location.
   // Hide all overlays.
   startGame: () => {
     set((state) => {
-      if (state.isRunning) {
-        return {};
-      }
-
       state.generateNewFoodLocation();
 
       return {
@@ -206,6 +210,7 @@ export const useGameStore = create((set, get) => ({
         snake: initialSnakeParts,
         showStartOverlay: false,
         showEndOverlay: false,
+        showReadyCountOverlay: false,
         isRunning: true,
       };
     });
@@ -238,7 +243,7 @@ export const useGameStore = create((set, get) => ({
   // Calculate if the current game loop iteration complete the actual game iteration time.
   // It sums the time in a state until it overflows, then back reset it to zero again.
   // @see mainLoopIteration()
-  updateTime: deltaTime => {
+  updateGameLoopIderationTime: deltaTime => {
     set((state) => {
       const newTime = state.gameLoopIterationTimeAccumulator + deltaTime;
 
@@ -247,6 +252,18 @@ export const useGameStore = create((set, get) => ({
       }
 
       return {gameLoopIterationTimeAccumulator: 0};
+    });
+  },
+
+  updateReadyCountIderationTime: deltaTime => {
+    set((state) => {
+      const newTime = state.readyCountTimeAccumulator + deltaTime;
+
+      if (newTime < readyCountTimeInMilliseconds) {
+        return {readyCountTimeAccumulator: newTime};
+      }
+
+      return {readyCountTimeAccumulator: 0};
     });
   },
 
@@ -269,13 +286,24 @@ export const useGameStore = create((set, get) => ({
   // ------------------------------------------------------------
   // ------------------------------------------------------------
 
-  // Main loop.
-  mainLoopIteration: (deltaTime) => {
+  readyCountLoopIteration: (deltaTime) => {
+    const state = get();
+
+    state.updateReadyCountIderationTime(deltaTime);
+
+    if (state.readyCountTimeAccumulator > 0) {
+      return;
+    }
+
+    state.startGame();
+  },
+
+  gameLoopIteration: (deltaTime) => {
     const state = get();
 
     // If iteration time state not back to zero, isn't time for execute the game iteration.
-    // @see updateTime()
-    state.updateTime(deltaTime);
+    // @see updateGameLoopIderationTime()
+    state.updateGameLoopIderationTime(deltaTime);
     if (state.gameLoopIterationTimeAccumulator > 0) {
       return;
     }
@@ -292,5 +320,16 @@ export const useGameStore = create((set, get) => ({
     }
 
     state.updateGameArea();
+  },
+
+  // Main loop.
+  mainLoopIteration: (deltaTime) => {
+    const state = get();
+
+    if (state.showReadyCountOverlay) {
+      state.readyCountLoopIteration(deltaTime);
+    }
+
+    state.gameLoopIteration(deltaTime);
   },
 }));
