@@ -95,6 +95,8 @@ export const useGameStore = create((set, get) => ({
           break;
         case "LEFT":
           snakeHead.x = snakeHead.x - stepSizePercent;
+          break;
+        default:
       }
       snakeHead = state.tryToStepAcrossBorder(snakeHead);
 
@@ -162,6 +164,8 @@ export const useGameStore = create((set, get) => ({
       case "snake":
       case "map":
         // finish the game
+        break;
+      default:
     }
   },
 

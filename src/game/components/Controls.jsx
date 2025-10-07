@@ -35,7 +35,7 @@ const Controls = function () {
     onKeyPressed: () => changeDirectionEvents["UP"](),
   });
   useKeyboardShortcut({
-    keys: ["a", , "arrowleft"],
+    keys: ["a", "arrowleft"],
     onKeyPressed: () => changeDirectionEvents["LEFT"](),
   });
   useKeyboardShortcut({
