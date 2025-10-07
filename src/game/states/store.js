@@ -3,6 +3,8 @@ import { create } from "zustand";
 import { randomStep } from "../../helpers/numbers"
 
 import {
+  gameAreaMinPositionPercent,
+  gameAreaMaxPositionPercent,
   iterationTimeInMilliseconds,
   notAllowedDirectionChanges,
   stepSizePercent,
@@ -73,7 +75,7 @@ export const useGameStore = create((set, get) => ({
   makeStep: () => {
     set((state) => {
       const snakeToStep = structuredClone(state.snake);
-      const [snakeHead] = structuredClone(snakeToStep);
+      let [snakeHead] = structuredClone(snakeToStep);
       switch (state.direction) {
         case "UP":
           snakeHead.y = snakeHead.y - stepSizePercent;
@@ -87,6 +89,7 @@ export const useGameStore = create((set, get) => ({
         case "LEFT":
           snakeHead.x = snakeHead.x - stepSizePercent;
       }
+      snakeHead = state.tryToStepAcrossBorder(snakeHead);
 
       const snakePartToExclude = snakeToStep.at(-1);
       const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
@@ -97,16 +100,24 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
-  updateGameArea: () => {
-    set((state) => {
-      const newGameArea = {};
-      state.snake.forEach(part => {
-        newGameArea[`${part.x}_${part.y}`] = part;
-      });
-      newGameArea[`${state.food.x}_${state.food.y}`] = state.food;
+  tryToStepAcrossBorder: (newPositionCandidate) => {
+    if (newPositionCandidate.x < gameAreaMinPositionPercent) {
+      newPositionCandidate.x = gameAreaMaxPositionPercent;
+    }
 
-      return {gameArea: newGameArea};
-    });
+    if (newPositionCandidate.x > gameAreaMaxPositionPercent) {
+      newPositionCandidate.x = gameAreaMinPositionPercent;
+    }
+
+    if (newPositionCandidate.y < gameAreaMinPositionPercent) {
+      newPositionCandidate.y = gameAreaMaxPositionPercent;
+    }
+
+    if (newPositionCandidate.y > gameAreaMaxPositionPercent) {
+      newPositionCandidate.y = gameAreaMinPositionPercent;
+    }
+    
+    return newPositionCandidate;
   },
 
   // ------------------------------------------------------------
@@ -184,6 +195,21 @@ export const useGameStore = create((set, get) => ({
       }
 
       return {iterationTimeInMilliseconds: 0};
+    });
+  },
+
+  // ------------------------------------------------------------
+
+  // Update the main state with the game changes.
+  updateGameArea: () => {
+    set((state) => {
+      const newGameArea = {};
+      state.snake.forEach(part => {
+        newGameArea[`${part.x}_${part.y}`] = part;
+      });
+      newGameArea[`${state.food.x}_${state.food.y}`] = state.food;
+
+      return {gameArea: newGameArea};
     });
   },
 
