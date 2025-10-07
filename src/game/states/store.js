@@ -1,4 +1,6 @@
-import {create} from "zustand";
+import { create } from "zustand";
+
+import { randomStep } from "../../helpers/numbers"
 
 import {
   iterationTimeInMilliseconds,
@@ -42,8 +44,8 @@ export const useGameStore = create((set, get) => ({
     },
   ],
   food: {
-    x: 95,
-    y: 95,
+    x: 97.5,
+    y: 97.5,
     size: stepSizePercent,
     type: "snake",
   },
@@ -92,6 +94,7 @@ export const useGameStore = create((set, get) => ({
       return {snake: snakeMoved};
     });
   },
+
   updateGameArea: () => {
     set((state) => {
       const newGameArea = {};
@@ -106,7 +109,16 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
-  // Adding snake iem operations.
+  // Adding snake item and food operations.
+  generateNewFood: () => {
+      set((state) => {
+      const oldFoodLocation = structuredClone(state.food);
+      oldFoodLocation.x = randomStep();
+      oldFoodLocation.y = randomStep();
+      return {food: oldFoodLocation};
+    });
+  },
+
   addSnakeItem: part => {
     set((state) => {
       const snakeToUpdate = structuredClone(state.snake);
@@ -160,6 +172,7 @@ export const useGameStore = create((set, get) => ({
     }
 
     state.makeStep();
+    state.generateNewFood();
     state.updateGameArea();
   },
 }));
