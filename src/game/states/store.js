@@ -57,7 +57,10 @@ export const useGameStore = create((set, get) => ({
     type: "food",
   },
   gameArea: {},
+  isRunning: false,
   isPaused: false,
+  showStartOverlay: true,
+  showEndOverlay: false,
   timeSinceLastGameIteration: 0,
 
   // ------------------------------------------------------------
@@ -256,7 +259,7 @@ export const useGameStore = create((set, get) => ({
       return;
     }
 
-    if (state.isPaused) {
+    if (state.isPaused || ! state.isRunning) {
       return;
     }
 

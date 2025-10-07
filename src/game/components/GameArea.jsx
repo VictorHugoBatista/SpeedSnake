@@ -2,16 +2,19 @@ import { useRef } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/store";
+import useScreenSize from "../../hooks/screenSize";
 import useGameLoop from "../../hooks/gameLoop";
 import useDimensions from "../../hooks/dimensions";
 
 const GameArea = function () {
   const gameAreaRef = useRef(null);
   const dimensions = useDimensions(gameAreaRef);
+  const screenSize = useScreenSize();
 
   const isPaused = useGameStore(state => state.isPaused);
   const gameArea = useGameStore(state => state.gameArea);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
+  const showStartOverlay = useGameStore(state => state.showStartOverlay);
 
   const gameLoop = (deltaTime) => {
     mainLoopIteration(deltaTime);
@@ -21,6 +24,10 @@ const GameArea = function () {
   return (
     <div className={`game-area`} ref={gameAreaRef}>
       <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
+      <div className={`game-area-overlay ${showStartOverlay ? 'active' : ''}`}>
+        {screenSize.width >= 768 ? <span>Press space to start</span> : null}
+        {screenSize.width < 768 ? <span>Tap to start</span> : null}
+      </div>
       <Stage width={dimensions.width} height={dimensions.height}>
         <Layer>
           {Object.keys(gameArea).map(key => (<Rect
