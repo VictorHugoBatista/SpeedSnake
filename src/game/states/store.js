@@ -43,11 +43,12 @@ export const useGameStore = create((set, get) => ({
       type: "snake",
     },
   ],
+  snakePartToExclude: {},
   food: {
-    x: 97.5,
-    y: 97.5,
+    x: 60,
+    y: 50,
     size: stepSizePercent,
-    type: "snake",
+    type: "food",
   },
   gameArea: {},
   isPaused: false,
@@ -87,11 +88,12 @@ export const useGameStore = create((set, get) => ({
           snakeHead.x = snakeHead.x - stepSizePercent;
       }
 
+      const snakePartToExclude = snakeToStep.at(-1);
       const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
 
       const snakeMoved = [snakeHead, ...snakeNewBody];
 
-      return {snake: snakeMoved};
+      return {snake: snakeMoved, snakePartToExclude};
     });
   },
 
@@ -109,9 +111,41 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
-  // Adding snake item and food operations.
+  // Collisions and positioning.
+  checkCollision: () => {
+    const state = get();
+    const [ newPosition ] = state.snake;
+    const gameArea = state.gameArea;
+    
+    const collisionArray = Object.keys(gameArea).filter(key => key === `${newPosition.x}_${newPosition.y}`);
+
+    if (! collisionArray.length) {
+      return false;
+    }
+
+    const [ collision ] = collisionArray;
+
+    return state.gameArea[collision];
+  },
+
+  processCollision: (collision) => {
+    const state = get();
+    switch (collision.type) {
+      case "food":
+        state.incrementSnake();
+        state.generateNewFood();
+        break;
+      case "snake":
+      case "map":
+        // finish the game
+    }
+  },
+
+  // ------------------------------------------------------------
+
+  // Adding snake part and food operations.
   generateNewFood: () => {
-      set((state) => {
+    set((state) => {
       const oldFoodLocation = structuredClone(state.food);
       oldFoodLocation.x = randomStep();
       oldFoodLocation.y = randomStep();
@@ -119,11 +153,10 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
-  addSnakeItem: part => {
+  incrementSnake: () => {
     set((state) => {
       const snakeToUpdate = structuredClone(state.snake);
-      part.size = stepSizePercent;
-      snakeToUpdate.push((part));
+      snakeToUpdate.push((state.snakePartToExclude));
       return {snake: snakeToUpdate};
     });
   },
@@ -172,7 +205,12 @@ export const useGameStore = create((set, get) => ({
     }
 
     state.makeStep();
-    state.generateNewFood();
+
+    const collision = state.checkCollision();
+    if (collision) {
+      state.processCollision(collision);
+    }
+
     state.updateGameArea();
   },
 }));
