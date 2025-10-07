@@ -40,7 +40,16 @@
 }
 
 .game-area-overlay.active {
+  opacity: .95;
+}
+
+.game-area-overlay.active.clickable {
+  cursor: pointer;
+}
+
+.game-area-overlay.active.clickable:hover {
   opacity: 1;
+  font-size: 43px;
 }
 
 .controls {
