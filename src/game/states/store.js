@@ -8,6 +8,7 @@ import {
   iterationTimeInMilliseconds,
   notAllowedDirectionChanges,
   stepSizePercent,
+  initialSnakeParts,
 } from "./constants";
 
 const genStringPosition = position => {
@@ -16,43 +17,12 @@ const genStringPosition = position => {
 
 export const useGameStore = create((set, get) => ({
   // Data.
-  direction: "RIGHT",
-  snake: [
-    {
-      x: 50,
-      y: 50,
-      size: stepSizePercent,
-      type: "snake",
-    },
-    {
-      x: 50 - stepSizePercent,
-      y: 50,
-      size: stepSizePercent,
-      type: "snake",
-    },
-    {
-      x: 50 - stepSizePercent * 2,
-      y: 50,
-      size: stepSizePercent,
-      type: "snake",
-    },
-    {
-      x: 50 - stepSizePercent * 3,
-      y: 50,
-      size: stepSizePercent,
-      type: "snake",
-    },
-    {
-      x: 50 - stepSizePercent * 4,
-      y: 50,
-      size: stepSizePercent,
-      type: "snake",
-    },
-  ],
+  direction: "",
+  snake: [],
   snakePartToExclude: {},
   food: {
-    x: 60,
-    y: 50,
+    x: 0,
+    y: 0,
     size: stepSizePercent,
     type: "food",
   },
@@ -205,11 +175,17 @@ export const useGameStore = create((set, get) => ({
   // ------------------------------------------------------------
 
   startGame: () => {
-    set(() => ({
-      showStartOverlay: false,
-      showEndOverlay: false,
-      isRunning: true,
-    }));
+    set((state) => {
+      state.generateNewFoodLocation();
+
+      return {
+        direction: "RIGHT",
+        snake: initialSnakeParts,
+        showStartOverlay: false,
+        showEndOverlay: false,
+        isRunning: true,
+      };
+    });
   },
 
   endGame: () => {
