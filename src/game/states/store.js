@@ -10,6 +10,10 @@ import {
   stepSizePercent,
 } from "./constants";
 
+const genStringPosition = position => {
+  return `${position.x}_${position.y}`;
+};
+
 export const useGameStore = create((set, get) => ({
   // Data.
   direction: "RIGHT",
@@ -128,7 +132,7 @@ export const useGameStore = create((set, get) => ({
     const [ newPosition ] = state.snake;
     const gameArea = state.gameArea;
     
-    const collisionArray = Object.keys(gameArea).filter(key => key === `${newPosition.x}_${newPosition.y}`);
+    const collisionArray = Object.keys(gameArea).filter(key => key === genStringPosition(newPosition));
 
     if (! collisionArray.length) {
       return false;
@@ -205,9 +209,9 @@ export const useGameStore = create((set, get) => ({
     set((state) => {
       const newGameArea = {};
       state.snake.forEach(part => {
-        newGameArea[`${part.x}_${part.y}`] = part;
+        newGameArea[genStringPosition(part)] = part;
       });
-      newGameArea[`${state.food.x}_${state.food.y}`] = state.food;
+      newGameArea[genStringPosition(state.food)] = state.food;
 
       return {gameArea: newGameArea};
     });
