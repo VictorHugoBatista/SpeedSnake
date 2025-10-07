@@ -16,22 +16,30 @@ const genStringPosition = position => {
 };
 
 export const useGameStore = create((set, get) => ({
-  // Data.
+  // Main state, the game area will reflect what is here.
+  gameArea: {},
+
+  // Stores the partial time until the next game loop iteration.
+  gameLoopIterationTimeAccumulator: 0,
+
+  // Main game rule states.
   direction: "",
   snake: [],
-  snakePartToExclude: {},
   food: {
     x: 0,
     y: 0,
     size: stepSizePercent,
     type: "food",
   },
-  gameArea: {},
+
+  // Auxiliar states.
+  snakePartToExclude: {},
+
+  // Game execution states.
   isRunning: false,
   isPaused: false,
   showStartOverlay: true,
   showEndOverlay: false,
-  timeSinceLastGameIteration: 0,
 
   // ------------------------------------------------------------
   // ------------------------------------------------------------
@@ -40,7 +48,7 @@ export const useGameStore = create((set, get) => ({
   changeDirection: newDirection => {
     set((state) => {
       if (notAllowedDirectionChanges[newDirection] === state.direction) {
-        return {direction: state.direction};
+        return {};
       }
 
       return {direction: newDirection};
@@ -174,8 +182,14 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
+  // Initialize snake, the direction and reset food location.
+  // Hide all overlays.
   startGame: () => {
     set((state) => {
+      if (state.isRunning) {
+        return {};
+      }
+
       state.generateNewFoodLocation();
 
       return {
@@ -188,6 +202,7 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
+  // Stop game through the isRunning state and show end game overlay.
   endGame: () => {
     set(() => ({
       showEndOverlay: true,
@@ -199,9 +214,7 @@ export const useGameStore = create((set, get) => ({
   togglePause: () => {
     set((state) => {
       if (! state.isRunning) {
-        return {
-          isPaused: false,
-        };
+        return {};
       }
 
       return {
@@ -218,13 +231,13 @@ export const useGameStore = create((set, get) => ({
   // @see mainLoopIteration()
   updateTime: deltaTime => {
     set((state) => {
-      const newTime = state.timeSinceLastGameIteration + deltaTime;
+      const newTime = state.gameLoopIterationTimeAccumulator + deltaTime;
 
       if (newTime < iterationTimeInMilliseconds) {
-        return {timeSinceLastGameIteration: newTime};
+        return {gameLoopIterationTimeAccumulator: newTime};
       }
 
-      return {timeSinceLastGameIteration: 0};
+      return {gameLoopIterationTimeAccumulator: 0};
     });
   },
 
@@ -254,7 +267,7 @@ export const useGameStore = create((set, get) => ({
     // If iteration time state not back to zero, isn't time for execute the game iteration.
     // @see updateTime()
     state.updateTime(deltaTime);
-    if (state.timeSinceLastGameIteration > 0) {
+    if (state.gameLoopIterationTimeAccumulator > 0) {
       return;
     }
 
