@@ -17,7 +17,7 @@ const useKeyboardShortcut = function ({
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
     };
-  }, []);
+  }, [keys, onKeyPressed]);
 }
 
 export default useKeyboardShortcut;

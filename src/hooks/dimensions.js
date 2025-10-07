@@ -8,7 +8,7 @@ const useDimensions = (componentRef) => {
       const { width, height } = componentRef.current.getBoundingClientRect();
       setDimensions({ width, height });
     }
-  }, []);
+  }, [componentRef]);
 
   return dimensions;
 };
