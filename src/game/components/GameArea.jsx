@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/store";
-import useGameLoop from "./gameLoop";
+import useGameLoop from "../../hooks/gameLoop";
 
 const GameArea = function () {
   const gameAreaRef = useRef(null);

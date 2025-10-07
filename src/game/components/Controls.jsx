@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import useScreenSize from "../../utils/screenSize";
-import useKeyboardShortcut from "../../utils/keyboardShortcut";
+import useScreenSize from "../../hooks/screenSize";
+import useKeyboardShortcut from "../../hooks/keyboardShortcut";
 
 import { useGameStore } from "../states/store";
 
