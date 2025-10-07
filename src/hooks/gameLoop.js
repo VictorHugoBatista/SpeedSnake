@@ -12,6 +12,7 @@ const useGameLoop = function (gameLoopCallback) {
 
     animationFrameId.current = requestAnimationFrame(gameLoop);
   };
+
   useEffect(() => {
     lastUpdateTime.current = performance.now();
     animationFrameId.current = requestAnimationFrame(gameLoop);

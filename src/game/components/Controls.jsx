@@ -55,7 +55,7 @@ const Controls = function () {
     <>
       <div className="button-virtual-buttons">
         <div className="button button-blue" onClick={toggleControls}>Virtual controls</div>
-        <div class="controls-text">
+        <div className="controls-text">
           <div>or press WSAD / arrow keys do play</div>
           <div>Press P to Pause</div>
         </div>

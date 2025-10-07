@@ -1,8 +1,13 @@
 import {create} from "zustand";
 
-import { stepSizePercent, notAllowedDirectionChanges } from "./constants";
+import {
+  iterationTimeInMilliseconds,
+  notAllowedDirectionChanges,
+  stepSizePercent,
+} from "./constants";
 
-export const useGameStore = create(set => ({
+export const useGameStore = create((set, get) => ({
+  // Data.
   direction: "RIGHT",
   snake: [
     {
@@ -43,7 +48,9 @@ export const useGameStore = create(set => ({
     type: "snake",
   },
   gameArea: {},
+  timeForNextLoopIteration: 0,
 
+  // Direction operations.
   changeDirection: newDirection => {
     set((state) => {
       if (notAllowedDirectionChanges[newDirection] === state.direction) {
@@ -54,6 +61,7 @@ export const useGameStore = create(set => ({
     });
   },
 
+  // Movement operations.
   makeStep: () => {
     set((state) => {
       const snakeToStep = structuredClone(state.snake);
@@ -91,6 +99,7 @@ export const useGameStore = create(set => ({
     });
   },
 
+  // Adding snake iem operations.
   addSnakeItem: part => {
     set((state) => {
       const snakeToUpdate = structuredClone(state.snake);
@@ -98,5 +107,30 @@ export const useGameStore = create(set => ({
       snakeToUpdate.push((part));
       return {snake: snakeToUpdate};
     });
+  },
+
+  updateTime: deltaTime => {
+    set((state) => {
+      const newTime = state.iterationTimeInMilliseconds + deltaTime;
+
+      if (newTime < iterationTimeInMilliseconds) {
+        return {iterationTimeInMilliseconds: newTime};
+      }
+
+      return {iterationTimeInMilliseconds: 0};
+    });
+  },
+
+  // Main loop.
+  mainLoopIteration: (deltaTime) => {
+    const state = get();
+
+    state.updateTime(deltaTime);
+    if (state.iterationTimeInMilliseconds > 0) {
+      return;
+    }
+
+    state.makeStep();
+    state.updateGameArea();
   },
 }));
