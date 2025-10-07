@@ -1,19 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/store";
 import useGameLoop from "../../hooks/gameLoop";
+import useDimensions from "../../hooks/dimensions";
 
 const GameArea = function () {
   const gameAreaRef = useRef(null);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    if (gameAreaRef.current) {
-      const { width, height } = gameAreaRef.current.getBoundingClientRect();
-      setDimensions({ width, height });
-    }
-  }, []);
+  const dimensions = useDimensions(gameAreaRef);
 
   const isPaused = useGameStore(state => state.isPaused);
   const gameArea = useGameStore(state => state.gameArea);
