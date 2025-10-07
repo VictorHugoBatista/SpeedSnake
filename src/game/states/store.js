@@ -58,7 +58,7 @@ export const useGameStore = create((set, get) => ({
   },
   gameArea: {},
   isPaused: false,
-  timeForNextLoopIteration: 0,
+  timeSinceLastGameIteration: 0,
 
   // ------------------------------------------------------------
   // ------------------------------------------------------------
@@ -216,13 +216,13 @@ export const useGameStore = create((set, get) => ({
   // @see mainLoopIteration()
   updateTime: deltaTime => {
     set((state) => {
-      const newTime = state.iterationTimeInMilliseconds + deltaTime;
+      const newTime = state.timeSinceLastGameIteration + deltaTime;
 
       if (newTime < iterationTimeInMilliseconds) {
-        return {iterationTimeInMilliseconds: newTime};
+        return {timeSinceLastGameIteration: newTime};
       }
 
-      return {iterationTimeInMilliseconds: 0};
+      return {timeSinceLastGameIteration: 0};
     });
   },
 
@@ -252,7 +252,7 @@ export const useGameStore = create((set, get) => ({
     // If iteration time state not back to zero, isn't time for execute the game iteration.
     // @see updateTime()
     state.updateTime(deltaTime);
-    if (state.iterationTimeInMilliseconds > 0) {
+    if (state.timeSinceLastGameIteration > 0) {
       return;
     }
 
