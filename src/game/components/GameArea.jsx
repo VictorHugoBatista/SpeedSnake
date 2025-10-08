@@ -16,6 +16,7 @@ const GameArea = function () {
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
   const showEndOverlay = useGameStore(state => state.showEndOverlay);
   const showReadyCountOverlay = useGameStore(state => state.showReadyCountOverlay);
+  const readyCountTimeRegressive = useGameStore(state => state.readyCountTimeRegressive);
 
   const startReadyCount = useGameStore(state => state.startReadyCount);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
@@ -37,7 +38,8 @@ const GameArea = function () {
         {screenSize.width < 768 ? <span>Tap to restart</span> : null}
       </div>
       <div className={`game-area-overlay ${showReadyCountOverlay ? 'active' : ''}`}>
-        Ready
+        <span>Ready</span>
+        <span>{readyCountTimeRegressive}</span>
       </div>
       <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
 

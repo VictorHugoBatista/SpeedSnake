@@ -20,9 +20,9 @@ export const useGameStore = create((set, get) => ({
   // Main state, the game area will reflect what is here.
   gameArea: {},
 
+  // Game loop iterators.
   readyCountTimeAccumulator: 0.1,
-
-  // Stores the partial time until the next game loop iteration.
+  readyCountTimeRegressive: 0,
   gameLoopIterationTimeAccumulator: 0,
 
   // Main game rule states.
@@ -258,12 +258,19 @@ export const useGameStore = create((set, get) => ({
   updateReadyCountIderationTime: deltaTime => {
     set((state) => {
       const newTime = state.readyCountTimeAccumulator + deltaTime;
+      const newTimeRegressive = Math.trunc((readyCountTimeInMilliseconds / 1000) - (state.readyCountTimeAccumulator / 1000)) + 1;
 
       if (newTime < readyCountTimeInMilliseconds) {
-        return {readyCountTimeAccumulator: newTime};
+        return {
+          readyCountTimeAccumulator: newTime,
+          readyCountTimeRegressive: newTimeRegressive <= (readyCountTimeInMilliseconds / 1000)  ? newTimeRegressive : 0,
+        };
       }
 
-      return {readyCountTimeAccumulator: 0};
+      return {
+        readyCountTimeAccumulator: 0,
+        readyCountTimeRegressive: 0,
+      };
     });
   },
 
