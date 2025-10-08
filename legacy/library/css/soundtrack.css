@@ -1,0 +1,52 @@
+/**
+ *	Speed Snake Beta - 26 06 2015
+ *
+ *	File: soundtrack.js
+ *	Author: Victor Hugo Batista
+ *	Description: Estilo da página de trilha sonora.
+ */
+ 
+section { /*estilo das sections de conteúdo*/
+	margin: 0 auto;
+	width: 650px;
+}
+section ul { /*lista de players de música*/
+	padding-left: 0;
+}
+section ul li {
+	list-style-type: none;
+}
+
+.content {
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 590px;
+}
+
+.names { /*nomes/dados das músicas*/
+	float: right;
+	text-align: right;
+}
+.names ul li{
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+.names ul li div { /*indicadores de carregamento das músicas*/
+	float: right;
+	margin-left: 15px;
+	
+	width: 27px;
+	height: 27px;
+	background-color: red;
+	
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.players { /*mecanismos de player*/
+	float: left;
+}
+.players ul li input{ /*botões do player*/
+	width: 35px;
+}

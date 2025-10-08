@@ -1,0 +1,70 @@
+﻿<!--
+	Speed Snake Beta - 08 02 2016
+
+	File: index.html
+	Author: Victor Hugo Batista
+	Description: Página principal do jogo
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Speed Snake 2015 | Game</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="legacy/library/css/common_style.css">
+		<link rel="stylesheet" type="text/css" href="legacy/library/css/snake_game.css">
+		<link rel="stylesheet" type="text/css" href="legacy/library/css/snake_game_themes.css" id="theme">
+	</head>
+	<body>
+		<header class="headerNfooter">
+			<p>Speed Snake 2015</p>
+			<nav>
+				<ul>
+					<li><a href="index.html">Game</a></li>
+					<li><a href="soundtrack.html">Soundtrack</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<section style="clear: both;">
+			<div class="avisos">
+				* Don't continue playing on the level 13 if you have seizures historical *
+			</div>
+		
+			<div id="area" class="area">
+				<div class="loading"><img src="legacy/library/images/game/loading_bar.gif" /></div>
+			</div>
+			
+			<div id="leftContainer" class="leftContainer">
+				<div id="scoreContainer" class="scoreContainer">
+					Level: <div id="gameLevel" class="gameLevel score"></div><br />
+					Score: <div id="gameScore" class="gameScore score"></div>
+				</div>
+				
+				<div id="postTexts" class="postTexts">Press P to pause</div>
+			</div>
+		</section>
+		
+		<footer class="headerNfooter footerFixed">
+			<div class="githubLink">
+				<iframe class="follow" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&type=follow&count=false" frameborder="0" scrolling="0"></iframe>
+				<iframe class="star" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&repo=SpeedSnake&type=star&count=false" frameborder="0" scrolling="0"></iframe>
+			</div>
+		</footer>
+		
+		<!--Bibliotecas utilizadas-->
+		<script src="legacy/library/js/lib/jquery-2.2.0.min.js"></script>
+		<script src="legacy/library/js/lib/jquery.touchSwipe.min.js"></script>
+		<script src="legacy/library/js/lib/ion.sound.min.js"></script>
+		
+		<!--snake engine-->
+		<script src="legacy/library/js/snake_engine/global.js"></script>
+		<script src="legacy/library/js/snake_engine/main.js"></script>
+		<script src="legacy/library/js/snake_engine/sound.js"></script>
+		<script src="legacy/library/js/snake_engine/gameplay.js"></script>
+		<script src="legacy/library/js/snake_engine/graphic.js"></script>
+		<script src="legacy/library/js/snake_engine/math.js"></script>
+		<script src="legacy/library/js/snake_engine/elements.js"></script>
+		<script src="legacy/library/js/snake_engine/controls.js"></script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!--
+	Speed Snake Beta - 08 02 2016
+
+	File: soundtrack.html
+	Author: Victor Hugo Batista
+	Description: Página da trilha sonora do jogo
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Speed Snake 2015 | Soundtrack</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="legacy/library/css/common_style.css">
+		<link rel="stylesheet" type="text/css" href="legacy/library/css/soundtrack.css">
+	</head>
+	<body>
+		<header class="headerNfooter">
+			<p><a href="index.html">Speed Snake 2015</a></p>			
+			<nav>
+				<ul>
+					<li><a href="index.html">Game</a></li>
+					<li><a href="soundtrack.html">Soundtrack</a></li>
+				</ul>
+			</nav>			
+		</header>
+		
+		<section class="sectionContent">
+			<header class="headerNfooter headerContent">Soundtrack</header>
+			<div class="content">
+				<div class="players">
+					<ul id="listPlayer">
+						<li>
+							<input type="image" id="play" src="legacy/library/images/player/btn_play.png" />
+							<input type="image" id="pause" src="legacy/library/images/player/btn_pause.png" />
+							<input type="image" id="stop" src="legacy/library/images/player/btn_stop.png" />
+						</li>
+						<li>
+							<input type="image" id="play" src="legacy/library/images/player/btn_play.png" />
+							<input type="image" id="pause" src="legacy/library/images/player/btn_pause.png" />
+							<input type="image" id="stop" src="legacy/library/images/player/btn_stop.png" />
+						</li>
+						<li>
+							<input type="image" id="play" src="legacy/library/images/player/btn_play.png" />
+							<input type="image" id="pause" src="legacy/library/images/player/btn_pause.png" />
+							<input type="image" id="stop" src="legacy/library/images/player/btn_stop.png" />
+						</li>
+						<li>
+							<input type="image" id="play" src="legacy/library/images/player/btn_play.png" />
+							<input type="image" id="pause" src="legacy/library/images/player/btn_pause.png" />
+							<input type="image" id="stop" src="legacy/library/images/player/btn_stop.png" />
+						</li>
+					</ul>
+				</div>
+				
+				<div class="names" id="listIndicators">
+					<ul>
+						<li>
+							tMt - <span class="boldText">Black Sea</span> (album Regress)
+							<div></div><!-- indicador de carregamento  -->
+						</li>
+						<li>
+							The Industrialism - <span class="boldText">Parataste</span> (album Ultrastage)
+							<div></div><!-- indicador de carregamento  -->
+						</li>
+						<li>
+							Pulselooper - <span class="boldText">Afogando em Números</span> (album Hexadecimal)
+							<div></div><!-- indicador de carregamento  -->
+						</li>
+						<li>
+							Pulselooper - <span class="boldText">Aprazolam</span> (album Hexadecimal)
+							<div></div><!-- indicador de carregamento  -->
+						</li>
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+				* Todas a músicas podem ser encontradas para download no site <a class="underlineText" href="http://www.chippanze.org/">chippanze.org</a>.
+			</div>
+		</section>
+		
+		<footer class="headerNfooter footerFixed">
+			<div class="githubLink">
+				<iframe class="follow" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&type=follow&count=false" frameborder="0" scrolling="0"></iframe>
+				<iframe class="star" src="https://ghbtns.com/github-btn.html?user=VictorHugoBatista&repo=SpeedSnake&type=star&count=false" frameborder="0" scrolling="0"></iframe>
+			</div>
+		</footer>
+		
+		<script src="legacy/library/js/lib/jquery-2.2.0.min.js"></script>
+		<script src="legacy/library/js/lib/ion.sound.min.js"></script>
+		<script src="legacy/library/js/snake_engine/global.js"></script>
+		<script src="legacy/library/js/snake_engine/sound.js"></script>
+		<script>
+			/**
+				[USA JQUERY]
+				Adição dos nomes das músicas aos elementos da página a partir de global.js
+			*/			
+			
+			(function($){
+				//botões do player
+				$("#listPlayer li").each(function(i){
+					$(this).on("click", "#play", function(){
+						play(musicList[i]);
+					});
+					$(this).on("click", "#pause", function(){
+						pause(musicList[i]);
+					});
+					$(this).on("click", "#stop", function(){
+						stop(musicList[i]);
+					});
+				});
+				$("#listIndicators li").each(function(i){//indicadores de carregamento
+					$(this).children("div").attr("id", musicList[i]);
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>
