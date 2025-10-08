@@ -2,7 +2,7 @@
 
 body {
   font-family: Silkscreen;
-  font-size: 14px;
+  font-size: 12x;
 }
 
 main {
@@ -16,8 +16,9 @@ main {
   background-color: #fa9d46;
   color: #2e3082;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 15px 30px 15px;
+  padding: 15px;
 }
 
 .header ul {
@@ -70,7 +71,7 @@ main {
   color: #fa9d46;
   text-shadow: 1px 2px 1px #2e3082;
   font-family: "Trade Winds";
-  font-size: 20px;
+  font-size: 25px;
   margin: 0 30px;
   text-decoration: none;
 }
@@ -137,6 +138,11 @@ main {
 @media (min-width: 768px) {
   body {
     font-size: 18px;
+  }
+
+  .header {
+    flex-direction: row;
+    padding: 15px 30px 15px;
   }
 
   .header-title a {
