@@ -29,7 +29,7 @@ ion.sound({
 			multiplay : true//permite várias instâncias do áudio tocando
 		}
 	],
-	path : "legacy/library/sounds/",//local dos arquivos
+	path : "SpeedSnake/legacy/library/sounds/",//local dos arquivos
 	preload: true,//carga dos arquivos na inicialização
 	multiplay: false,//não permite várias instâncias do áudio tocando
 	loop: true,//loop infinito da trilha sonora
@@ -68,7 +68,7 @@ function switchSound(newSound){//troca música por nova
 function messageBeginGame(){//mensagem de início de jogo
 	return "<div class='txtCentralizado txtInicial' id='txtInicial'>" +
 				"Controles:" +
-				"<p><img src='legacy/library/images/game/setas.png'></img></p>" +
+				"<p><img src='SpeedSnake/legacy/library/images/game/setas.png'></img></p>" +
 				"Pressione Espaço<br />para iniciar" +
 			"</div>";
 }
