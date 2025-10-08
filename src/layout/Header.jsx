@@ -14,7 +14,7 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a target="_blank" href="/legacy">Legacy</a>
+            <a target="_blank" href="legacy">Legacy</a>
           </li>
         </ul>
       </nav>
