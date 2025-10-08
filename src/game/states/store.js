@@ -63,7 +63,7 @@ export const useGameStore = create((set, get) => ({
 
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.
-  // @see tryToStepAcrossBorder
+  // @see tryToStepAcrossBorder()
   makeStep: () => {
     set((state) => {
       const snakeToStep = structuredClone(state.snake);
@@ -98,7 +98,7 @@ export const useGameStore = create((set, get) => ({
 
   // Calculate the jump across the border.
   // Warning: Doesn't use nothung from the state.
-  // @see tryToStepAcrossBorder
+  // @see tryToStepAcrossBorder()
   tryToStepAcrossBorder: (newPositionCandidate) => {
     if (newPositionCandidate.x < gameAreaMinPositionPercent) {
       newPositionCandidate.x = gameAreaMaxPositionPercent;
@@ -185,6 +185,7 @@ export const useGameStore = create((set, get) => ({
   },
 
   // ------------------------------------------------------------
+  // Initialize the ready count and hide all other overlays.
   startReadyCount: () => {
     set((state) => {
       if (state.isRunning) {
@@ -199,7 +200,7 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
-  // Initialize snake, the direction and reset food location.
+  // Initialize snake, the direction and reset food location in the states.
   // Hide all overlays.
   startGame: () => {
     set((state) => {
@@ -240,21 +241,9 @@ export const useGameStore = create((set, get) => ({
   // ------------------------------------------------------------
   // ------------------------------------------------------------
 
-  // Calculate if the current game loop iteration complete the actual game iteration time.
-  // It sums the time in a state until it overflows, then back reset it to zero again.
-  // @see mainLoopIteration()
-  updateGameLoopIderationTime: deltaTime => {
-    set((state) => {
-      const newTime = state.gameLoopIterationTimeAccumulator + deltaTime;
-
-      if (newTime < iterationTimeInMilliseconds) {
-        return {gameLoopIterationTimeAccumulator: newTime};
-      }
-
-      return {gameLoopIterationTimeAccumulator: 0};
-    });
-  },
-
+  // Calculate if the current passed time complete the total ready screen time.
+  // Also, calculate the regressive time in seconds, for showing in the component.
+  // @see readyCountLoopIteration()
   updateReadyCountIderationTime: deltaTime => {
     set((state) => {
       const newTime = state.readyCountTimeAccumulator + deltaTime;
@@ -271,6 +260,21 @@ export const useGameStore = create((set, get) => ({
         readyCountTimeAccumulator: 0,
         readyCountTimeRegressive: 0,
       };
+    });
+  },
+
+  // Calculate if the current game loop iteration complete the actual game iteration time.
+  // It sums the time in a state until it overflows, then back reset it to zero again.
+  // @see gameLoopIteration()
+  updateGameLoopIderationTime: deltaTime => {
+    set((state) => {
+      const newTime = state.gameLoopIterationTimeAccumulator + deltaTime;
+
+      if (newTime < iterationTimeInMilliseconds) {
+        return {gameLoopIterationTimeAccumulator: newTime};
+      }
+
+      return {gameLoopIterationTimeAccumulator: 0};
     });
   },
 
@@ -293,6 +297,8 @@ export const useGameStore = create((set, get) => ({
   // ------------------------------------------------------------
   // ------------------------------------------------------------
 
+  // Ready count screen. It calculates the time and changes to the game loop.
+  // @see updateReadyCountIderationTime()
   readyCountLoopIteration: (deltaTime) => {
     const state = get();
 
@@ -305,6 +311,7 @@ export const useGameStore = create((set, get) => ({
     state.startGame();
   },
 
+  // It treats all game rules.
   gameLoopIteration: (deltaTime) => {
     const state = get();
 
