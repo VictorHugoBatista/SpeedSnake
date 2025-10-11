@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { randomStep } from "../../helpers/numbers"
+import Food, { objectToFood } from "../entity/food";
 
 import {
   gameAreaMinPositionPercent,
@@ -28,12 +28,7 @@ export const useGameStore = create((set, get) => ({
   // Main game rule states.
   direction: "",
   snake: [],
-  food: {
-    x: 0,
-    y: 0,
-    size: stepSizePercent,
-    type: "food",
-  },
+  food: new Food(stepSizePercent, 0, 0),
 
   // Auxiliar states.
   snakePartToExclude: {},
@@ -161,16 +156,18 @@ export const useGameStore = create((set, get) => ({
   generateNewFoodLocation: () => {
     set((state) => {
       let foodLocationString;
-      const foodLocation = structuredClone(state.food);
+      const newFoodObject = objectToFood(state.food);
 
       do {
-        foodLocation.x = randomStep();
-        foodLocation.y = randomStep();
+        newFoodObject.generateNewLocation(
+          gameAreaMinPositionPercent,
+          gameAreaMaxPositionPercent,
+        );
 
-        foodLocationString = genStringPosition(foodLocation);
+        foodLocationString = genStringPosition(newFoodObject);
       } while(state.gameArea[foodLocationString]);
 
-      return {food: foodLocation};
+      return {food: newFoodObject};
     });
   },
 

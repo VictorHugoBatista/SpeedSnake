@@ -1,4 +1,8 @@
-export const stepSizePercent = 2.5;
+export const titleSizesPercent = {
+  mobile: 5,
+  desktop: 2.5,
+};
+export const stepSizePercent = 5;
 export const gameAreaMinPositionPercent = 0;
 export const gameAreaMaxPositionPercent = 100 - stepSizePercent;
 
