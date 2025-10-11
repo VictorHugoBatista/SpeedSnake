@@ -1,18 +1,32 @@
 import {
   gameAreaMinPositionPercent,
   gameAreaMaxPositionPercent,
-  initialSnakeParts,
-  stepSizePercent,
+  initialSnakeHeadPosition,
+  initialSnakePartsNumber,
 } from "../states/constants";
 
+import SnakePart from "./snake-part";
+
 export default class Snake {
-  constructor(parts) {
+  constructor(snakePartSize, parts) {
+    this.snakePartSize = snakePartSize;
     this.parts = parts;
     this.partToExclude = {};
   }
 
   initializeSnake() {
-    this.parts = structuredClone(initialSnakeParts);
+    const newSnake = new Array(initialSnakePartsNumber)
+      .fill(null)
+      .map((_, key) => {
+        const partNumber = key + 1;
+
+        return new SnakePart(
+          this.snakePartSize,
+          initialSnakeHeadPosition.x - (partNumber * this.snakePartSize),
+          initialSnakeHeadPosition.y,
+        );
+      });
+    this.parts = newSnake;
     this.partToExclude = {};
   }
 
@@ -24,16 +38,16 @@ export default class Snake {
     let [snakeHead] = structuredClone(this.parts);
     switch (direction) {
       case "UP":
-        snakeHead.y = snakeHead.y - stepSizePercent;
+        snakeHead.y = snakeHead.y - this.snakePartSize;
         break;
       case "DOWN":
-        snakeHead.y = snakeHead.y + stepSizePercent;
+        snakeHead.y = snakeHead.y + this.snakePartSize;
         break;
       case "RIGHT":
-        snakeHead.x = snakeHead.x + stepSizePercent;
+        snakeHead.x = snakeHead.x + this.snakePartSize;
         break;
       case "LEFT":
-        snakeHead.x = snakeHead.x - stepSizePercent;
+        snakeHead.x = snakeHead.x - this.snakePartSize;
         break;
       default:
     }

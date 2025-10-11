@@ -9,7 +9,7 @@ import {
   iterationTimeInMilliseconds,
   readyCountTimeInMilliseconds,
   notAllowedDirectionChanges,
-  stepSizePercent,
+  gameEntitySizePercent,
 } from "./constants";
 
 const genStringPosition = position => {
@@ -27,8 +27,8 @@ export const useGameStore = create((set, get) => ({
 
   // Main game rule states.
   direction: "",
-  snake: new Snake([]),
-  food: new Food(stepSizePercent, 0, 0),
+  snake: new Snake(gameEntitySizePercent, []),
+  food: new Food(gameEntitySizePercent, 0, 0),
 
   // Game execution states.
   isRunning: false,
