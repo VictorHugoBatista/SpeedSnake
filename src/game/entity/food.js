@@ -1,16 +1,20 @@
 import { randomInSteps } from "../../helpers/numbers"
+import Entity from "./entity";
 
-export default class Food {
+export default class Food extends Entity {
   constructor(size, x, y) {
+    super(size, x, y, "food");
+
     this.x = x;
     this.y = y;
     this.size = size;
-    this.type = "food";
   }
 
   generateNewLocation(minPosition, maxPosition) {
-    this.x = randomInSteps(minPosition, maxPosition, this.size);
-    this.y = randomInSteps(minPosition, maxPosition, this.size);
+    this.updatePosition(
+      randomInSteps(minPosition, maxPosition, this.size),
+      randomInSteps(minPosition, maxPosition, this.size),
+    );
   }
 }
 
