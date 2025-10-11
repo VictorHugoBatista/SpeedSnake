@@ -3,14 +3,16 @@ import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/store";
 import useScreenSize from "../../hooks/screenSize";
-import useGameLoop from "../../hooks/gameLoop";
+import useGameLoop from "../hooks/gameLoop";
 import useDimensions from "../../hooks/dimensions";
 
 const GameArea = function () {
+  // Hooks.
   const gameAreaRef = useRef(null);
   const dimensions = useDimensions(gameAreaRef);
   const screenSize = useScreenSize();
 
+  // Game states.
   const isPaused = useGameStore(state => state.isPaused);
   const gameArea = useGameStore(state => state.gameArea);
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
@@ -18,6 +20,7 @@ const GameArea = function () {
   const showReadyCountOverlay = useGameStore(state => state.showReadyCountOverlay);
   const readyCountTimeRegressive = useGameStore(state => state.readyCountTimeRegressive);
 
+  // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
 
