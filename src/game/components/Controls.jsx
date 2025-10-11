@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useScreenSize from "../../hooks/screenSize";
 import useKeyboardShortcut from "../../hooks/keyboardShortcut";
 
-import { useGameStore } from "../states/store";
+import { useGameStore } from "../states/main";
 
 const Controls = function () {
   const screenSize = useScreenSize();

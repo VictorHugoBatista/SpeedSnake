@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 import Food, { objectToFood } from "../entity/food";
 import Snake, { objectToSnake } from "../entity/snake";
+import { objectToSnakePart } from "../entity/snake-part";
 
 import {
   gameAreaMinPositionPercent,
@@ -12,9 +13,7 @@ import {
   gameEntitySizePercent,
 } from "./constants";
 
-const genStringPosition = position => {
-  return `${position.x}_${position.y}`;
-};
+import { collisionsSlice } from "./slices/collisions";
 
 export const useGameStore = create((set, get) => ({
   // Main state, the game area will reflect what is here.
@@ -66,38 +65,7 @@ export const useGameStore = create((set, get) => ({
 
   // ------------------------------------------------------------
 
-  // If there's a collision, return the object with position and type.
-  checkCollision: () => {
-    const state = get();
-    const [ newPosition ] = state.snake.parts;
-    const gameArea = state.gameArea;
-    
-    const collisionArray = Object.keys(gameArea).filter(key => key === genStringPosition(newPosition));
-
-    if (! collisionArray.length) {
-      return false;
-    }
-
-    const [ collision ] = collisionArray;
-
-    return state.gameArea[collision];
-  },
-
-  // Execute different actions  the type of object from the collision.
-  processCollision: (collision) => {
-    const state = get();
-    switch (collision.type) {
-      case "food":
-        state.incrementSnake();
-        state.generateNewFoodLocation();
-        break;
-      case "snake":
-      case "map":
-        state.endGame();
-        break;
-      default:
-    }
-  },
+  ...collisionsSlice(get),
 
   // ------------------------------------------------------------
 
@@ -114,7 +82,8 @@ export const useGameStore = create((set, get) => ({
           gameAreaMaxPositionPercent,
         );
 
-        foodLocationString = genStringPosition(newFoodObject);
+        const foddObject = objectToSnakePart(newFoodObject);
+        foodLocationString = foddObject.getStringPosition();
       } while(state.gameArea[foodLocationString]);
 
       return {food: newFoodObject};
@@ -236,9 +205,12 @@ export const useGameStore = create((set, get) => ({
     set((state) => {
       const newGameArea = {};
       state.snake.parts.forEach(part => {
-        newGameArea[genStringPosition(part)] = part;
+        const snakePartObject = objectToSnakePart(part);
+        newGameArea[snakePartObject.getStringPosition()] = part;
       });
-      newGameArea[genStringPosition(state.food)] = state.food;
+
+      const foodObject = objectToFood(state.food);
+      newGameArea[foodObject.getStringPosition()] = state.food;
 
       return {gameArea: newGameArea};
     });

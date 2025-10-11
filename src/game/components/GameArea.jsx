@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
-import { useGameStore } from "../states/store";
+import { useGameStore } from "../states/main";
 import useScreenSize from "../../hooks/screenSize";
 import useGameLoop from "../hooks/gameLoop";
 import useDimensions from "../../hooks/dimensions";

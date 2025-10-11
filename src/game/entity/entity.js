@@ -10,4 +10,8 @@ export default class Entity {
     this.x = x;
     this.y = y;
   }
+
+  getStringPosition() {
+    return `${this.x}_${this.y}`;
+  }
 }

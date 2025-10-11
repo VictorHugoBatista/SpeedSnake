@@ -9,3 +9,5 @@ export default class SnakePart extends Entity {
     this.size = size;
   }
 }
+
+export const objectToSnakePart = (snakePartObject) => (Object.assign(new SnakePart(), snakePartObject));
