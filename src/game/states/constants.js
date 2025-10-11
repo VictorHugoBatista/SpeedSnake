@@ -1,12 +1,8 @@
-export const titleSizesPercent = {
-  mobile: 5,
-  desktop: 2.5,
-};
 export const stepSizePercent = 5;
 export const gameAreaMinPositionPercent = 0;
 export const gameAreaMaxPositionPercent = 100 - stepSizePercent;
 
-export const iterationTimeInMilliseconds = 50;
+export const iterationTimeInMilliseconds = 500;
 export const readyCountTimeInMilliseconds = 3000;
 
 export const notAllowedDirectionChanges = {

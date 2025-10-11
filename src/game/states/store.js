@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 import Food, { objectToFood } from "../entity/food";
+import Snake, { objectToSnake } from "../entity/snake";
 
 import {
   gameAreaMinPositionPercent,
@@ -9,7 +10,6 @@ import {
   readyCountTimeInMilliseconds,
   notAllowedDirectionChanges,
   stepSizePercent,
-  initialSnakeParts,
 } from "./constants";
 
 const genStringPosition = position => {
@@ -27,11 +27,8 @@ export const useGameStore = create((set, get) => ({
 
   // Main game rule states.
   direction: "",
-  snake: [],
+  snake: new Snake([]),
   food: new Food(stepSizePercent, 0, 0),
-
-  // Auxiliar states.
-  snakePartToExclude: {},
 
   // Game execution states.
   isRunning: false,
@@ -58,60 +55,13 @@ export const useGameStore = create((set, get) => ({
 
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.
-  // @see tryToStepAcrossBorder()
   makeStep: () => {
     set((state) => {
-      const snakeToStep = structuredClone(state.snake);
-      let [snakeHead] = structuredClone(snakeToStep);
-      switch (state.direction) {
-        case "UP":
-          snakeHead.y = snakeHead.y - stepSizePercent;
-          break;
-        case "DOWN":
-          snakeHead.y = snakeHead.y + stepSizePercent;
-          break;
-        case "RIGHT":
-          snakeHead.x = snakeHead.x + stepSizePercent;
-          break;
-        case "LEFT":
-          snakeHead.x = snakeHead.x - stepSizePercent;
-          break;
-        default:
-      }
-      snakeHead = state.tryToStepAcrossBorder(snakeHead);
+      const snakeObject = objectToSnake(state.snake);
+      snakeObject.step(state.direction);
 
-      // Add last snake part to a separated state, for the case the food is being eaten.
-      // @see incrementSnake()
-      const snakePartToExclude = snakeToStep.at(-1);
-      const snakeNewBody = structuredClone(snakeToStep.slice(0, -1));
-
-      const snakeMoved = [snakeHead, ...snakeNewBody];
-
-      return {snake: snakeMoved, snakePartToExclude};
+      return {snake: snakeObject};
     });
-  },
-
-  // Calculate the jump across the border.
-  // Warning: Doesn't use nothung from the state.
-  // @see tryToStepAcrossBorder()
-  tryToStepAcrossBorder: (newPositionCandidate) => {
-    if (newPositionCandidate.x < gameAreaMinPositionPercent) {
-      newPositionCandidate.x = gameAreaMaxPositionPercent;
-    }
-
-    if (newPositionCandidate.x > gameAreaMaxPositionPercent) {
-      newPositionCandidate.x = gameAreaMinPositionPercent;
-    }
-
-    if (newPositionCandidate.y < gameAreaMinPositionPercent) {
-      newPositionCandidate.y = gameAreaMaxPositionPercent;
-    }
-
-    if (newPositionCandidate.y > gameAreaMaxPositionPercent) {
-      newPositionCandidate.y = gameAreaMinPositionPercent;
-    }
-    
-    return newPositionCandidate;
   },
 
   // ------------------------------------------------------------
@@ -119,7 +69,7 @@ export const useGameStore = create((set, get) => ({
   // If there's a collision, return the object with position and type.
   checkCollision: () => {
     const state = get();
-    const [ newPosition ] = state.snake;
+    const [ newPosition ] = state.snake.parts;
     const gameArea = state.gameArea;
     
     const collisionArray = Object.keys(gameArea).filter(key => key === genStringPosition(newPosition));
@@ -171,13 +121,13 @@ export const useGameStore = create((set, get) => ({
     });
   },
 
-  // Get the snakePartToExclude object back as a snake part to incrase its size.
-  // @see makeStep()
+  // Get the snake.partToExclude object back as a snake part to incrase its size.
   incrementSnake: () => {
     set((state) => {
-      const snakeToUpdate = structuredClone(state.snake);
-      snakeToUpdate.push((state.snakePartToExclude));
-      return {snake: snakeToUpdate};
+      const snakeObject = objectToSnake(state.snake);
+      snakeObject.incrementSnake();
+
+      return {snake: snakeObject};
     });
   },
 
@@ -203,9 +153,12 @@ export const useGameStore = create((set, get) => ({
     set((state) => {
       state.generateNewFoodLocation();
 
+      const snakeObject = objectToSnake(state.snake);
+      snakeObject.initializeSnake();
+
       return {
         direction: "RIGHT",
-        snake: initialSnakeParts,
+        snake: snakeObject,
         showStartOverlay: false,
         showEndOverlay: false,
         showReadyCountOverlay: false,
@@ -282,7 +235,7 @@ export const useGameStore = create((set, get) => ({
   updateGameArea: () => {
     set((state) => {
       const newGameArea = {};
-      state.snake.forEach(part => {
+      state.snake.parts.forEach(part => {
         newGameArea[genStringPosition(part)] = part;
       });
       newGameArea[genStringPosition(state.food)] = state.food;
