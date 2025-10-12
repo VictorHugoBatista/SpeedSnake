@@ -8,12 +8,9 @@ import {
 } from "../constants";
 
 export default class Food extends Entity {
-  constructor(size, x, y) {
-    super(size, x, y, EntityType.FOOD);
-
-    this.x = x;
-    this.y = y;
-    this.size = size;
+  constructor(size) {
+    super(size, 0, 0, EntityType.FOOD);
+    this.gameAreaMaxPositionPercent = 100 - size;
   }
 
   generateNewLocation() {

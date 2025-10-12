@@ -1,4 +1,5 @@
-import { objectToSnake } from "../../entity/snake";
+import Food from "../../entity/food";
+import Snake, { objectToSnake } from "../../entity/snake";
 
 // Treats all the game phase changes.
 export const gamePhasesSlice = (set) => ({
@@ -13,6 +14,23 @@ export const gamePhasesSlice = (set) => ({
         showStartOverlay: false,
         showEndOverlay: false,
         showReadyCountOverlay: true,
+      };
+    });
+  },
+
+  setEntitySize: (newSize) => {
+    set(() => {
+      return {
+        entitySize: newSize,
+      };
+    });
+  },
+
+  initializeEntities: () => {
+    set((state) => {
+      return {
+        snake: new Snake(state.entitySize),
+        food: new Food(state.entitySize),
       };
     });
   },

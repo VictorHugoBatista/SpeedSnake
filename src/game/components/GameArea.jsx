@@ -24,11 +24,11 @@ const GameArea = function () {
   // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
-  const initializeEntitiesSize = useGameStore(state => state.initializeEntitiesSize);
+  const setEntitySize = useGameStore(state => state.setEntitySize);
 
   useEffect(() => {
-    initializeEntitiesSize(isDesktop ? 2.5 : 5);
-  }, [initializeEntitiesSize, isDesktop]);
+    setEntitySize(isDesktop ? 2.5 : 5);
+  }, [setEntitySize, isDesktop]);
 
   const gameLoop = (deltaTime) => {
     mainLoopIteration(deltaTime);

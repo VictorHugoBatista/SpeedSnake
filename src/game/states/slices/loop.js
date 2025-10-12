@@ -38,6 +38,7 @@ export const loopSlice = (get, set) => ({
       return;
     }
 
+    state.initializeEntities();
     state.startGame();
   },
 

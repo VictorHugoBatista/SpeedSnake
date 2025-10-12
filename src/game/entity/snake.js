@@ -10,10 +10,11 @@ import SnakePart from "./snake-part";
 import { DirectionEnum } from "../enums/directions";
 
 export default class Snake {
-  constructor(snakePartSize, parts) {
-    this.direction = "";
+  constructor(snakePartSize) {
     this.snakePartSize = snakePartSize;
-    this.parts = parts;
+    this.gameAreaMaxPositionPercent = 100 - snakePartSize;
+    this.direction = "";
+    this.parts = [];
     this.partToExclude = {};
   }
 
