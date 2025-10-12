@@ -1,7 +1,7 @@
 import { objectToFood } from "../../entity/food";
 import { objectToSnakePart } from "../../entity/snake-part";
 
-// Functions related to the main game area state.
+// Functions related to the main game area state and global sizes.
 export const gameAreaSlice = (set) => ({
   // Update the main state with the game changes.
   updateGameArea: () => {
@@ -17,5 +17,10 @@ export const gameAreaSlice = (set) => ({
 
       return {gameArea: newGameArea};
     });
+  },
+
+  // Update the global entity size.
+  setEntitySize: (newSize) => {
+    set(() => ({entitySize: newSize}));
   },
 });
