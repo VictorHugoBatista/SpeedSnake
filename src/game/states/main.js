@@ -5,7 +5,7 @@ import Snake from "../entity/snake";
 
 import {
   gameEntitySizePercent,
-} from "./constants";
+} from "../constants";
 
 import { actionsGameSlice } from "./slices/actions-game";
 import { actionsPlayerSlice } from "./slices/actions-player";

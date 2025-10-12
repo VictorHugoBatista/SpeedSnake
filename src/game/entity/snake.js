@@ -4,7 +4,7 @@ import {
   initialSnakeHeadPosition,
   initialSnakePartsNumber,
   notAllowedDirectionChanges,
-} from "../states/constants";
+} from "../constants";
 
 import SnakePart from "./snake-part";
 

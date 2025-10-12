@@ -5,7 +5,7 @@ import { objectToSnake } from "../../entity/snake";
 import {
   gameAreaMinPositionPercent,
   gameAreaMaxPositionPercent,
-} from "../constants";
+} from "../../constants";
 
 export const actionsGameSlice = (set) => ({
   // Make a step, deppending on the current direction.

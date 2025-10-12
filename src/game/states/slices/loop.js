@@ -1,7 +1,7 @@
 import {
   iterationTimeInMilliseconds,
   readyCountTimeInMilliseconds,
-} from "../constants";
+} from "../../constants";
 
 export const loopSlice = (get, set) => ({
   // Calculate if the current passed time complete the total ready screen time.
