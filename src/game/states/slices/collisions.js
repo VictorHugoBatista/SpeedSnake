@@ -1,5 +1,7 @@
 import { objectToSnakePart } from "../../entity/snake-part";
 
+import { EntityType } from "../../enums/entity-type";
+
 // Collision checks and its different processings.
 export const collisionsSlice = (get) => ({
   // If there's a collision, return the object with position and type.
@@ -24,12 +26,12 @@ export const collisionsSlice = (get) => ({
   processCollision: (collision) => {
     const state = get();
     switch (collision.type) {
-      case "food":
+      case EntityType.FOOD:
         state.incrementSnake();
         state.generateNewFoodLocation();
         break;
-      case "snake":
-      case "map":
+      case EntityType.SNAKE:
+      case EntityType.MAP:
         state.endGame();
         break;
       default:
