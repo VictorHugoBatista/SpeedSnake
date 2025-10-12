@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import useScreenSize from "../../hooks/screenSize";
 import useKeyboardShortcut from "../../hooks/keyboardShortcut";
 
+import { DirectionEnum } from "../enums/directions.js";
+
 import { useGameStore } from "../states/main";
 
 const Controls = function () {
@@ -24,28 +26,21 @@ const Controls = function () {
   const togglePause = useGameStore(state => state.togglePause);
   const startReadyCount = useGameStore(state => state.startReadyCount);
 
-  const changeDirectionEvents = {
-    UP: () => changeDirection("UP"),
-    LEFT: () => changeDirection("LEFT"),
-    DOWN: () => changeDirection("DOWN"),
-    RIGHT: () => changeDirection("RIGHT"),
-  };
-
   useKeyboardShortcut({
     keys: ["w", "arrowup", "k"],
-    onKeyPressed: () => changeDirectionEvents["UP"](),
+    onKeyPressed: () => changeDirection(DirectionEnum.UP),
   });
   useKeyboardShortcut({
     keys: ["a", "arrowleft", "h"],
-    onKeyPressed: () => changeDirectionEvents["LEFT"](),
+    onKeyPressed: () => changeDirection(DirectionEnum.LEFT),
   });
   useKeyboardShortcut({
     keys: ["s", "arrowdown", "j"],
-    onKeyPressed: () => changeDirectionEvents["DOWN"](),
+    onKeyPressed: () => changeDirection(DirectionEnum.DOWN),
   });
   useKeyboardShortcut({
     keys: ["d", "arrowright", "l"],
-    onKeyPressed: () => changeDirectionEvents["RIGHT"](),
+    onKeyPressed: () => changeDirection(DirectionEnum.RIGHT),
   });
 
   useKeyboardShortcut({
@@ -70,12 +65,12 @@ const Controls = function () {
       {showControls ?
         <div className="controls">
           <div className="controls-up">
-            <div className="button controls-button" onClick={() => changeDirectionEvents["UP"]()}>up</div>
+            <div className="button controls-button" onClick={() => changeDirection(DirectionEnum.UP)}>up</div>
           </div>
           <div className="controls-down">
-            <div className="button controls-button" onClick={() => changeDirectionEvents["LEFT"]()}>left</div>
-            <div className="button controls-button" onClick={() => changeDirectionEvents["DOWN"]()}>down</div>
-            <div className="button controls-button" onClick={() => changeDirectionEvents["RIGHT"]()}>right</div>
+            <div className="button controls-button" onClick={() => changeDirection(DirectionEnum.LEFT)}>left</div>
+            <div className="button controls-button" onClick={() => changeDirection(DirectionEnum.DOWN)}>down</div>
+            <div className="button controls-button" onClick={() => changeDirection(DirectionEnum.RIGHT)}>right</div>
           </div>
         </div>
       : null}

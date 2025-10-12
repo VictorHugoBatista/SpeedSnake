@@ -8,6 +8,8 @@ import {
 
 import SnakePart from "./snake-part";
 
+import { DirectionEnum } from "../enums/directions";
+
 export default class Snake {
   constructor(snakePartSize, parts) {
     this.direction = "";
@@ -29,7 +31,7 @@ export default class Snake {
         );
       });
     this.parts = newSnake;
-    this.direction = "RIGHT";
+    this.direction = DirectionEnum.RIGHT;
     this.partToExclude = {};
   }
 
@@ -40,16 +42,16 @@ export default class Snake {
     const partsClonned = structuredClone(this.parts);
     let [snakeHead] = structuredClone(this.parts);
     switch (this.direction) {
-      case "UP":
+      case DirectionEnum.UP:
         snakeHead.y = snakeHead.y - this.snakePartSize;
         break;
-      case "DOWN":
+      case DirectionEnum.DOWN:
         snakeHead.y = snakeHead.y + this.snakePartSize;
         break;
-      case "RIGHT":
+      case DirectionEnum.RIGHT:
         snakeHead.x = snakeHead.x + this.snakePartSize;
         break;
-      case "LEFT":
+      case DirectionEnum.LEFT:
         snakeHead.x = snakeHead.x - this.snakePartSize;
         break;
       default:
