@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// @todo change to isMobile
 const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,

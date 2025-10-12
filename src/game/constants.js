@@ -1,10 +1,9 @@
 import { DirectionEnum } from "./enums/directions.js";
 
-// @todo Turn this constants states and fill with data based on if os mobile or desktop.
 export const gameAreaMinPositionPercent = 0;
 
-export const iterationTimeInMilliseconds = 50;
 export const readyCountTimeInMilliseconds = 3000;
+export const iterationTimeInMilliseconds = 50;
 
 export const notAllowedDirectionChanges = {
   [DirectionEnum.RIGHT]: DirectionEnum.LEFT,
