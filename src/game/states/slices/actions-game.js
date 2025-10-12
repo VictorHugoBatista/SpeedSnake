@@ -7,6 +7,7 @@ import {
   gameAreaMaxPositionPercent,
 } from "../../constants";
 
+// Automatic actions made by the game.
 export const actionsGameSlice = (set) => ({
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.

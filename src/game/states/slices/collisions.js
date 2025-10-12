@@ -1,5 +1,6 @@
 import { objectToSnakePart } from "../../entity/snake-part";
 
+// Collision checks and its different processings.
 export const collisionsSlice = (get) => ({
   // If there's a collision, return the object with position and type.
   checkCollision: () => {

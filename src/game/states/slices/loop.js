@@ -3,6 +3,7 @@ import {
   readyCountTimeInMilliseconds,
 } from "../../constants";
 
+// Functions related to a game loop iterations and time calculations to execute them.
 export const loopSlice = (get, set) => ({
   // Calculate if the current passed time complete the total ready screen time.
   // Also, calculate the regressive time in seconds, for showing in the component.
