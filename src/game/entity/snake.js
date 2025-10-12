@@ -1,6 +1,5 @@
 import {
   gameAreaMinPositionPercent,
-  gameAreaMaxPositionPercent,
   initialSnakeHeadPosition,
   initialSnakePartsNumber,
   notAllowedDirectionChanges,
@@ -71,18 +70,18 @@ export default class Snake {
   // @see tryToStepAcrossBorder()
   tryToStepAcrossBorder (newPositionCandidate) {
     if (newPositionCandidate.x < gameAreaMinPositionPercent) {
-      newPositionCandidate.x = gameAreaMaxPositionPercent;
+      newPositionCandidate.x = this.gameAreaMaxPositionPercent;
     }
 
-    if (newPositionCandidate.x > gameAreaMaxPositionPercent) {
+    if (newPositionCandidate.x > this.gameAreaMaxPositionPercent) {
       newPositionCandidate.x = gameAreaMinPositionPercent;
     }
 
     if (newPositionCandidate.y < gameAreaMinPositionPercent) {
-      newPositionCandidate.y = gameAreaMaxPositionPercent;
+      newPositionCandidate.y = this.gameAreaMaxPositionPercent;
     }
 
-    if (newPositionCandidate.y > gameAreaMaxPositionPercent) {
+    if (newPositionCandidate.y > this.gameAreaMaxPositionPercent) {
       newPositionCandidate.y = gameAreaMinPositionPercent;
     }
     

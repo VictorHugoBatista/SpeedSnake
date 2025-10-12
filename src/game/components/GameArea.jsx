@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/main";
@@ -24,6 +24,11 @@ const GameArea = function () {
   // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
+  const initializeEntitiesSize = useGameStore(state => state.initializeEntitiesSize);
+
+  useEffect(() => {
+    initializeEntitiesSize(isDesktop ? 2.5 : 5);
+  }, [initializeEntitiesSize, isDesktop]);
 
   const gameLoop = (deltaTime) => {
     mainLoopIteration(deltaTime);

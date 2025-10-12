@@ -2,11 +2,6 @@ import { objectToFood } from "../../entity/food";
 import { objectToSnakePart } from "../../entity/snake-part";
 import { objectToSnake } from "../../entity/snake";
 
-import {
-  gameAreaMinPositionPercent,
-  gameAreaMaxPositionPercent,
-} from "../../constants";
-
 // Automatic actions made by the game.
 export const actionsGameSlice = (set) => ({
   // Make a step, deppending on the current direction.
@@ -28,10 +23,7 @@ export const actionsGameSlice = (set) => ({
       const newFoodObject = objectToFood(state.food);
 
       do {
-        newFoodObject.generateNewLocation(
-          gameAreaMinPositionPercent,
-          gameAreaMaxPositionPercent,
-        );
+        newFoodObject.generateNewLocation();
 
         const foddObject = objectToSnakePart(newFoodObject);
         foodLocationString = foddObject.getStringPosition();

@@ -1,11 +1,7 @@
 import { create } from "zustand";
 
-import Food from "../entity/food";
-import Snake from "../entity/snake";
-
-import {
-  gameEntitySizePercent,
-} from "../constants";
+import Food, { objectToFood } from "../entity/food";
+import Snake, { objectToSnake } from "../entity/snake";
 
 import { actionsGameSlice } from "./slices/actions-game";
 import { actionsPlayerSlice } from "./slices/actions-player";
@@ -24,8 +20,8 @@ export const useGameStore = create((set, get) => ({
   gameLoopIterationTimeAccumulator: 0,
 
   // Main game entities.
-  snake: new Snake(gameEntitySizePercent, []),
-  food: new Food(gameEntitySizePercent, 0, 0),
+  snake: new Snake(0, []),
+  food: new Food(0, 0, 0),
 
   // Game execution states.
   isRunning: false,
@@ -33,6 +29,23 @@ export const useGameStore = create((set, get) => ({
   showStartOverlay: true,
   showReadyCountOverlay: false,
   showEndOverlay: false,
+
+  initializeEntitiesSize: newSize => {
+    set((state) => {
+      const snakeObject = objectToSnake(state.snake);
+      const foodObject = objectToFood(state.food);
+
+      snakeObject.snakePartSize = newSize;
+      foodObject.size = newSize;
+      snakeObject.gameAreaMaxPositionPercent = 100 - newSize;
+      foodObject.gameAreaMaxPositionPercent = 100 - newSize;
+
+      return {
+        snake: snakeObject,
+        food: foodObject,
+      };
+    });
+  },
 
   ...actionsPlayerSlice(set),
   ...actionsGameSlice(set),
