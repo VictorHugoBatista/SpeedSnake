@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import useScreenSize from "../../hooks/screenSize";
+import useIsDesktop from "../../hooks/isDesktop";
 import useKeyboardShortcut from "../../hooks/keyboardShortcut";
 
 import { DirectionEnum } from "../enums/directions.js";
@@ -8,15 +8,15 @@ import { DirectionEnum } from "../enums/directions.js";
 import { useGameStore } from "../states/main";
 
 const Controls = function () {
-  const screenSize = useScreenSize();
+  const isDesktop = useIsDesktop();
 
   const [showControls, setShowControls] = useState(false);
 
   useEffect(() => {
-    if (screenSize.width < 768) {
+    if (! isDesktop) {
       setShowControls(true);
     }
-  }, [screenSize]);
+  }, [isDesktop]);
 
   const toggleControls = () => {
     setShowControls((showControls) => ! showControls);

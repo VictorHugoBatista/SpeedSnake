@@ -2,7 +2,8 @@ import { useRef } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/main";
-import useScreenSize from "../../hooks/screenSize";
+
+import useIsDesktop from "../../hooks/isDesktop";
 import useGameLoop from "../hooks/game-loop";
 import useDimensions from "../../hooks/dimensions";
 
@@ -10,7 +11,7 @@ const GameArea = function () {
   // Hooks.
   const gameAreaRef = useRef(null);
   const dimensions = useDimensions(gameAreaRef);
-  const screenSize = useScreenSize();
+  const isDesktop = useIsDesktop();
 
   // Game states.
   const isPaused = useGameStore(state => state.isPaused);
@@ -32,13 +33,13 @@ const GameArea = function () {
   return (
     <div className={`game-area`} ref={gameAreaRef}>
       <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startReadyCount()}>
-        {screenSize.width >= 768 ? <span>Press Start or click here</span> : null}
-        {screenSize.width < 768 ? <span>Tap to start</span> : null}
+        {isDesktop ? <span>Press Start or click here</span> : null}
+        {! isDesktop ? <span>Tap to start</span> : null}
       </div>
       <div className={`game-area-overlay clickable ${showEndOverlay ? 'active' : ''}`} onClick={() => startReadyCount()}>
         <span>You lose!</span>
-        {screenSize.width >= 768 ? <span>Press Start or click to restart</span> : null}
-        {screenSize.width < 768 ? <span>Tap to restart</span> : null}
+        {isDesktop ? <span>Press Start or click to restart</span> : null}
+        {! isDesktop ? <span>Tap to restart</span> : null}
       </div>
       <div className={`game-area-overlay ${showReadyCountOverlay ? 'active' : ''}`}>
         <span>Ready</span>
