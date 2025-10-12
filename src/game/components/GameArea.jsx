@@ -3,7 +3,7 @@ import { Stage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../states/main";
 import useScreenSize from "../../hooks/screenSize";
-import useGameLoop from "../hooks/gameLoop";
+import useGameLoop from "../hooks/game-loop";
 import useDimensions from "../../hooks/dimensions";
 
 const GameArea = function () {

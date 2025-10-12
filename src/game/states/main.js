@@ -14,6 +14,8 @@ import {
 } from "./constants";
 
 import { collisionsSlice } from "./slices/collisions";
+import { gameAreaSlice } from "./slices/game-area";
+import { loopSlice } from "./slices/loop";
 
 export const useGameStore = create((set, get) => ({
   // Main state, the game area will reflect what is here.
@@ -200,72 +202,6 @@ export const useGameStore = create((set, get) => ({
   // ------------------------------------------------------------
   // ------------------------------------------------------------
 
-  // Update the main state with the game changes.
-  updateGameArea: () => {
-    set((state) => {
-      const newGameArea = {};
-      state.snake.parts.forEach(part => {
-        const snakePartObject = objectToSnakePart(part);
-        newGameArea[snakePartObject.getStringPosition()] = part;
-      });
-
-      const foodObject = objectToFood(state.food);
-      newGameArea[foodObject.getStringPosition()] = state.food;
-
-      return {gameArea: newGameArea};
-    });
-  },
-
-  // ------------------------------------------------------------
-  // ------------------------------------------------------------
-
-  // Ready count screen. It calculates the time and changes to the game loop.
-  // @see updateReadyCountIderationTime()
-  readyCountLoopIteration: (deltaTime) => {
-    const state = get();
-
-    state.updateReadyCountIderationTime(deltaTime);
-
-    if (state.readyCountTimeAccumulator > 0) {
-      return;
-    }
-
-    state.startGame();
-  },
-
-  // It treats all game rules.
-  gameLoopIteration: (deltaTime) => {
-    const state = get();
-
-    // If iteration time state not back to zero, isn't time for execute the game iteration.
-    // @see updateGameLoopIderationTime()
-    state.updateGameLoopIderationTime(deltaTime);
-    if (state.gameLoopIterationTimeAccumulator > 0) {
-      return;
-    }
-
-    if (state.isPaused || ! state.isRunning) {
-      return;
-    }
-
-    state.makeStep();
-
-    const collision = state.checkCollision();
-    if (collision) {
-      state.processCollision(collision);
-    }
-
-    state.updateGameArea();
-  },
-
-  // Main loop.
-  mainLoopIteration: (deltaTime) => {
-    const state = get();
-
-    if (state.showReadyCountOverlay) {
-      state.readyCountLoopIteration(deltaTime);
-    }
-
-    state.gameLoopIteration(deltaTime);
-  },
+  ...gameAreaSlice(set),
+  ...loopSlice(get),
 }));
