@@ -18,11 +18,7 @@ export const gamePhasesSlice = (set) => ({
   },
 
   setEntitySize: (newSize) => {
-    set(() => {
-      return {
-        entitySize: newSize,
-      };
-    });
+    set(() => ({entitySize: newSize}));
   },
 
   // Initialize snake, the direction and reset food location in the states.

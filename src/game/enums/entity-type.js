@@ -1,5 +1,5 @@
 export class EntityType {
   static SNAKE = "SNAKE";
-  static PART = "PART";
+  static FOOD = "FOOD";
   static MAP = "MAP";
 };
