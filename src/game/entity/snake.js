@@ -3,12 +3,14 @@ import {
   gameAreaMaxPositionPercent,
   initialSnakeHeadPosition,
   initialSnakePartsNumber,
+  notAllowedDirectionChanges,
 } from "../states/constants";
 
 import SnakePart from "./snake-part";
 
 export default class Snake {
   constructor(snakePartSize, parts) {
+    this.direction = "";
     this.snakePartSize = snakePartSize;
     this.parts = parts;
     this.partToExclude = {};
@@ -27,16 +29,17 @@ export default class Snake {
         );
       });
     this.parts = newSnake;
+    this.direction = "RIGHT";
     this.partToExclude = {};
   }
 
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.
   // @see tryToStepAcrossBorder()
-  step(direction) {
+  step() {
     const partsClonned = structuredClone(this.parts);
     let [snakeHead] = structuredClone(this.parts);
-    switch (direction) {
+    switch (this.direction) {
       case "UP":
         snakeHead.y = snakeHead.y - this.snakePartSize;
         break;
@@ -88,6 +91,13 @@ export default class Snake {
   // @see step()
   incrementSnake() {
     this.parts.push(this.partToExclude);
+  }
+
+  changeDirection(newDirection) {
+    if (notAllowedDirectionChanges[newDirection] === this.direction) {
+      return {};
+    }
+    this.direction = newDirection;
   }
 }
 

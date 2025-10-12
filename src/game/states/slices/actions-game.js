@@ -13,7 +13,7 @@ export const actionsGameSlice = (set) => ({
   makeStep: () => {
     set((state) => {
       const snakeObject = objectToSnake(state.snake);
-      snakeObject.step(state.direction);
+      snakeObject.step();
 
       return {snake: snakeObject};
     });

@@ -26,7 +26,6 @@ export const gamePhasesSlice = (set) => ({
       snakeObject.initializeSnake();
 
       return {
-        direction: "RIGHT",
         snake: snakeObject,
         showStartOverlay: false,
         showEndOverlay: false,

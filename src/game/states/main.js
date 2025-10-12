@@ -23,8 +23,7 @@ export const useGameStore = create((set, get) => ({
   readyCountTimeRegressive: 0,
   gameLoopIterationTimeAccumulator: 0,
 
-  // Main game rule states.
-  direction: "",
+  // Main game entities.
   snake: new Snake(gameEntitySizePercent, []),
   food: new Food(gameEntitySizePercent, 0, 0),
 
