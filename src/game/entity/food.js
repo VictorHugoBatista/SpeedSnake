@@ -8,14 +8,15 @@ import {
 } from "../constants";
 
 export default class Food extends Entity {
-  constructor(size) {
-    super(size, 0, 0, EntityType.FOOD);
-    this.gameAreaMaxPositionPercent = 100 - size;
+  constructor() {
+    super(0, 0, 0, EntityType.FOOD);
   }
 
-  generateNewLocation() {
+  generateNewLocation(size) {
+    this.size = size;
     const minPosition = gameAreaMinPositionPercent;
-    const maxPosition = this.gameAreaMaxPositionPercent;
+    const maxPosition = 100 - this.size;
+
     this.updatePosition(
       randomInSteps(minPosition, maxPosition, this.size),
       randomInSteps(minPosition, maxPosition, this.size),

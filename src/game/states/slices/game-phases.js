@@ -1,5 +1,4 @@
-import Food from "../../entity/food";
-import Snake, { objectToSnake } from "../../entity/snake";
+import { objectToSnake } from "../../entity/snake";
 
 // Treats all the game phase changes.
 export const gamePhasesSlice = (set) => ({
@@ -26,15 +25,6 @@ export const gamePhasesSlice = (set) => ({
     });
   },
 
-  initializeEntities: () => {
-    set((state) => {
-      return {
-        snake: new Snake(state.entitySize),
-        food: new Food(state.entitySize),
-      };
-    });
-  },
-
   // Initialize snake, the direction and reset food location in the states.
   // Hide all overlays.
   startGame: () => {
@@ -42,7 +32,7 @@ export const gamePhasesSlice = (set) => ({
       state.generateNewFoodLocation();
 
       const snakeObject = objectToSnake(state.snake);
-      snakeObject.initializeSnake();
+      snakeObject.initializeSnake(state.entitySize);
 
       return {
         snake: snakeObject,

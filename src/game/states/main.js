@@ -20,8 +20,8 @@ export const useGameStore = create((set, get) => ({
   gameLoopIterationTimeAccumulator: 0,
 
   // Main game entities.
-  snake: new Snake(0),
-  food: new Food(0),
+  snake: new Snake(),
+  food: new Food(),
   entitySize: 0,
 
   // Game execution states.

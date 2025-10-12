@@ -9,7 +9,7 @@ export const actionsGameSlice = (set) => ({
   makeStep: () => {
     set((state) => {
       const snakeObject = objectToSnake(state.snake);
-      snakeObject.step();
+      snakeObject.step(state.entitySize);
 
       return {snake: snakeObject};
     });
@@ -23,7 +23,7 @@ export const actionsGameSlice = (set) => ({
       const newFoodObject = objectToFood(state.food);
 
       do {
-        newFoodObject.generateNewLocation();
+        newFoodObject.generateNewLocation(state.entitySize);
 
         const foddObject = objectToSnakePart(newFoodObject);
         foodLocationString = foddObject.getStringPosition();
