@@ -3,6 +3,7 @@ import { useGameStore } from "../../states/main";
 import useIsDesktop from "../../../hooks/isDesktop";
 
 import OverlayBase from "../overlays/OverlayBase";
+import GameStartOverlay from "../overlays/GameStartOverlay";
 
 const Overlays = function () {
   // Hooks.
@@ -10,21 +11,16 @@ const Overlays = function () {
 
   // Game states.
   const isPaused = useGameStore(state => state.isPaused);
-  const showStartOverlay = useGameStore(state => state.showStartOverlay);
   const showEndOverlay = useGameStore(state => state.showEndOverlay);
   const showReadyCountOverlay = useGameStore(state => state.showReadyCountOverlay);
   const readyCountTimeRegressive = useGameStore(state => state.readyCountTimeRegressive);
 
   // Game state methods.
-  const startReadyCount = useGameStore(state => state.startReadyCount);
   const openStartOverlay = useGameStore(state => state.openStartOverlay);
 
   return (
     <>
-      <OverlayBase show={showStartOverlay} onClick={() => startReadyCount()}>
-        {isDesktop ? <span>Press Start or click here</span> : null}
-        {! isDesktop ? <span>Tap to start</span> : null}
-      </OverlayBase>
+      <GameStartOverlay />
       <OverlayBase show={showEndOverlay} onClick={() => openStartOverlay()}>
         <span>You lose!</span>
         {isDesktop ? <span>Press Start or click to restart</span> : null}
