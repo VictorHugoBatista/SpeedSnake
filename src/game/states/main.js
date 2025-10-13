@@ -3,16 +3,22 @@ import { create } from "zustand";
 import Food from "../entity/food";
 import Snake from "../entity/snake";
 
+import { Difficulty } from "../enums/difficulty";
+
 import { actionsGameSlice } from "./slices/actions-game";
 import { actionsPlayerSlice } from "./slices/actions-player";
 import { collisionsSlice } from "./slices/collisions";
 import { gameAreaSlice } from "./slices/game-area";
+import { gameOptions } from "./slices/game-options";
 import { gamePhasesSlice } from "./slices/game-phases";
 import { loopSlice } from "./slices/loop";
 
 export const useGameStore = create((set, get) => ({
   // Main state, the game area will reflect what is here.
   gameArea: {},
+
+  // Game options.
+  difficulty: Difficulty.FAST,
 
   // Game loop iterators.
   readyCountTimeAccumulator: 0.1,
@@ -31,6 +37,7 @@ export const useGameStore = create((set, get) => ({
   showReadyCountOverlay: false,
   showEndOverlay: false,
 
+  ...gameOptions(set),
   ...actionsPlayerSlice(set),
   ...actionsGameSlice(set),
   ...collisionsSlice(get),

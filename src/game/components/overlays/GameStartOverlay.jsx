@@ -2,14 +2,16 @@ import { useGameStore } from "../../states/main";
 
 import useIsDesktop from "../../../hooks/isDesktop";
 
+import { Difficulty } from "../../enums/difficulty"
+
 import RadioButtons from "../../../components/forms/RadioButtons";
 import OverlayBase from "./OverlayBase";
 
 const difficulties = [
-  { label: "Fast", value: "fast" },
-  { label: "Faster", value: "faster" },
-  { label: "Fastest", value: "fastest" },
-  { label: "Lightspeed", value: "lightspeed" },
+  { label: "Fast", value: Difficulty.FAST },
+  { label: "Faster", value: Difficulty.FASTER },
+  { label: "Fastest", value: Difficulty.FASTEST },
+  { label: "Lightspeed", value: Difficulty.SPEEDOFLIGHT },
 ];
 
 const GameStartOverlay = function () {
@@ -18,16 +20,18 @@ const GameStartOverlay = function () {
 
   // Game states.
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
+  const difficulty = useGameStore(state => state.difficulty);
 
   // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
+  const setDifficulty = useGameStore(state => state.setDifficulty);
 
   return (
     <OverlayBase show={showStartOverlay}>
       <div>
         <div className="overlay-column">
           <div className="overlay-column-title">Select difficulty</div>
-          <RadioButtons buttons={difficulties} />
+          <RadioButtons buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
         </div>
       </div>
       <div onClick={() => startReadyCount()}>

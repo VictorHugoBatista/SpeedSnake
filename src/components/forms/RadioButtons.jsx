@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 const RadioButtons = (props) => {
-  const { buttons, onChange } = props;
-  const [ buttonFirst ] = buttons;
+  const { buttons, onChange, value } = props;
 
-  const [ selectedButton, setSelectedButton ] = useState(buttonFirst.value);
+  const [ selectedButton, setSelectedButton ] = useState(value);
 
   const onChangeInternal = (newValue) => {
     setSelectedButton(newValue);
@@ -19,7 +18,7 @@ const RadioButtons = (props) => {
         <li key={button.value}>
           <label>
             <input type="radio" name="difficulty" value={button.value}
-            checked={selectedButton === button.value}
+            checked={selectedButton.toString() === button.value.toString()}
             onChange={(event) => onChangeInternal(event.target.value)} />
             {button.label}
           </label>
