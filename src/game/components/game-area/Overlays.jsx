@@ -2,6 +2,8 @@ import { useGameStore } from "../../states/main";
 
 import useIsDesktop from "../../../hooks/isDesktop";
 
+import OverlayBase from "../overlays/OverlayBase";
+
 const Overlays = function () {
   // Hooks.
   const isDesktop = useIsDesktop();
@@ -18,20 +20,20 @@ const Overlays = function () {
 
   return (
     <>
-      <div className={`game-area-overlay clickable ${showStartOverlay ? 'active' : ''}`} onClick={() => startReadyCount()}>
+      <OverlayBase show={showStartOverlay} onClick={() => startReadyCount()}>
         {isDesktop ? <span>Press Start or click here</span> : null}
         {! isDesktop ? <span>Tap to start</span> : null}
-      </div>
-      <div className={`game-area-overlay clickable ${showEndOverlay ? 'active' : ''}`} onClick={() => startReadyCount()}>
+      </OverlayBase>
+      <OverlayBase show={showEndOverlay} onClick={() => startReadyCount()}>
         <span>You lose!</span>
         {isDesktop ? <span>Press Start or click to restart</span> : null}
         {! isDesktop ? <span>Tap to restart</span> : null}
-      </div>
-      <div className={`game-area-overlay ${showReadyCountOverlay ? 'active' : ''}`}>
+      </OverlayBase>
+      <OverlayBase show={showReadyCountOverlay}>
         <span>Ready</span>
         <span>{readyCountTimeRegressive}</span>
-      </div>
-      <div className={`game-area-overlay ${isPaused ? 'active' : ''}`}>Paused</div>
+      </OverlayBase>
+      <OverlayBase show={isPaused}>Paused</OverlayBase>
     </>
   );
 };

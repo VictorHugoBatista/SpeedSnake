@@ -20,6 +20,14 @@ export const useGameStore = create((set, get) => ({
   gameLoopIterationTimeAccumulator: 0,
 
   // Main game entities.
+  // map: {
+  //   x_y: {
+  //     x: 0,
+  //     y: 0,
+  //     size: 50,
+  //     type: "map",
+  //   },
+  // },
   snake: new Snake(),
   food: new Food(),
   entitySize: 0,
