@@ -30,7 +30,7 @@ const GameStartOverlay = function () {
     <OverlayBase show={showStartOverlay}>
       <div>
         <div className="overlay-column">
-          <div className="overlay-column-title">Select difficulty</div>
+          <div className="overlay-column-title">Difficulty</div>
           <RadioButtons buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
         </div>
       </div>
