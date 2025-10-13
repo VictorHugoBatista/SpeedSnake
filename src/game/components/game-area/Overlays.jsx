@@ -17,6 +17,7 @@ const Overlays = function () {
 
   // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
+  const openStartOverlay = useGameStore(state => state.openStartOverlay);
 
   return (
     <>
@@ -24,7 +25,7 @@ const Overlays = function () {
         {isDesktop ? <span>Press Start or click here</span> : null}
         {! isDesktop ? <span>Tap to start</span> : null}
       </OverlayBase>
-      <OverlayBase show={showEndOverlay} onClick={() => startReadyCount()}>
+      <OverlayBase show={showEndOverlay} onClick={() => openStartOverlay()}>
         <span>You lose!</span>
         {isDesktop ? <span>Press Start or click to restart</span> : null}
         {! isDesktop ? <span>Tap to restart</span> : null}

@@ -2,6 +2,14 @@ import { objectToSnake } from "../../entity/snake";
 
 // Treats all the game phase changes.
 export const gamePhasesSlice = (set) => ({
+  openStartOverlay: () => {
+    set(() => ({
+      showStartOverlay: true,
+      showReadyCountOverlay: false,
+      showEndOverlay: false,
+    }));
+  },
+
   // Initialize the ready count and hide all other overlays.
   startReadyCount: () => {
     set((state) => {
