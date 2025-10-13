@@ -14,6 +14,8 @@ import { gamePhasesSlice } from "./slices/game-phases";
 import { loopSlice } from "./slices/loop";
 
 export const useGameStore = create((set, get) => ({
+  isDesktop: true,
+
   // Main state, the game area will reflect what is here.
   gameArea: {},
 
