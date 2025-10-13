@@ -1,6 +1,6 @@
 import { Stage as KonvaStage, Layer, Rect } from "react-konva";
 
-import { useGameStore } from "../states/main";
+import { useGameStore } from "../../states/main";
 
 const Stage = function ({ dimensions }) {
   // Game states.

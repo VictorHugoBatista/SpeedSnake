@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
-import { useGameStore } from "../states/main";
+import { useGameStore } from "../../states/main";
 
-import useDimensions from "../../hooks/dimensions";
-import useIsDesktop from "../../hooks/isDesktop";
-import useGameLoop from "../hooks/game-loop";
+import useDimensions from "../../../hooks/dimensions";
+import useIsDesktop from "../../../hooks/isDesktop";
+import useGameLoop from "../../hooks/game-loop";
 
 import Overlays from "./Overlays";
 import Stage from "./Stage";

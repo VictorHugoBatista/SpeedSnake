@@ -1,5 +1,5 @@
 import Controls from './Controls';
-import GameArea from './GameArea';
+import GameArea from './game-area/GameArea';
 
 const Main = function () {
   return (

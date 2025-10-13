@@ -1,6 +1,6 @@
-import { useGameStore } from "../states/main";
+import { useGameStore } from "../../states/main";
 
-import useIsDesktop from "../../hooks/isDesktop";
+import useIsDesktop from "../../../hooks/isDesktop";
 
 const Overlays = function () {
   // Hooks.
