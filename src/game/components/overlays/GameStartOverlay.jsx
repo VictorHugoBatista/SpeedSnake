@@ -28,10 +28,14 @@ const GameStartOverlay = function () {
 
   return (
     <OverlayBase show={showStartOverlay}>
-      <div>
+      <div className="overlay-row">
         <div className="overlay-column">
           <div className="overlay-column-title">Difficulty</div>
           <RadioButtons buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
+        </div>
+        <div className="overlay-column">
+          <div className="overlay-column-title">Map</div>
+          <span>Coming soon</span>
         </div>
       </div>
       <div onClick={() => startReadyCount()}>
