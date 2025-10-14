@@ -13,14 +13,14 @@ const RadioButtons = (props) => {
   };
 
   return (
-    <ul class="radio-buttons">
+    <ul className="radio-buttons">
       {buttons.map((button) => (
         <li key={button.value}>
-          <label class="radio-buttons-label">
+          <label className="radio-buttons-label">
             <input type="radio" name="difficulty" value={button.value}
             checked={selectedButton.toString() === button.value.toString()}
             onChange={(event) => onChangeInternal(event.target.value)} />
-            <span class="radio-buttons-button">{button.label}</span>
+            <span className="radio-buttons-button">{button.label}</span>
           </label>
         </li>
       ))}

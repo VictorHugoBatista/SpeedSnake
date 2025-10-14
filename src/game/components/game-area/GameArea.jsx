@@ -17,13 +17,11 @@ const GameArea = function () {
 
   // Game state methods.
   const mainLoopIteration = useGameStore(state => state.mainLoopIteration);
-  const setEntitySize = useGameStore(state => state.setEntitySize);
   const setIsDesktop = useGameStore(state => state.setIsDesktop);
 
   useEffect(() => {
     setIsDesktop(isDesktop);
-    setEntitySize(isDesktop ? 2.5 : 5);
-  }, [setEntitySize, setIsDesktop, isDesktop]);
+  }, [setIsDesktop, isDesktop]);
 
   const gameLoop = (deltaTime) => {
     mainLoopIteration(deltaTime);

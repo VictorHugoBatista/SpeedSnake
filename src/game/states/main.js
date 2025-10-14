@@ -39,11 +39,11 @@ export const useGameStore = create((set, get) => ({
   showReadyCountOverlay: false,
   showEndOverlay: false,
 
-  ...gameOptions(set),
+  ...gameOptions(get, set),
   ...actionsPlayerSlice(set),
   ...actionsGameSlice(set),
   ...collisionsSlice(get),
-  ...gamePhasesSlice(set),
+  ...gamePhasesSlice(get, set),
   ...gameAreaSlice(set),
   ...loopSlice(get, set),
 }));
