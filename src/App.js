@@ -4,6 +4,7 @@ import GoogleFontLoader from 'react-google-font';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import About from './pages/About';
+import Changelog from './pages/Changelog';
 import Game from './pages/Game';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Game />} />
           <Route path="/about" element={<About />} />
+          <Route path="/changelog" element={<Changelog />} />
         </Routes>
       </HashRouter>
     </>
