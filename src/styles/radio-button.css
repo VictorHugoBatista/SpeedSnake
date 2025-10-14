@@ -7,7 +7,7 @@
   padding: 0;
 }
 
-.radio-buttons-button {
+.game-area-button {
   border: 2px solid #FFF;
   border-radius: 5px;
   cursor: pointer;
@@ -18,7 +18,7 @@
   transition: 250ms ease-in-out;
 }
 
-.radio-buttons-button:active {
+.game-area-button:active {
   transform: scale(0.95);
 }
 
@@ -26,7 +26,7 @@
   display: none;
 }
 
-.radio-buttons input[type="radio"]:checked + .radio-buttons-button {
+.radio-buttons input[type="radio"]:checked + .game-area-button {
   background-color: #FFF;
   color: #2e3082;
 }

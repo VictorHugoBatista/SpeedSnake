@@ -38,9 +38,11 @@ const GameStartOverlay = function () {
           <span>Coming soon</span>
         </div>
       </div>
-      <div onClick={() => startReadyCount()}>
-        {isDesktop ? <span>Press Start or click here</span> : null}
-        {! isDesktop ? <span>Tap to start</span> : null}
+      <div>
+        <span className="game-area-button" onClick={() => startReadyCount()}>
+          {isDesktop ? <span>Click here to start</span> : null}
+          {! isDesktop ? <span>Tap to start</span> : null}
+        </span>
       </div>
     </OverlayBase>
   );

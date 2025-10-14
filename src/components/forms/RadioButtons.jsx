@@ -20,7 +20,7 @@ const RadioButtons = (props) => {
             <input type="radio" name="difficulty" value={button.value}
             checked={selectedButton.toString() === button.value.toString()}
             onChange={(event) => onChangeInternal(event.target.value)} />
-            <span className="radio-buttons-button">{button.label}</span>
+            <span className="game-area-button">{button.label}</span>
           </label>
         </li>
       ))}
