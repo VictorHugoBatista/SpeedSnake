@@ -20,17 +20,21 @@ export const useGameStore = create((set, get) => ({
   gameArea: {},
 
   // Game options.
+  // Update the 'iterationTimeInMilliseconds' state.
   difficulty: Difficulty.FAST,
+
+  // Update the entities size in the 'snake' and 'food' states.
+  entitySize: 0,
 
   // Game loop iterators.
   readyCountTimeAccumulator: 0.1,
   readyCountTimeRegressive: 0,
   gameLoopIterationTimeAccumulator: 0,
+  iterationTimeInMilliseconds: 500,
 
   // Main game entities.
   snake: new Snake(),
   food: new Food(),
-  entitySize: 0,
 
   // Game execution states.
   isRunning: false,

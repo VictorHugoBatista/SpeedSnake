@@ -22,15 +22,4 @@ export const gameAreaSlice = (set) => ({
   setIsDesktop: (isDesktop) => {
     set(() => ({isDesktop}));
   },
-
-  // Update the global entity size.
-  setEntitySize: () => {
-    set((state) => {
-      const newSize = state.isDesktop ? 2.5 : 5;
-
-      return {
-        entitySize: newSize,
-      };
-    });
-  },
 });
