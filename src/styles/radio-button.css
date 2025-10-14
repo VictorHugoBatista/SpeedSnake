@@ -1,0 +1,32 @@
+.radio-buttons {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.game-area-button {
+  border: 2px solid #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  padding: 5px 15px;
+  transition: 250ms ease-in-out;
+}
+
+.game-area-button:active {
+  transform: scale(0.95);
+}
+
+.radio-buttons input[type="radio"] {
+  display: none;
+}
+
+.radio-buttons input[type="radio"]:checked + .game-area-button {
+  background-color: #FFF;
+  color: #2e3082;
+}

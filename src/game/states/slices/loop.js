@@ -1,5 +1,4 @@
 import {
-  iterationTimeInMilliseconds,
   readyCountTimeInMilliseconds,
 } from "../../constants";
 
@@ -48,7 +47,7 @@ export const loopSlice = (get, set) => ({
     set((state) => {
       const newTime = state.gameLoopIterationTimeAccumulator + deltaTime;
 
-      if (newTime < iterationTimeInMilliseconds) {
+      if (newTime < state.iterationTimeInMilliseconds) {
         return {gameLoopIterationTimeAccumulator: newTime};
       }
 

@@ -22,9 +22,14 @@ const Controls = function () {
     setShowControls((showControls) => ! showControls);
   };
 
+  // Game states.
+  const showEndOverlay = useGameStore(state => state.showEndOverlay);
+
+  // Game state methods.
   const changeDirection = useGameStore(state => state.changeDirection);
   const togglePause = useGameStore(state => state.togglePause);
   const startReadyCount = useGameStore(state => state.startReadyCount);
+  const openStartOverlay = useGameStore(state => state.openStartOverlay);
 
   useKeyboardShortcut({
     keys: ["w", "arrowup", "k"],
@@ -45,7 +50,8 @@ const Controls = function () {
 
   useKeyboardShortcut({
     keys: ["enter"],
-    onKeyPressed: () => startReadyCount(),
+    onKeyPressed: () => showEndOverlay ?
+      openStartOverlay() : startReadyCount(),
   });
 
   useKeyboardShortcut({

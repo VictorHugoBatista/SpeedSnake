@@ -1,6 +1,6 @@
 {
   "name": "speed-snake",
-  "version": "0.1.0",
+  "version": "2.2.0",
   "private": true,
   "homepage": "https://victorhugobatista.github.io/SpeedSnake/",
   "dependencies": {
