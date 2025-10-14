@@ -24,3 +24,5 @@ export const difficultiesToTimeInMilliseconds = {
   [Difficulty.FASTEST]: 20,
   [Difficulty.SPEEDOFLIGHT]: 10,
 };
+
+export const mobileDifficultyDifference = 25;

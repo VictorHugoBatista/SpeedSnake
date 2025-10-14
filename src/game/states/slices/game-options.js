@@ -1,4 +1,7 @@
-import { difficultiesToTimeInMilliseconds } from "../../constants";
+import {
+  difficultiesToTimeInMilliseconds,
+  mobileDifficultyDifference,
+} from "../../constants";
 
 export const gameOptions = (get, set) => ({
   initializeGameFromOptions: () => {
@@ -28,8 +31,12 @@ export const gameOptions = (get, set) => ({
   // Set the updateIteratuionTime according to the selected game difficulty.
   setUpdateIterationTime: () => {
     set((state) => {
-      const difficultu = state.difficulty;
-      const newIderationTime = difficultiesToTimeInMilliseconds[difficultu];
+      const difficulty = state.difficulty;
+      let newIderationTime = difficultiesToTimeInMilliseconds[difficulty];
+
+      if (! state.isDesktop) {
+        newIderationTime += mobileDifficultyDifference;
+      }
 
       return {
         iterationTimeInMilliseconds: newIderationTime,
