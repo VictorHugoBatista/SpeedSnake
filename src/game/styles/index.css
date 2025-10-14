@@ -122,7 +122,15 @@
   justify-content: center;
   margin: 10px;
   padding: 0;
+  position: relative;
   width: calc(33% - 20px);
+}
+
+.controls-button:after {
+  height: 100%;
+  position: absolute;
+  content: '';
+  width: 100%;
 }
 
 .button-virtual-buttons {

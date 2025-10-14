@@ -13,6 +13,7 @@ function Changelog() {
             <li>Slow the game a little bit on mobile</li>
             <li>Prepare the codebase to the future maps feature</li>
             <li>Add changelog screen</li>
+            <li>Remove text selection issue on the control buttons</li>
           </ul>
         </article>
         <hr />
