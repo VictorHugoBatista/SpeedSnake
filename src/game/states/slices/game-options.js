@@ -17,6 +17,12 @@ export const gameOptions = (get, set) => ({
     }));
   },
 
+  setMap: (newMap) => {
+    set(() => ({
+      map: newMap,
+    }));
+  },
+
   // Update the global entity size.
   setEntitySize: () => {
     set((state) => {

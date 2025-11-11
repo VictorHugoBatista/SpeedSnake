@@ -4,6 +4,7 @@ import Food from "../entity/food";
 import Snake from "../entity/snake";
 
 import { Difficulty } from "../enums/difficulty";
+import { Map } from "../enums/map";
 
 import { actionsGameSlice } from "./slices/actions-game";
 import { actionsPlayerSlice } from "./slices/actions-player";
@@ -22,6 +23,8 @@ export const useGameStore = create((set, get) => ({
   // Game options.
   // Update the 'iterationTimeInMilliseconds' state.
   difficulty: Difficulty.FAST,
+
+  map: Map.OPEN,
 
   // Update the entities size in the 'snake' and 'food' states.
   entitySize: 0,
