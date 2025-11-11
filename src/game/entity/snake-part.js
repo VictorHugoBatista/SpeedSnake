@@ -1,10 +1,10 @@
-import Entity from "./entity";
+import Square from "./forms/square";
 
 import { EntityType } from "../enums/entity-type";
 
-export default class SnakePart extends Entity {
-  constructor(size, x, y) {
-    super(size, x, y, EntityType.SNAKE);
+export default class SnakePart extends Square {
+  constructor(x, y, size) {
+    super(x, y, size, EntityType.SNAKE);
   }
 }
 

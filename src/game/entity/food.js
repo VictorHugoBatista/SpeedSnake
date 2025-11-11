@@ -1,5 +1,5 @@
 import { randomInSteps } from "../../helpers/numbers"
-import Entity from "./entity";
+import Square from "./forms/square";
 
 import { EntityType } from "../enums/entity-type";
 
@@ -7,7 +7,7 @@ import {
   gameAreaMinPositionPercent,
 } from "../constants";
 
-export default class Food extends Entity {
+export default class Food extends Square {
   constructor() {
     super(0, 0, 0, EntityType.FOOD);
   }

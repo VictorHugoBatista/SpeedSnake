@@ -23,9 +23,9 @@ export default class Snake {
         const partNumber = key + 1;
 
         return new SnakePart(
-          partSize,
           initialSnakeHeadPosition.x - (partNumber * partSize),
           initialSnakeHeadPosition.y,
+          partSize,
         );
       });
     this.parts = newSnake;
