@@ -1,3 +1,4 @@
+import { objectToMap } from "../../entity/map";
 import { objectToSnake } from "../../entity/snake";
 
 // Treats all the game phase changes.
@@ -33,10 +34,14 @@ export const gamePhasesSlice = (get, set) => ({
     state.generateNewFoodLocation();
 
     set((state) => {
+      const mapObject = objectToMap(state.map);
+      mapObject.initializeMap(state.mapType, state.entitySize);
+
       const snakeObject = objectToSnake(state.snake);
       snakeObject.initializeSnake(state.entitySize);
 
       return {
+        map: mapObject,
         snake: snakeObject,
         showStartOverlay: false,
         showEndOverlay: false,

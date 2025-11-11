@@ -1,4 +1,5 @@
 import { objectToFood } from "../../entity/food";
+import { objectToMapPart } from "../../entity/map-part";
 import { objectToSnakePart } from "../../entity/snake-part";
 
 // Functions related to the main game area state and global sizes.
@@ -7,6 +8,12 @@ export const gameAreaSlice = (set) => ({
   updateGameArea: () => {
     set((state) => {
       const newGameArea = {};
+
+      state.map.parts.forEach(part => {
+        const mapPartObject = objectToMapPart(part);
+        newGameArea[mapPartObject.getStringPosition()] = part;
+      });
+
       state.snake.parts.forEach(part => {
         const snakePartObject = objectToSnakePart(part);
         newGameArea[snakePartObject.getStringPosition()] = part;

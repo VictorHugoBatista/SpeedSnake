@@ -10,3 +10,5 @@ export default class Map {
     this.parts = this.factory.createMap(mapType, partSize);
   }
 }
+
+export const objectToMap = (map) => (Object.assign(new Map(), map));

@@ -8,4 +8,4 @@ export default class MapPart extends Entity {
   }
 }
 
-export const objectToMapPart = (foodObject) => (Object.assign(new Map(), foodObject));
+export const objectToMapPart = (mapPart) => (Object.assign(new MapPart(), mapPart));
