@@ -1,5 +1,5 @@
 import { randomInSteps } from "../../helpers/numbers"
-import Square from "./forms/square";
+import Rectangle from "./forms/rectangle";
 
 import { EntityType } from "../enums/entity-type";
 
@@ -7,19 +7,20 @@ import {
   gameAreaMinPositionPercent,
 } from "../constants";
 
-export default class Food extends Square {
+export default class Food extends Rectangle {
   constructor() {
-    super(0, 0, 0, EntityType.FOOD);
+    super(0, 0, 0, 0, EntityType.FOOD);
   }
 
   generateNewLocation(size) {
-    this.size = size;
+    this.sizeX = size;
+    this.sizeY = size;
     const minPosition = gameAreaMinPositionPercent;
-    const maxPosition = 100 - this.size;
+    const maxPosition = 100 - size;
 
     this.updatePosition(
-      randomInSteps(minPosition, maxPosition, this.size),
-      randomInSteps(minPosition, maxPosition, this.size),
+      randomInSteps(minPosition, maxPosition, size),
+      randomInSteps(minPosition, maxPosition, size),
     );
   }
 }

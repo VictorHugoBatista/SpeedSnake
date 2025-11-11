@@ -1,10 +1,10 @@
-import Square from "./forms/square";
+import Rectangle from "./forms/rectangle";
 
 import { EntityType } from "../enums/entity-type";
 
-export default class MapPart extends Square {
-  constructor(x, y, size) {
-    super(x, y, size, EntityType.MAP);
+export default class MapPart extends Rectangle {
+  constructor(x, y, sizeX, sizeY) {
+    super(x, y, sizeX, sizeY, EntityType.MAP);
   }
 }
 

@@ -13,8 +13,8 @@ const Stage = function ({ dimensions }) {
           key={key}
           x={(gameArea[key].x / 100) * dimensions.width}
           y={(gameArea[key].y / 100) * dimensions.height}
-          width={(gameArea[key].size / 100) * dimensions.width}
-          height={(gameArea[key].size / 100) * dimensions.height}
+          width={(gameArea[key].sizeX / 100) * dimensions.width}
+          height={(gameArea[key].sizeY / 100) * dimensions.height}
           fill="#fa9d46"
         />))}
       </Layer>

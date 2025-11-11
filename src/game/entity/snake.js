@@ -68,7 +68,7 @@ export default class Snake {
   // Warning: Doesn't use nothung from the state.
   // @see tryToStepAcrossBorder()
   tryToStepAcrossBorder (newPositionCandidate) {
-    const gameAreaMaxPositionPercent = 100 - this.partToExclude.size;
+    const gameAreaMaxPositionPercent = 100 - this.partToExclude.sizeX;
     if (newPositionCandidate.x < gameAreaMinPositionPercent) {
       newPositionCandidate.x = gameAreaMaxPositionPercent;
     }
