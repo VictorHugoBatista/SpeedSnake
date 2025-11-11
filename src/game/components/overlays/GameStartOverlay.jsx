@@ -3,7 +3,7 @@ import { useGameStore } from "../../states/main";
 import useIsDesktop from "../../../hooks/isDesktop";
 
 import { Difficulty } from "../../enums/difficulty"
-import { Map } from "../../enums/map"
+import { MapType } from "../../enums/map-type"
 
 import RadioButtons from "../../../components/forms/RadioButtons";
 import OverlayBase from "./OverlayBase";
@@ -15,9 +15,9 @@ const difficulties = [
   { label: "Lightspeed", value: Difficulty.SPEEDOFLIGHT },
 ];
 
-const maps = [
-  { label: "Open space", value: Map.OPEN },
-  { label: "Box", value: Map.CLOSED },
+const mapTypes = [
+  { label: "Open space", value: MapType.OPEN },
+  { label: "Box", value: MapType.CLOSED },
 ];
 
 const GameStartOverlay = function () {
@@ -27,12 +27,12 @@ const GameStartOverlay = function () {
   // Game states.
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
   const difficulty = useGameStore(state => state.difficulty);
-  const map = useGameStore(state => state.map);
+  const mapType = useGameStore(state => state.mapType);
 
   // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
   const setDifficulty = useGameStore(state => state.setDifficulty);
-  const setMap = useGameStore(state => state.setMap);
+  const setMapType = useGameStore(state => state.setMapType);
 
   return (
     <OverlayBase show={showStartOverlay}>
@@ -43,7 +43,7 @@ const GameStartOverlay = function () {
         </div>
         <div className="overlay-column">
           <div className="overlay-column-title">Map</div>
-          <RadioButtons groupName="map" buttons={maps} value={map} onChange={(newValue) => setMap(newValue)} />
+          <RadioButtons groupName="map" buttons={mapTypes} value={mapType} onChange={(newValue) => setMapType(newValue)} />
           <span>More maps soon</span>
         </div>
       </div>

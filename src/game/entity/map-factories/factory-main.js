@@ -1,12 +1,12 @@
 import {createMapOpen} from "./map-open";
 import {createMapClosed} from "./map-closed";
 
-import {Map} from "../../enums/map";
+import {MapType} from "../../enums/map-type";
 
 export default class FactoryMain {
   static maps = {
-    [Map.OPEN]: createMapOpen,
-    [Map.CLOSED]: createMapClosed,
+    [MapType.OPEN]: createMapOpen,
+    [MapType.CLOSED]: createMapClosed,
   };
 
   createMap(mapType, partSize) {

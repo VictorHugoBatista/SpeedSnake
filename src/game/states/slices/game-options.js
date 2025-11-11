@@ -17,9 +17,9 @@ export const gameOptions = (get, set) => ({
     }));
   },
 
-  setMap: (newMap) => {
+  setMapType: (newMapType) => {
     set(() => ({
-      map: newMap,
+      mapType: newMapType,
     }));
   },
 

@@ -1,5 +1,3 @@
-const createMapOpen = () => {
+export const createMapOpen = () => {
   return [];
 };
-
-export default createMapOpen;
