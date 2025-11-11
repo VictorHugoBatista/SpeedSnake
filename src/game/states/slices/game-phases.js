@@ -35,7 +35,7 @@ export const gamePhasesSlice = (get, set) => ({
 
     set((state) => {
       const mapObject = objectToMap(state.map);
-      mapObject.initializeMap(state.mapType, state.entitySize);
+      mapObject.initializeMap(state.mapType, state.isDesktop, state.entitySize);
 
       const snakeObject = objectToSnake(state.snake);
       snakeObject.initializeSnake(state.entitySize);

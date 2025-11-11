@@ -6,8 +6,8 @@ export default class Map {
     this.factory = new FactoryMain();
   }
 
-  initializeMap(mapType, partSize) {
-    this.parts = this.factory.createMap(mapType, partSize);
+  initializeMap(mapType, isDesktop, partSize) {
+    this.parts = this.factory.createMap(mapType, isDesktop, partSize);
   }
 }
 

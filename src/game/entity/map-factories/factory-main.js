@@ -9,7 +9,7 @@ export default class FactoryMain {
     [MapType.CLOSED]: createMapClosed,
   };
 
-  createMap(mapType, partSize) {
-    return FactoryMain.maps[mapType](partSize);
+  createMap(mapType, isDesktop, partSize) {
+    return FactoryMain.maps[mapType](isDesktop, partSize);
   }
 }
