@@ -7,17 +7,13 @@ export const gameAreaSlice = (set) => ({
     set((state) => {
       const gameArea = objectToGameArea(state.gameArea);
 
-      gameArea.clear();
-
       const entitiesToRender = [
         ...state.map.parts,
         ...state.snake.parts,
         state.food,
       ];
 
-      entitiesToRender.forEach(entityToRender => {
-        gameArea.push(entityToRender);
-      });
+      gameArea.update(entitiesToRender);
 
       return {gameArea};
     });

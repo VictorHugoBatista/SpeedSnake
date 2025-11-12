@@ -31,11 +31,16 @@ export default class GameArea {
     });
   }
 
-  push(entity) {
-    this.entities.push(entity);
+  update(entitiesToRender) {
+    this._clear();
+    this._push(entitiesToRender);
   }
 
-  clear() {
+  _push(entitiesToRender) {
+    this.entities.push(...entitiesToRender);
+  }
+
+  _clear() {
     this.entities = [];
   }
 }
