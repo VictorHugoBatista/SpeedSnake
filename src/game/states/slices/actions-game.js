@@ -1,4 +1,5 @@
 import { objectToFood } from "../../entity/food";
+import { objectToGameArea } from "../../entity/sets/game-area";
 import { objectToSnake } from "../../entity/sets/snake";
 
 // Automatic actions made by the game.
@@ -18,15 +19,12 @@ export const actionsGameSlice = (set) => ({
   // overlaps something in the game area, calculate again.
   generateNewFoodLocation: () => {
     set((state) => {
-      // let foodLocationString;
       const newFoodObject = objectToFood(state.food);
+      const gameArea = objectToGameArea(state.gameArea);
 
-      // do {
+      do {
         newFoodObject.generateNewLocation(state.entitySize);
-
-        // const foddObject = objectToSnakePart(newFoodObject);
-        // foodLocationString = foddObject.getStringPosition();
-      // } while(state.gameArea[foodLocationString]);
+      } while(gameArea.getCollisionEntitiy(newFoodObject));
 
       return {food: newFoodObject};
     });
