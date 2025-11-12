@@ -17,6 +17,7 @@ const difficulties = [
 
 const mapTypes = [
   { label: "Open space", value: MapType.OPEN },
+  { label: "Corridor", value: MapType.CORRIDOR },
   { label: "Box", value: MapType.CLOSED },
 ];
 
@@ -38,13 +39,13 @@ const GameStartOverlay = function () {
     <OverlayBase show={showStartOverlay}>
       <div className="overlay-row">
         <div className="overlay-column">
-          <div className="overlay-column-title">Difficulty</div>
-          <RadioButtons groupName="difficulty" buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
-        </div>
-        <div className="overlay-column">
           <div className="overlay-column-title">Map</div>
           <RadioButtons groupName="map" buttons={mapTypes} value={mapType} onChange={(newValue) => setMapType(newValue)} />
           <span>More maps soon</span>
+        </div>
+        <div className="overlay-column">
+          <div className="overlay-column-title">Difficulty</div>
+          <RadioButtons groupName="difficulty" buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
         </div>
       </div>
       <div>

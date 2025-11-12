@@ -1,6 +1,6 @@
 import MapPart from "../map-part";
 
-export const createMapClosed = (isDesktop, partSize) => {
+export const createMapClosed = (_, partSize) => {
   return [
     new MapPart(0, 0, partSize, 100),
     new MapPart(partSize, 0, 100 - partSize, partSize),
