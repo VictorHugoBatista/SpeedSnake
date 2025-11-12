@@ -12,8 +12,8 @@ export const collisionsSlice = (get) => ({
     const gameArea = state.gameArea;
     
     const snakePartObject = objectToSnakePart(newPosition);
-    const collisionArray = Object.keys(gameArea).filter(key => {
-      const entity = objectToEntity(gameArea[key]);
+    const collisionArray = gameArea.filter(entityObject => {
+      const entity = objectToEntity(entityObject);
       return entity.isPositionInside(snakePartObject.x, snakePartObject.y);
     });
 
@@ -23,7 +23,7 @@ export const collisionsSlice = (get) => ({
 
     const [ collision ] = collisionArray;
 
-    return state.gameArea[collision];
+    return collision;
   },
 
   // Execute different actions  the type of object from the collision.

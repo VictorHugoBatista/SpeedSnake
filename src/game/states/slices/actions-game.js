@@ -19,15 +19,15 @@ export const actionsGameSlice = (set) => ({
   // overlaps something in the game area, calculate again.
   generateNewFoodLocation: () => {
     set((state) => {
-      let foodLocationString;
+      // let foodLocationString;
       const newFoodObject = objectToFood(state.food);
 
-      do {
+      // do {
         newFoodObject.generateNewLocation(state.entitySize);
 
-        const foddObject = objectToSnakePart(newFoodObject);
-        foodLocationString = foddObject.getStringPosition();
-      } while(state.gameArea[foodLocationString]);
+        // const foddObject = objectToSnakePart(newFoodObject);
+        // foodLocationString = foddObject.getStringPosition();
+      // } while(state.gameArea[foodLocationString]);
 
       return {food: newFoodObject};
     });

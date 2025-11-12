@@ -9,12 +9,12 @@ const Stage = function ({ dimensions }) {
   return (
     <KonvaStage width={dimensions.width} height={dimensions.height}>
       <Layer>
-        {Object.keys(gameArea).map(key => (<Rect 
+        {gameArea.map((entity, key) => (<Rect 
           key={key}
-          x={(gameArea[key].x / 100) * dimensions.width}
-          y={(gameArea[key].y / 100) * dimensions.height}
-          width={(gameArea[key].sizeX / 100) * dimensions.width}
-          height={(gameArea[key].sizeY / 100) * dimensions.height}
+          x={(entity.x / 100) * dimensions.width}
+          y={(entity.y / 100) * dimensions.height}
+          width={(entity.sizeX / 100) * dimensions.width}
+          height={(entity.sizeY / 100) * dimensions.height}
           fill="#fa9d46"
         />))}
       </Layer>
