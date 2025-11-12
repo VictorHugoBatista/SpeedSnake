@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
 import Food from "../entity/food";
-import Map from "../entity/map";
-import Snake from "../entity/snake";
+import Map from "../entity/sets/map";
+import Snake from "../entity/sets/snake";
 
 import { Difficulty } from "../enums/difficulty";
 import { MapType } from "../enums/map-type";

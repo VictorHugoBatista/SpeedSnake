@@ -1,4 +1,4 @@
-import FactoryMain from "./map-factories/factory-main";
+import FactoryMain from "../map-factories/factory-main";
 
 export default class Map {
   constructor() {

@@ -1,4 +1,4 @@
-import { objectToSnake } from "../../entity/snake";
+import { objectToSnake } from "../../entity/sets/snake";
 
 // Actions started by the player.
 export const actionsPlayerSlice = (set) => ({

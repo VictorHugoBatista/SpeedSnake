@@ -3,11 +3,11 @@ import {
   initialSnakeHeadPosition,
   initialSnakePartsNumber,
   notAllowedDirectionChanges,
-} from "../constants";
+} from "../../constants";
 
-import SnakePart from "./snake-part";
+import SnakePart from "../snake-part";
 
-import { DirectionEnum } from "../enums/directions";
+import { DirectionEnum } from "../../enums/directions";
 
 export default class Snake {
   constructor() {

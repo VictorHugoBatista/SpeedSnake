@@ -1,5 +1,5 @@
-import { objectToMap } from "../../entity/map";
-import { objectToSnake } from "../../entity/snake";
+import { objectToMap } from "../../entity/sets/map";
+import { objectToSnake } from "../../entity/sets/snake";
 
 // Treats all the game phase changes.
 export const gamePhasesSlice = (get, set) => ({
