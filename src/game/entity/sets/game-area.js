@@ -3,6 +3,10 @@ import { objectToEntity } from "../forms/entity";
 export default class GameArea {
   entities = [];
 
+  // Get entity colliding to the entity paremeter's position.
+  // Used on the step and the new food positioning logics.
+  // @see checkCollision()
+  // @see generateNewFoodLocation()
   getCollisionEntitiy(entityToCompare) {
     const collisionArray = this.entities.filter(entityObject => {
       const entity = objectToEntity(entityObject);
@@ -18,6 +22,11 @@ export default class GameArea {
     return collision;
   }
 
+  // Calculates the actual rendering sizing and positioning
+  // and pass the data to a callback function, just like
+  // the array map function.
+  // Used by the game state component.
+  // @see Stage (component)
   renderMap(dimensions, callback) {
     return this.entities.map((entity, key) => {
       const renderObject = {
@@ -31,6 +40,9 @@ export default class GameArea {
     });
   }
 
+  // Clear and push the new entitites to the gameArea.
+  // Called by the update game area logic.
+  // @see updateGameArea()
   update(entitiesToRender) {
     this._clear();
     this._push(entitiesToRender);

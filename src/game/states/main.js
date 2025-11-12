@@ -19,13 +19,15 @@ import { loopSlice } from "./slices/loop";
 export const useGameStore = create((set, get) => ({
   isDesktop: true,
 
-  // Main state, the game area will reflect what is here.
+  // Main state, the game area will reflect what is stored here.
   gameArea: new GameArea(),
 
   // Game options.
   // Update the 'iterationTimeInMilliseconds' state.
   difficulty: Difficulty.FAST,
 
+  // Type of the rendered map.
+  // Reflects the map and the consequently the gameArea states.
   mapType: MapType.OPEN,
 
   // Update the entities size in the 'snake' and 'food' states.
