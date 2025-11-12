@@ -9,15 +9,15 @@ export const gameAreaSlice = (set) => ({
 
       gameArea.clear();
 
-      state.map.parts.forEach(part => {
-        gameArea.push(part);
-      });
+      const entitiesToRender = [
+        ...state.map.parts,
+        ...state.snake.parts,
+        state.food,
+      ];
 
-      state.snake.parts.forEach(part => {
-        gameArea.push(part);
+      entitiesToRender.forEach(entityToRender => {
+        gameArea.push(entityToRender);
       });
-
-      gameArea.push(state.food);
 
       return {gameArea};
     });
