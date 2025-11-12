@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 import Food from "../entity/food";
+import GameArea from "../entity/sets/game-area";
 import Map from "../entity/sets/map";
 import Snake from "../entity/sets/snake";
 
@@ -19,7 +20,7 @@ export const useGameStore = create((set, get) => ({
   isDesktop: true,
 
   // Main state, the game area will reflect what is here.
-  gameArea: [],
+  gameArea: new GameArea(),
 
   // Game options.
   // Update the 'iterationTimeInMilliseconds' state.

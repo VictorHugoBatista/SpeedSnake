@@ -1,5 +1,4 @@
 import { objectToFood } from "../../entity/food";
-import { objectToSnakePart } from "../../entity/snake-part";
 import { objectToSnake } from "../../entity/sets/snake";
 
 // Automatic actions made by the game.
