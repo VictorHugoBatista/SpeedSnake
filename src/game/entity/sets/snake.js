@@ -3,17 +3,18 @@ import {
   initialSnakeHeadPosition,
   initialSnakePartsNumber,
   notAllowedDirectionChanges,
-} from "../constants";
+} from "../../constants";
 
-import SnakePart from "./snake-part";
+import SnakePart from "../snake-part";
 
-import { DirectionEnum } from "../enums/directions";
+import { DirectionEnum } from "../../enums/directions";
 
 export default class Snake {
   constructor() {
-    this.direction = "";
     this.parts = [];
-    this.partToExclude = {};
+    this.canChangeDirection = true;
+    this._direction = "";
+    this._partToExclude = {};
   }
 
   initializeSnake(partSize) {
@@ -23,23 +24,23 @@ export default class Snake {
         const partNumber = key + 1;
 
         return new SnakePart(
-          partSize,
           initialSnakeHeadPosition.x - (partNumber * partSize),
           initialSnakeHeadPosition.y,
+          partSize,
         );
       });
     this.parts = newSnake;
-    this.direction = DirectionEnum.RIGHT;
-    this.partToExclude = {};
+    this._direction = DirectionEnum.RIGHT;
+    this._partToExclude = {};
   }
 
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.
-  // @see tryToStepAcrossBorder()
+  // @see _tryToStepAcrossBorder()
   step(partSize) {
     const partsClonned = structuredClone(this.parts);
     let [snakeHead] = structuredClone(this.parts);
-    switch (this.direction) {
+    switch (this._direction) {
       case DirectionEnum.UP:
         snakeHead.y = snakeHead.y - partSize;
         break;
@@ -54,21 +55,35 @@ export default class Snake {
         break;
       default:
     }
-    snakeHead = this.tryToStepAcrossBorder(snakeHead, partSize);
+    snakeHead = this._tryToStepAcrossBorder(snakeHead, partSize);
 
     // Add last snake part to a separated state, for the case the food is being eaten.
     // @see increment()
-    this.partToExclude = partsClonned.at(-1);
+    this._partToExclude = partsClonned.at(-1);
     const snakeNewBody = structuredClone(partsClonned.slice(0, -1));
 
     this.parts = [snakeHead, ...snakeNewBody];
+
+    this.canChangeDirection = true;
+  }
+
+  // Get the _partToExclude object back as a snake part to incrase its size.
+  // @see step()
+  incrementSnake() {
+    this.parts.push(this._partToExclude);
+  }
+
+  changeDirection(newDirection) {
+    if (notAllowedDirectionChanges[newDirection] === this._direction) {
+      return {};
+    }
+    this._direction = newDirection;
+    this.canChangeDirection = false;
   }
 
   // Calculate the jump across the border.
-  // Warning: Doesn't use nothung from the state.
-  // @see tryToStepAcrossBorder()
-  tryToStepAcrossBorder (newPositionCandidate) {
-    const gameAreaMaxPositionPercent = 100 - this.partToExclude.size;
+  _tryToStepAcrossBorder(newPositionCandidate) {
+    const gameAreaMaxPositionPercent = 100 - this._partToExclude.sizeX;
     if (newPositionCandidate.x < gameAreaMinPositionPercent) {
       newPositionCandidate.x = gameAreaMaxPositionPercent;
     }
@@ -86,19 +101,6 @@ export default class Snake {
     }
     
     return newPositionCandidate;
-  }
-
-  // Get the partToExclude object back as a snake part to incrase its size.
-  // @see step()
-  incrementSnake() {
-    this.parts.push(this.partToExclude);
-  }
-
-  changeDirection(newDirection) {
-    if (notAllowedDirectionChanges[newDirection] === this.direction) {
-      return {};
-    }
-    this.direction = newDirection;
   }
 }
 

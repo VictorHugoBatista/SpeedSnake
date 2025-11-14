@@ -1,14 +1,10 @@
-import Entity from "./entity";
+import Rectangle from "./forms/rectangle";
 
 import { EntityType } from "../enums/entity-type";
 
-export default class SnakePart extends Entity {
-  constructor(size, x, y) {
-    super(size, x, y, EntityType.SNAKE);
-
-    this.x = x;
-    this.y = y;
-    this.size = size;
+export default class SnakePart extends Rectangle {
+  constructor(x, y, size) {
+    super(x, y, size, size, EntityType.SNAKE);
   }
 }
 

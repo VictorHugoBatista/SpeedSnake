@@ -1,4 +1,5 @@
-import { objectToSnake } from "../../entity/snake";
+import { objectToMap } from "../../entity/sets/map";
+import { objectToSnake } from "../../entity/sets/snake";
 
 // Treats all the game phase changes.
 export const gamePhasesSlice = (get, set) => ({
@@ -30,13 +31,16 @@ export const gamePhasesSlice = (get, set) => ({
   startGame: () => {
     const state = get();
     state.initializeGameFromOptions();
-    state.generateNewFoodLocation();
 
     set((state) => {
+      const mapObject = objectToMap(state.map);
+      mapObject.initializeMap(state.mapType, state.isDesktop, state.entitySize);
+
       const snakeObject = objectToSnake(state.snake);
       snakeObject.initializeSnake(state.entitySize);
 
       return {
+        map: mapObject,
         snake: snakeObject,
         showStartOverlay: false,
         showEndOverlay: false,
@@ -44,6 +48,8 @@ export const gamePhasesSlice = (get, set) => ({
         isRunning: true,
       };
     });
+
+    state.generateFirstFoodLocation();
   },
 
   // Stop game through the isRunning state and show end game overlay.

@@ -7,6 +7,18 @@ function Changelog() {
         <h2>Changelog</h2>
 
         <article>
+          <h3>v2.3.0 - 14/11/25</h3>
+          <ul>
+            <li>Add two new maps: corridor and box</li>
+            <li>Reorganize the game entitites</li>
+            <li>Extract the collision checking and the positioning calculus to the new GameArea entity</li>
+            <li>Improve the collision checking by calculating the entire space inside the game entities</li>
+            <li>Enable the addition of game entities bigger than the partSize</li>
+            <li>Prevent changing the direction twice by game loop iteration</li>
+          </ul>
+        </article>
+        <hr />
+        <article>
           <h3>v2.2.0 - 13/10/25</h3>
           <ul>
             <li>Add difficulty screen</li>

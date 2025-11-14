@@ -2,19 +2,22 @@ import { Stage as KonvaStage, Layer, Rect } from "react-konva";
 
 import { useGameStore } from "../../states/main";
 
+import { objectToGameArea } from "../../entity/sets/game-area";
+
 const Stage = function ({ dimensions }) {
   // Game states.
-  const gameArea = useGameStore(state => state.gameArea);
+  const gameAreaObject = useGameStore(state => state.gameArea);
+  const gameArea = objectToGameArea(gameAreaObject);
 
   return (
     <KonvaStage width={dimensions.width} height={dimensions.height}>
       <Layer>
-        {Object.keys(gameArea).map(key => (<Rect 
-          key={key}
-          x={(gameArea[key].x / 100) * dimensions.width}
-          y={(gameArea[key].y / 100) * dimensions.height}
-          width={(gameArea[key].size / 100) * dimensions.width}
-          height={(gameArea[key].size / 100) * dimensions.height}
+        {gameArea.renderMap(dimensions, (renderObject) => (<Rect
+          key={renderObject.key}
+          x={renderObject.x}
+          y={renderObject.y}
+          width={renderObject.width}
+          height={renderObject.height}
           fill="#fa9d46"
         />))}
       </Layer>

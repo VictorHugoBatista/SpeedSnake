@@ -1,9 +1,9 @@
 import { objectToFood } from "../../entity/food";
-import { objectToSnakePart } from "../../entity/snake-part";
-import { objectToSnake } from "../../entity/snake";
+import { objectToGameArea } from "../../entity/sets/game-area";
+import { objectToSnake } from "../../entity/sets/snake";
 
 // Automatic actions made by the game.
-export const actionsGameSlice = (set) => ({
+export const actionsGameSlice = (get, set) => ({
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.
   makeStep: () => {
@@ -19,21 +19,26 @@ export const actionsGameSlice = (set) => ({
   // overlaps something in the game area, calculate again.
   generateNewFoodLocation: () => {
     set((state) => {
-      let foodLocationString;
       const newFoodObject = objectToFood(state.food);
+      const gameArea = objectToGameArea(state.gameArea);
 
       do {
         newFoodObject.generateNewLocation(state.entitySize);
-
-        const foddObject = objectToSnakePart(newFoodObject);
-        foodLocationString = foddObject.getStringPosition();
-      } while(state.gameArea[foodLocationString]);
+      } while(gameArea.getCollisionEntitiy(newFoodObject));
 
       return {food: newFoodObject};
     });
   },
 
-  // Get the snake.partToExclude object back as a snake part to incrase its size.
+  // Generate food after updating the game area, preventing
+  // the food generation on an occupied space.
+  generateFirstFoodLocation: () => {
+    const state = get();
+    state.updateGameArea();
+    state.generateNewFoodLocation();
+  },
+
+  // Get the snake._partToExclude object back as a snake part to incrase its size.
   incrementSnake: () => {
     set((state) => {
       const snakeObject = objectToSnake(state.snake);

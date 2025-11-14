@@ -3,6 +3,7 @@ import { useGameStore } from "../../states/main";
 import useIsDesktop from "../../../hooks/isDesktop";
 
 import { Difficulty } from "../../enums/difficulty"
+import { MapType } from "../../enums/map-type"
 
 import RadioButtons from "../../../components/forms/RadioButtons";
 import OverlayBase from "./OverlayBase";
@@ -14,6 +15,12 @@ const difficulties = [
   { label: "Lightspeed", value: Difficulty.SPEEDOFLIGHT },
 ];
 
+const mapTypes = [
+  { label: "Open space", value: MapType.OPEN },
+  { label: "Corridor (new)", value: MapType.CORRIDOR },
+  { label: "Box (new)", value: MapType.CLOSED },
+];
+
 const GameStartOverlay = function () {
   // Hooks.
   const isDesktop = useIsDesktop();
@@ -21,21 +28,24 @@ const GameStartOverlay = function () {
   // Game states.
   const showStartOverlay = useGameStore(state => state.showStartOverlay);
   const difficulty = useGameStore(state => state.difficulty);
+  const mapType = useGameStore(state => state.mapType);
 
   // Game state methods.
   const startReadyCount = useGameStore(state => state.startReadyCount);
   const setDifficulty = useGameStore(state => state.setDifficulty);
+  const setMapType = useGameStore(state => state.setMapType);
 
   return (
     <OverlayBase show={showStartOverlay}>
       <div className="overlay-row">
         <div className="overlay-column">
-          <div className="overlay-column-title">Difficulty</div>
-          <RadioButtons buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
+          <div className="overlay-column-title">Map</div>
+          <RadioButtons groupName="map" buttons={mapTypes} value={mapType} onChange={(newValue) => setMapType(newValue)} />
+          <span>More maps soon</span>
         </div>
         <div className="overlay-column">
-          <div className="overlay-column-title">Map</div>
-          <span>Coming soon</span>
+          <div className="overlay-column-title">Difficulty</div>
+          <RadioButtons groupName="difficulty" buttons={difficulties} value={difficulty} onChange={(newValue) => setDifficulty(newValue)} />
         </div>
       </div>
       <div>

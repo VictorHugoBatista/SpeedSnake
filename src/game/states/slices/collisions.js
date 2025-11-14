@@ -1,4 +1,4 @@
-import { objectToSnakePart } from "../../entity/snake-part";
+import { objectToGameArea } from "../../entity/sets/game-area";
 
 import { EntityType } from "../../enums/entity-type";
 
@@ -8,18 +8,9 @@ export const collisionsSlice = (get) => ({
   checkCollision: () => {
     const state = get();
     const [ newPosition ] = state.snake.parts;
-    const gameArea = state.gameArea;
-    
-    const snakePartObject = objectToSnakePart(newPosition);
-    const collisionArray = Object.keys(gameArea).filter(key => key === snakePartObject.getStringPosition());
+    const gameArea = objectToGameArea(state.gameArea);
 
-    if (! collisionArray.length) {
-      return false;
-    }
-
-    const [ collision ] = collisionArray;
-
-    return state.gameArea[collision];
+    return gameArea.getCollisionEntitiy(newPosition);
   },
 
   // Execute different actions  the type of object from the collision.
