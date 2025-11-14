@@ -29,7 +29,7 @@ const GameArea = function () {
   useGameLoop(gameLoop);
 
   return (
-    <div className={`game-area`} ref={gameAreaRef}>
+    <div className="game-area" ref={gameAreaRef}>
       <Overlays />
       <Stage dimensions={dimensions} />
     </div>

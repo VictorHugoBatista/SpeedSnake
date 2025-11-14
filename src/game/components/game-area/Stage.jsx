@@ -10,7 +10,7 @@ const Stage = function ({ dimensions }) {
   const gameArea = objectToGameArea(gameAreaObject);
 
   return (
-    <KonvaStage width={dimensions.width} height={dimensions.height}>
+    <KonvaStage width={dimensions.width} height={dimensions.height} className="game-area-canvas-wrapper">
       <Layer>
         {gameArea.renderMap(dimensions, (renderObject) => (<Rect
           key={renderObject.key}
