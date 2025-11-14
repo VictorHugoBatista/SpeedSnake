@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/SpeedSnake/static/css/main.b9550890.css",
-    "main.js": "/SpeedSnake/static/js/main.a25e8948.js",
+    "main.js": "/SpeedSnake/static/js/main.6a2bca55.js",
     "static/js/453.e1dce801.chunk.js": "/SpeedSnake/static/js/453.e1dce801.chunk.js",
     "index.html": "/SpeedSnake/index.html",
     "main.b9550890.css.map": "/SpeedSnake/static/css/main.b9550890.css.map",
-    "main.a25e8948.js.map": "/SpeedSnake/static/js/main.a25e8948.js.map",
+    "main.6a2bca55.js.map": "/SpeedSnake/static/js/main.6a2bca55.js.map",
     "453.e1dce801.chunk.js.map": "/SpeedSnake/static/js/453.e1dce801.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b9550890.css",
-    "static/js/main.a25e8948.js"
+    "static/js/main.6a2bca55.js"
   ]
 }
