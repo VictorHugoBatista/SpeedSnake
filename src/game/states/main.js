@@ -53,7 +53,7 @@ export const useGameStore = create((set, get) => ({
 
   ...gameOptions(get, set),
   ...actionsPlayerSlice(set),
-  ...actionsGameSlice(set),
+  ...actionsGameSlice(get, set),
   ...collisionsSlice(get),
   ...gamePhasesSlice(get, set),
   ...gameAreaSlice(set),

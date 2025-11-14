@@ -31,7 +31,6 @@ export const gamePhasesSlice = (get, set) => ({
   startGame: () => {
     const state = get();
     state.initializeGameFromOptions();
-    state.generateNewFoodLocation();
 
     set((state) => {
       const mapObject = objectToMap(state.map);
@@ -49,6 +48,8 @@ export const gamePhasesSlice = (get, set) => ({
         isRunning: true,
       };
     });
+
+    state.generateFirstFoodLocation();
   },
 
   // Stop game through the isRunning state and show end game overlay.

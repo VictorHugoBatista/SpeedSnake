@@ -3,7 +3,7 @@ import { objectToGameArea } from "../../entity/sets/game-area";
 import { objectToSnake } from "../../entity/sets/snake";
 
 // Automatic actions made by the game.
-export const actionsGameSlice = (set) => ({
+export const actionsGameSlice = (get, set) => ({
   // Make a step, deppending on the current direction.
   // Can move across the game border for reaches it.
   makeStep: () => {
@@ -28,6 +28,14 @@ export const actionsGameSlice = (set) => ({
 
       return {food: newFoodObject};
     });
+  },
+
+  // Generate food after updating the game area, preventing
+  // the food generation on an occupied space.
+  generateFirstFoodLocation: () => {
+    const state = get();
+    state.updateGameArea();
+    state.generateNewFoodLocation();
   },
 
   // Get the snake.partToExclude object back as a snake part to incrase its size.
