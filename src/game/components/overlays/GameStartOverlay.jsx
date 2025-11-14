@@ -17,8 +17,8 @@ const difficulties = [
 
 const mapTypes = [
   { label: "Open space", value: MapType.OPEN },
-  { label: "Corridor", value: MapType.CORRIDOR },
-  { label: "Box", value: MapType.CLOSED },
+  { label: "Corridor (new)", value: MapType.CORRIDOR },
+  { label: "Box (new)", value: MapType.CLOSED },
 ];
 
 const GameStartOverlay = function () {
