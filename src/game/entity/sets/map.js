@@ -3,11 +3,11 @@ import FactoryMain from "../map-factories/factory-main";
 export default class Map {
   constructor() {
     this.parts = [];
-    this.factory = new FactoryMain();
+    this._factory = new FactoryMain();
   }
 
   initializeMap(mapType, isDesktop, partSize) {
-    this.parts = this.factory.createMap(mapType, isDesktop, partSize);
+    this.parts = this._factory.createMap(mapType, isDesktop, partSize);
   }
 }
 

@@ -38,7 +38,7 @@ export const actionsGameSlice = (get, set) => ({
     state.generateNewFoodLocation();
   },
 
-  // Get the snake.partToExclude object back as a snake part to incrase its size.
+  // Get the snake._partToExclude object back as a snake part to incrase its size.
   incrementSnake: () => {
     set((state) => {
       const snakeObject = objectToSnake(state.snake);
