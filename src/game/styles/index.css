@@ -21,6 +21,13 @@
   width: calc(100%);
 }
 
+.game-area-canvas-wrapper,
+.konvajs-content,
+.konvajs-content canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
 .game-area-overlay {
   align-items: center;
   background-color: rgba(0, 0, 0, .35);

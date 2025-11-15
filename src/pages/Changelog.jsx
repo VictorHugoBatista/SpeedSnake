@@ -7,6 +7,14 @@ function Changelog() {
         <h2>Changelog</h2>
 
         <article>
+          <h3>v2.4.0 - 15/11/25</h3>
+          <ul>
+            <li>Add new map: prision</li>
+            <li>Fix game canvas size on chrome based browsers</li>
+          </ul>
+        </article>
+        <hr />
+        <article>
           <h3>v2.3.0 - 14/11/25</h3>
           <ul>
             <li>Add two new maps: corridor and box</li>
